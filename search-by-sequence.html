@@ -83,19 +83,17 @@
 
     <div class="tm-main-content">
         <section class="tm-margin-b-l">
-            <div class="tm-gallery" id="trinity-query-container">
-                <header>
+            <div class="tm-gallery-no-border" id="trinity-query-container">
+                <div class="tm-gallery-no-padding">
                     <h2 class="tm-main-title">Query sequences using the Trinity ID</h2>
-                </header>
-
-                <form method="post" action="#">
-                    <label class="col-form-label" for="trinity-input">Trinity ID:</label>
-                    <input type="text" id="trinity-input">
-                    <input type="submit" class="btn-info" id="trinity-submit">
-                </form>
-
+                    <form method="post" action="#">
+                        <label class="col-form-label" for="trinity-input">Trinity ID:</label>
+                        <input type="text" id="trinity-input">
+                        <input type="submit" class="btn-info" id="trinity-submit">
+                    </form>
+                </div>
                 <div id="search-result" class="tm-gallery-no-border">
-                    <p class="text-dark">No results to show...</p>
+                    <p class="text-dark">Submit to get results!</p>
                 </div>
             </div>
         </section>
