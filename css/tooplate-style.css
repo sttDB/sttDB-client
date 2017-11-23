@@ -585,3 +585,9 @@ ul#navigation ul li a {
     clear:both;
     width:150px;
 }
+
+.tm-gallery-no-border {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
