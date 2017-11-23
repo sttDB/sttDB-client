@@ -50,7 +50,7 @@
             <div class="tm-main-nav-container" id="tmMainNav">
                 <ul class="nav nav-fill tm-main-nav-ul" id="navigation">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="">Search</a>
+                    <li class="nav-item"><a class="nav-link" href="">Search</a>
                         <ul style="list-style: none">
                             <li>
                                 <a class="nav-link active" href="search-by-sequence.html">
@@ -85,14 +85,17 @@
         <section class="tm-margin-b-l">
             <div class="tm-gallery-no-border" id="trinity-query-container">
                 <div class="tm-gallery-no-padding">
-                    <h2 class="tm-main-title">Query sequences using the Trinity ID</h2>
-                      <label class="col-form-label" for="trinity-input">Trinity ID:</label>
-                      <input type="text" id="trinity-input">
-                      <br/>
-                      <input type="submit" class="btn-info" id="trinity-submit">
-                </div>
-                <div id="search-result" class="tm-gallery-no-border">
-                    <p class="text-dark">Submit to get results!</p>
+                    <h2 class="tm-main-title">Upload data to the server</h2>
+                    <p class="form-text">
+                        Files must be in fasta format (more formats will be supported later).
+                        <br/>The new data will be added to the server for future queries.</p>
+                    <br/>
+                    <form method="post" action="#">
+                        <label class="col-form-label-lg" for="trinity-input">File:</label>
+                        <input type="file" id="trinity-input">
+                        <br/>
+                        <input type="submit" class="btn-info" id="trinity-submit">
+                    </form>
                 </div>
             </div>
         </section>
@@ -129,12 +132,15 @@
 <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
 <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
 <script src="js/searchOptionsAdder.js"></script>
-<script src="js/sequenceGetter.js"></script>
 <script>
+
     $(document).ready(function () {
+
         // Update the current year in copyright
         $('.tm-current-year').text(new Date().getFullYear());
+
     });
+
 </script>
 
 </body>
