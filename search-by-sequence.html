@@ -40,7 +40,7 @@
 
             <figure class="col-sm-5">
                 <a href="https://www.endesaclientes.com">
-                        <img src="img/logo-endesa.png" alt="Principal collaborator, Endesa." class="img-fluid endesa">
+                    <img src="img/logo-endesa.png" alt="Principal collaborator, Endesa." class="img-fluid endesa">
                 </a>
             </figure>
         </div>
@@ -49,11 +49,11 @@
 
             <div class="tm-main-nav-container" id="tmMainNav">
                 <ul class="nav nav-fill tm-main-nav-ul" id="navigation">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Search</a>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="">Search</a>
                         <ul style="list-style: none">
                             <li>
-                                <a class="nav-link" href="search-by-sequence.html">
+                                <a class="nav-link active" href="search-by-sequence.html">
                                     By Sequence
                                 </a>
                             </li>
@@ -83,50 +83,17 @@
 
     <div class="tm-main-content">
         <section class="tm-margin-b-l">
-            <div class="tm-gallery">
-                <header>
-                    <h2 class="tm-main-title">About the project</h2>
-                </header>
-
-                <p>In this website you can query, compare and view Salmo Trutta's DNA sequences and its
-                    properties.</p>
-                <a href="#" class="text-info">Read more...</a>
-            </div>
-            <div class="tm-gallery">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <h3 class="text-primary">Sequence comparison</h3>
-                        <p>Compare your DNA sequences agains ours using our integrated BLAST system.</p>
-                        <a href="#" class="text-info">More info...</a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <h3 class="text-primary">Sequence families</h3>
-                        <p>Query our sequences by family</p>
-                        <a href="#" class="text-info">More info...</a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                        <h3 class="text-primary">Statistics</h3>
-                        <p>View interesting statistics of Salmo-trutta's sequences DataBase</p>
-                        <a href="#" class="text-info">More info...</a>
-                    </div>
+            <div class="tm-gallery-no-border" id="trinity-query-container">
+                <div class="tm-gallery-no-padding">
+                    <h2 class="tm-main-title">Query sequences using the Trinity ID</h2>
+                    <form method="post" action="#">
+                        <label class="col-form-label" for="trinity-input">Trinity ID:</label>
+                        <input type="text" id="trinity-input">
+                        <input type="submit" class="btn-info" id="trinity-submit">
+                    </form>
                 </div>
-            </div>
-        </section>
-        <section class="tm-margin-b-l">
-            <div id="latest-news-container">
-                <h3 class="text-primary">Latest news</h3>
-
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <p class="text-info">Added new sequences!!!</p>
-                    <p>New sequences in our database</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <p class="text-info">Awarded with Salmon-Prize</p>
-                    <p>This website has won the prestigious Salmon-Prize</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                    <p class="text-info">Awesome!</p>
-                    <p>The last month we received 78921 queries!!</p>
+                <div id="search-result" class="tm-gallery-no-border">
+                    <p class="text-dark">Submit to get results!</p>
                 </div>
             </div>
         </section>

@@ -181,6 +181,12 @@ ul li ul {
     border-bottom: 1px solid #28f8ff;
 }
 
+.tm-gallery-no-padding {
+    padding-bottom: 20px;
+    margin: 0 auto;
+    border-bottom: 1px solid #28f8ff;
+}
+
 .tm-gallery .row {
     margin-left: -10px;
     margin-right: -10px;
@@ -584,4 +590,10 @@ ul#navigation ul li a {
     float:left;
     clear:both;
     width:150px;
+}
+
+.tm-gallery-no-border {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    margin: 0 auto;
 }
