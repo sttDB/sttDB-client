@@ -86,12 +86,10 @@
             <div class="tm-gallery-no-border" id="trinity-query-container">
                 <div class="tm-gallery-no-padding">
                     <h2 class="tm-main-title">Query sequences using the Trinity ID</h2>
-                    <form method="post" action="#">
-                        <label class="col-form-label" for="trinity-input">Trinity ID:</label>
-                        <input type="text" id="trinity-input">
-                        <br/>
-                        <input type="submit" class="btn-info" id="trinity-submit">
-                    </form>
+                      <label class="col-form-label" for="trinity-input">Trinity ID:</label>
+                      <input type="text" id="trinity-input">
+                      <br/>
+                      <input type="submit" class="btn-info" id="trinity-submit">
                 </div>
                 <div id="search-result" class="tm-gallery-no-border">
                     <p class="text-dark">Submit to get results!</p>
@@ -131,15 +129,12 @@
 <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
 <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
 <script src="js/searchOptionsAdder.js"></script>
+<script src="js/sequenceGetter.js"></script>
 <script>
-
     $(document).ready(function () {
-
         // Update the current year in copyright
         $('.tm-current-year').text(new Date().getFullYear());
-
     });
-
 </script>
 
 </body>
