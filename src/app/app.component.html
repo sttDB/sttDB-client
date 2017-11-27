@@ -1,14 +1,52 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>Angular & Bootstrap Demo</h2>
-  </div>
+  <header class="tm-site-header">
+    <div id="header-info" class="row">
+      <figure class="col-sm-7">
+        <h1 class="tm-site-name">sttDB</h1>
+        <p class="tm-site-description"><i>Salmo trutta</i> transcriptome DataBase</p>
+      </figure>
 
-  <div class="panel panel-primary">
-    <div class="panel-heading">Status</div>
-    <div class="panel-body">
-      <h3>{{title}}</h3>
+      <figure class="col-sm-5">
+        <a href="https://www.endesaclientes.com">
+          <img src="../assets/img/logo-endesa.png" alt="Principal collaborator, Endesa." class="img-fluid endesa">
+        </a>
+      </figure>
     </div>
-  </div>
+    <nav id="nav" class="tm-main-nav">
+
+
+      <div class="tm-main-nav-container" id="tmMainNav">
+        <ul class="nav nav-fill tm-main-nav-ul" id="navigation">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="">Search</a>
+            <ul style="list-style: none">
+              <li>
+                <a class="nav-link" href="search-by-sequence.html">
+                  By Sequence
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="">
+                  By Family
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blast</a>
+            <ul style="list-style: none">
+              <li><a class="nav-link" href="">Unigenes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Gbrowse</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Downloads</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">References</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
 </div>
 
