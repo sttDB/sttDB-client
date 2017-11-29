@@ -10,8 +10,24 @@
   background-color: white;
   padding: 0;
   margin: 0;
+  border-radius: 0;
 }
 
 .endesa-img {
   width: 80%;
+}
+
+.sttdb-navbar {
+  background-color: rgba(33, 37, 41, 0.5);
+  border-bottom: 10px solid #076599;
+  border-radius: 0;
+  border-top-color: transparent;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.nav-link {
+  color: white;
 }
