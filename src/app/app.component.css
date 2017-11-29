@@ -6,6 +6,8 @@
   background-position: center;
 }
 
-.white-bg {
+.small-header {
   background-color: white;
+  padding: 0;
+  margin: 0;
 }
