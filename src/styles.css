@@ -2,3 +2,7 @@
 body {
   background: url('assets/img/shelf-bg.jpg');
 }
+
+footer {
+  margin-top: 20px;
+}
