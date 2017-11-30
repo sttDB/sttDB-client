@@ -35,3 +35,8 @@
 .nav-link:hover {
   color: deepskyblue;
 }
+
+.footer-image {
+  width: 100%;
+  height: 100%;
+}
