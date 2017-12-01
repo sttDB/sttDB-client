@@ -12,3 +12,8 @@ footer {
   border-bottom: 1px solid #28f8ff;
   background-color: white;
 }
+
+.fine-border-bot {
+  border-bottom: 1px solid #28f8ff;
+  padding-bottom: 15px;
+}
