@@ -6,3 +6,9 @@ body {
 footer {
   margin-top: 20px;
 }
+
+.container .jumbotron {
+  margin-bottom: 0;
+  border-bottom: 1px solid #28f8ff;
+  background-color: white;
+}
