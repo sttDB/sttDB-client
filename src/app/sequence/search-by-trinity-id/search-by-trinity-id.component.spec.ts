@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchBySequenceComponent } from './search-by-sequence.component';
+import { SearchByTrinityIdComponent } from './search-by-trinity-id.component';
 
-describe('SearchBySequenceComponent', () => {
-  let component: SearchBySequenceComponent;
-  let fixture: ComponentFixture<SearchBySequenceComponent>;
+describe('SearchByTrinityIdComponent', () => {
+  let component: SearchByTrinityIdComponent;
+  let fixture: ComponentFixture<SearchByTrinityIdComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchBySequenceComponent ]
+      declarations: [ SearchByTrinityIdComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchBySequenceComponent);
+    fixture = TestBed.createComponent(SearchByTrinityIdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

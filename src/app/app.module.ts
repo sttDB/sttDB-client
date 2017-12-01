@@ -7,7 +7,8 @@ import { AboutComponent } from './about/about.component';
 import {routes} from '../app.routing';
 import {RouterModule} from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { SearchBySequenceComponent } from './sequence/search-by-sequence/search-by-sequence.component';
+import { SearchByTranscriptComponent } from './sequence/search-by-transcript/search-by-transcript.component';
+import { SearchByTrinityIdComponent } from './sequence/search-by-trinity-id/search-by-trinity-id.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SearchBySequenceComponent } from './sequence/search-by-sequence/search-
     AppComponent,
     AboutComponent,
     WelcomeComponent,
-    SearchBySequenceComponent
+    SearchByTranscriptComponent,
+    SearchByTrinityIdComponent
   ],
   imports: [
     BrowserModule,
