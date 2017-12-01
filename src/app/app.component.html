@@ -30,7 +30,7 @@
           <li class="dropdown">
             <a href="#" class="nav-link">Search</a>
             <div class="dropdown-content">
-              <a class="nav-link" href="">
+              <a class="nav-link" [routerLink]="['/search/search-by-transcript']">
                 By Sequence
               </a>
               <a class="nav-link" href="">
@@ -58,8 +58,9 @@
   </nav>
 </div>
 
-
-<router-outlet></router-outlet>
+<div class="jumbotron">
+  <router-outlet></router-outlet>
+</div>
 
 
 <footer class="container-fluid text-center white-bg">

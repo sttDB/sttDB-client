@@ -1,3 +1,7 @@
+.jumbotron {
+  border-radius: 0;
+}
+
 .salmo-trutta-header {
   background: url('../assets/img/salmo-trutta-top.jpg') no-repeat;
   background-size: 30%;
