@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import {routes} from '../app.routing';
 import {RouterModule} from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
