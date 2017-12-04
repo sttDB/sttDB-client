@@ -10,6 +10,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchByTranscriptComponent } from './sequence/search-by-transcript/search-by-transcript.component';
 import { SearchByTrinityIdComponent } from './sequence/search-by-trinity-id/search-by-trinity-id.component';
 import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

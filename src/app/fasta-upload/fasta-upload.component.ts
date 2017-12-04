@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-fasta-upload',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FastaUploadComponent implements OnInit {
 
-  constructor() { }
+  fastaForm: FormGroup;
+
+  constructor(private fb: FormBuilder,
+              private router: Router) {
+    this.fastaForm = fb.group({
+      'trinity-input': ['Fasta file', Validators.required]
+    });
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit(): void {
+    console.log('submit!');
   }
 
 }

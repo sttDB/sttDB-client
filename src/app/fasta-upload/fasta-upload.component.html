@@ -4,7 +4,7 @@
   <br/>The new data will be added to the server for future queries.</p>
 <br/>
 
-<form>
+<form id="fasta-form" [formGroup]="fastaForm" (ngSubmit)="onSubmit()">
   <div class="row form-group container-fluid">
     <fieldset>
       <label class="control-label" for="trinity-input">File:</label>
@@ -14,8 +14,10 @@
       <!-- Button -->
       <div class="form-group row">
         <div class="col-md-3">
-          <input id="trinity-submit" type="submit"
-                  class="btn btn-success pull-left" value="Upload"/>
+          <button id="trinity-submit" type="submit"
+                  class="btn btn-success pull-left">
+            Upload
+          </button>
         </div>
         <div class="col-md-9">
         </div>
