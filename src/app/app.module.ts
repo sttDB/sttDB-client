@@ -11,10 +11,13 @@ import { SearchByTranscriptComponent } from './sequence/search-by-transcript/sea
 import { SearchByTrinityIdComponent } from './sequence/search-by-trinity-id/search-by-trinity-id.component';
 import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 
 
 @NgModule({
   declarations: [
+    FileDropDirective,
+    FileSelectDirective,
     AppComponent,
     AboutComponent,
     WelcomeComponent,
