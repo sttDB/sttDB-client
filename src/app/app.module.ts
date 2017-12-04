@@ -9,6 +9,7 @@ import {RouterModule} from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchByTranscriptComponent } from './sequence/search-by-transcript/search-by-transcript.component';
 import { SearchByTrinityIdComponent } from './sequence/search-by-trinity-id/search-by-trinity-id.component';
+import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SearchByTrinityIdComponent } from './sequence/search-by-trinity-id/sear
     AboutComponent,
     WelcomeComponent,
     SearchByTranscriptComponent,
-    SearchByTrinityIdComponent
+    SearchByTrinityIdComponent,
+    FastaUploadComponent
   ],
   imports: [
     BrowserModule,
