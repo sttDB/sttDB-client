@@ -1,3 +1,28 @@
-<p>
-  fasta-upload works!
-</p>
+<h2 class="">Upload data to the server</h2>
+<p class="text-info">
+  Files must be in fasta format (more formats will be supported later).
+  <br/>The new data will be added to the server for future queries.</p>
+<br/>
+
+<form method="post" action="#">
+  <div class="row form-group container-fluid">
+    <fieldset>
+      <label class="control-label" for="trinity-input">File:</label>
+      <input type="file" id="trinity-input" class="form-control input-sm">
+      <br/>
+
+      <!-- Button -->
+      <div class="form-group row">
+        <div class="col-md-3">
+          <button id="trinity-submit" type="submit"
+                  class="btn btn-success pull-left">Upload
+          </button>
+        </div>
+        <div class="col-md-9">
+        </div>
+      </div>
+
+
+    </fieldset>
+  </div>
+</form>
