@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FileUploader} from 'ng2-file-upload';
@@ -22,10 +22,6 @@ export class FastaUploadComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  onSubmit(): void {
-    console.log('submit!');
   }
 
 }
