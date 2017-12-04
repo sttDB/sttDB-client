@@ -24,7 +24,8 @@
         "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
-        "assets/js/fileSender.js"
+        "assets/js/fileSender.js",
+        "../node_modules/jquery/dist/jquery.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
