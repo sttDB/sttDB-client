@@ -9,7 +9,8 @@ export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'search/search-by-id', component: SearchByTrinityIdComponent},
-  {path: 'search/search-by-transcript', component: SearchByTranscriptComponent},
+  {path: 'search/by-id', component: SearchByTrinityIdComponent},
+  {path: 'search/by-transcript', component: SearchByTranscriptComponent},
+  // {path: 'search/by-transcript', component: SearchByFamilyComponent},
   {path: 'upload', component: FastaUploadComponent}
 ];
