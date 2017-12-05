@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-by-transcript',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchByTranscriptComponent implements OnInit {
 
-  constructor() { }
+  public transcript: string;
+  public transcriptForm: FormGroup;
+  public errorMessage: string;
+
+  constructor(private fb: FormBuilder,
+              private router: Router) {
+    this.transcriptForm = fb.group({
+      'transcript': ['Transcript']
+    })
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit(): void {
+    console.log("Querying!! " + this.transcript);
+    // query service
   }
 
 }
