@@ -11,6 +11,6 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'search/by-id', component: SearchByTrinityIdComponent},
   {path: 'search/by-transcript', component: SearchByTranscriptComponent},
-  // {path: 'search/by-transcript', component: SearchByFamilyComponent},
+  // {path: 'search/by-family', component: SearchByFamilyComponent},
   {path: 'upload', component: FastaUploadComponent}
 ];
