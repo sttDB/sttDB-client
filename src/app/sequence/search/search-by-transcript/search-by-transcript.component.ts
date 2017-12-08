@@ -33,9 +33,9 @@ export class SearchByTranscriptComponent implements OnInit {
     this.sequenceService.getSequencesByTranscript(this.transcript)
       .subscribe(
         (sequences: Sequence[]) => {
-          this.edited = true;
           this.sequences = sequences;
-          this.totalSequences = sequences.length; },
+          this.totalSequences = sequences.length;
+          this.edited = true; },
         error => this.errorMessage = <any>error.message);
   }
 
