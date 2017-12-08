@@ -14,14 +14,14 @@ export class SequenceService {
 
   // GET /sequences /trinityId
   getSequencesByTrinityId(trinityId: string): Observable<Sequence[]> {
-    return this.http.get(`${environment.API}/sequences/search/findByTrinityId${trinityId}`)
+    return this.http.get(`${environment.API}/sequences/search/findByTrinityId`, trinityId)
       .map((res: Response) => new Sequence(res.json()))
       .catch((error: any) => Observable.throw(error.json()));
   }
 
   // GET /sequences /transcript
   getSequencesByTranscript(transcript: string): Observable<Sequence[]> {
-    return this.http.get(`${environment.API}/sequences/search/findByTranscript${transcript}`)
+    return this.http.get(`${environment.API}/sequences/search/findByTranscript`, transcript)
       .map((res: Response) => new Sequence(res.json()))
       .catch((error: any) => Observable.throw(error.json()));
   }
