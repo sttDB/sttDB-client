@@ -15,6 +15,7 @@ export class SearchByTranscriptComponent implements OnInit {
   public errorMessage = '';
   public transcript: string;
   public transcriptForm: FormGroup;
+  public edited = false;
 
   constructor(private sequenceService: SequenceService,
               private fb: FormBuilder,
@@ -28,9 +29,11 @@ export class SearchByTranscriptComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.edited = false;
     this.sequenceService.getSequencesByTranscript(this.transcript)
       .subscribe(
         (sequences: Sequence[]) => {
+          this.edited = true;
           this.sequences = sequences;
           this.totalSequences = sequences.length; },
         error => this.errorMessage = <any>error.message);

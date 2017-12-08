@@ -28,4 +28,28 @@
   <div id="search-result" class="tm-gallery-no-border">
     <p class="text-dark">Submit to get results!</p>
   </div>
+
+  <div *ngIf="edited">
+    <div class="col-md-4">
+      <h4 i18n>{ totalSequences, plural,
+        =0 {There are no sequences with this transcript}
+        =1 {There is 1 sequence with this transcript}
+        other { There are {{totalSequences}} sequences with this transcript} }</h4>
+    </div>
+    <div class="row">
+      <div class="panel-group col-md-12">
+        <div class="panel panel-default" *ngFor="let sequence of sequences">
+          <div class="panel-heading">
+            <h4>Sequence: <a routerLink="{{sequence.uri}}">{{sequence.trinityId}}</a></h4>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-6">
+              <h4>Experiment:</h4>
+              <p>{{sequence.experiment}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
