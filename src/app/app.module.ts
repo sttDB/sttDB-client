@@ -12,6 +12,7 @@ import { SearchByTrinityIdComponent } from './sequence/search/search-by-trinity-
 import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
+import {SequenceService} from './sequence/sequence.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SequenceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
