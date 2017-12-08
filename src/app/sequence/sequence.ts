@@ -1,4 +1,5 @@
 export class Sequence {
+  uri: string;
   id: number;
   trinityId: string;
   sequence: string;
