@@ -34,7 +34,6 @@ export class SearchByTrinityIdComponent implements OnInit {
     this.sequenceService.getSequencesByTrinityId(this.trinityId)
       .subscribe(
         (sequences: Sequence[]) => {
-          console.log(sequences);
           this.sequences = sequences;
           this.totalSequences = sequences.length;
           this.edited = true; },
