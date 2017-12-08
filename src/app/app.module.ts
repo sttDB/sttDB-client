@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -28,6 +28,7 @@ import {SequenceService} from './sequence/sequence.service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     FormsModule
