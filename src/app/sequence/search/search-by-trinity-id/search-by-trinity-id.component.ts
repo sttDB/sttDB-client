@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {SequenceService} from "../../sequence.service";
+import {Sequence} from "../../sequence";
 
 @Component({
   selector: 'app-search-by-trinity-id',
@@ -8,12 +10,15 @@ import {Router} from "@angular/router";
   styleUrls: ['./search-by-trinity-id.component.css']
 })
 export class SearchByTrinityIdComponent implements OnInit {
-
+  public sequences: Sequence[] = [];
+  public totalSequences = 0;
   public trinityId: string;
   public trinityForm: FormGroup;
-  public errorMessage: string;
+  public errorMessage: '';
+  public edited = false;
 
-  constructor(private fb: FormBuilder,
+  constructor(private sequenceService: SequenceService,
+              private fb: FormBuilder,
               private router: Router) {
     this.trinityForm = fb.group({
       'trinity-id': ['Administrator username']
@@ -25,7 +30,13 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("submit!" + this.trinityId)
+    this.edited = false;
+    this.sequenceService.getSequencesByTranscript(this.trinityId)
+      .subscribe(
+        (sequences: Sequence[]) => {
+          this.sequences = sequences;
+          this.totalSequences = sequences.length;
+          this.edited = true; },
+        error => this.errorMessage = <any>error.message);
   }
-
 }
