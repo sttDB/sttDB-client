@@ -19,8 +19,8 @@ export class SequenceDetailComponent implements OnInit {
     this.route.params
       .map(params => params['id'])
       .subscribe((id) => {
-          this.sequenceService.getSequence(`${id}`).subscribe(
-            sequence => this.sequence = sequence,
+          this.sequenceService.getSequencesByTranscript(`${id}`).subscribe(
+            sequences => this.sequence = sequences[0],
             error => this.errorMessage = <any>error.message);
         }
       );

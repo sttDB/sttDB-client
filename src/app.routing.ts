@@ -4,7 +4,7 @@ import {WelcomeComponent} from './app/welcome/welcome.component';
 import {SearchByTranscriptComponent} from './app/sequence/search/search-by-transcript/search-by-transcript.component';
 import {FastaUploadComponent} from './app/fasta-upload/fasta-upload.component';
 import {SearchByTrinityIdComponent} from './app/sequence/search/search-by-trinity-id/search-by-trinity-id.component';
-import {SequenceDetailComponent} from './app/sequence/detail/detail-sequence.component';
+import {SequenceDetailComponent} from './app/sequence/detail/sequence-detail.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
