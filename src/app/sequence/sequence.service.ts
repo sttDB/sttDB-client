@@ -26,4 +26,10 @@ export class SequenceService {
       .catch((error: any) => Observable.throw(error.json()));
   }
 
+  // GET /sequences /id
+  getSequence(id: string) {
+    return this.http.get(`${environment.API}/sequences/${id}`)
+      .map((res: Response) => new Sequence(res.json()))
+      .catch((error: any) => Observable.throw(error.json()));
+  }
 }
