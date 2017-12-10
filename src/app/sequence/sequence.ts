@@ -7,6 +7,7 @@ export class Sequence {
   transcript: string;
   familyId: string;
   experiment: string;
+  length: number;
 
   constructor(values: Object = {}) {
     Object.assign(this, values);
