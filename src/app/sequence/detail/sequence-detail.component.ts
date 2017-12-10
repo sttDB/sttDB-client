@@ -8,6 +8,7 @@ import {SequenceService} from "../sequence.service";
   templateUrl: './sequence-detail.component.html'
 })
 export class SequenceDetailComponent implements OnInit {
+  private id: string;
   public sequence: Sequence = new Sequence();
   public errorMessage: string;
 
@@ -16,13 +17,9 @@ export class SequenceDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params
-      .map(params => params['id'])
-      .subscribe((id) => {
-          this.sequenceService.getSequencesByTranscript(`${id}`).subscribe(
-            sequences => this.sequence = sequences[0],
-            error => this.errorMessage = <any>error.message);
-        }
-      );
+    this.id = this.route.params['_value']['id'];
+    this.sequenceService.getSequencesByTrinityId(`${this.id}`).subscribe(
+      sequences => this.sequence = sequences[0],
+      error => this.errorMessage = <any>error.message);
   }
 }
