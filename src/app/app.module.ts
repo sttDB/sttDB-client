@@ -13,7 +13,7 @@ import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
-import {SequenceDetailComponent} from './sequence/detail/detail-sequence.component';
+import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
 
 
 @NgModule({
