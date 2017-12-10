@@ -8,6 +8,7 @@ export class Sequence {
   familyId: string;
   experiment: string;
   length: number;
+  _links: any = {};
 
   constructor(values: Object = {}) {
     Object.assign(this, values);
