@@ -1,0 +1,86 @@
+<div class="jumbotron small-header">
+  <div class="container salmo-trutta-header">
+    <div class="row">
+      <div id="page-title" class="col-sm-6">
+        <h1>sttDB</h1>
+        <p><i>Salmo trutta</i> transcriptome DataBase</p>
+      </div>
+      <div class="col-sm-6">
+        <figure class="">
+          <a href="https://www.endesaclientes.com">
+            <img src="../assets/img/logo-endesa.png" alt="Principal collaborator, Endesa."
+                 class="endesa-img pull-right">
+          </a>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar sttdb-navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" class="nav-link">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">Search</a>
+            <div class="dropdown-content">
+              <a class="nav-link" [routerLink]="['/search/by-id']">
+                By Trinity ID
+              </a>
+              <a class="nav-link" [routerLink]="['/search/by-transcript']">
+                By Transcript
+              </a>
+              <a class="nav-link" [routerLink]="['/search/by-family']">
+                By Family
+              </a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">Blast</a>
+            <div class="dropdown-content">
+              <a class="nav-link" href="">Unigenes</a>
+            </div>
+          </li>
+          <li><a href="#" class="nav-link">GBrowse</a></li>
+          <li><a href="#" class="nav-link">Downloads</a></li>
+          <li><a href="#" class="nav-link">References</a></li>
+          <li><a href="#" class="nav-link">Help</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="nav-link"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="jumbotron">
+  <router-outlet></router-outlet>
+</div>
+
+
+<footer class="container-fluid text-center white-bg">
+  <div id="collaborators" class="row">
+    <figure class="col-sm-3">
+      <a href="https://www.udl.cat">
+        <img src="../assets/img/logo_udl1.jpg" alt="University of Lleida" class="footer-image">
+      </a>
+    </figure>
+    <div class="col-sm-6 center-text">
+      <p class="panel-title">Complex Genetics & Biodiversity Research</p>
+      <p class="panel-title">University of Lleida - Research Institute of Lleida</p>
+    </div>
+    <figure class="col-sm-3">
+      <a href="https://www.udl.cat">
+        <img src="../assets/img/logo_IRBlleida2.png" alt="Research Institute of Lleida" class="footer-image">
+      </a>
+    </figure>
+  </div>
+</footer>

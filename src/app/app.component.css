@@ -1,0 +1,78 @@
+.jumbotron {
+  border-radius: 0;
+}
+
+.salmo-trutta-header {
+  background: url('../assets/img/salmo-trutta-top.jpg') no-repeat;
+  background-size: 30%;
+  padding: 60px 80px;
+  position: relative;
+  background-position: center;
+}
+
+.small-header {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.endesa-img {
+  width: 80%;
+}
+
+.sttdb-navbar {
+  background-color: rgba(33, 37, 41, 0.5);
+  border-bottom: 10px solid #076599;
+  border-radius: 0;
+  border-top-color: transparent;
+  margin-bottom: 0;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: deepskyblue;
+}
+
+.footer-image {
+  width: 100%;
+  height: 100%;
+}
+
+.center-text {
+  margin-top: 10%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
