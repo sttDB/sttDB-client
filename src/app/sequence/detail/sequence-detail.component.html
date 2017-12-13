@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div>{{sequence.trinityId}}</div>
+  </div>
+  <div class="row fine-border-bot">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <h5>TrinityId:</h5>
+      <p>{{sequence.trinityId}}</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <h5>Family:</h5>
+      <p>{{sequence.familyId}}</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <h5>Experiment:</h5>
+      <p style="overflow: auto">{{sequence.experiment}}</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <h5>Transcript:</h5>
+      <p style="overflow: auto">{{sequence.transcript}}</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <h5>Length:</h5>
+      <p>{{sequence.length}}</p>
+    </div>
+  </div>
+  <div class="panel-footer text-center">
+    <button id="family" type="button" [routerLink]="['/']"
+            class="btn btn-primary">Go to sequence family</button>
+  </div>
+</div>
