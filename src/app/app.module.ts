@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -12,6 +12,8 @@ import { SearchByTrinityIdComponent } from './sequence/search/search-by-trinity-
 import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
+import {SequenceService} from './sequence/sequence.service';
+import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
 
 
 @NgModule({
@@ -23,15 +25,17 @@ import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
     WelcomeComponent,
     SearchByTranscriptComponent,
     SearchByTrinityIdComponent,
+    SequenceDetailComponent,
     FastaUploadComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SequenceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

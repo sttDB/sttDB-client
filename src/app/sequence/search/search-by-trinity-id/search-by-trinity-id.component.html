@@ -28,3 +28,22 @@
 
   </fieldset>
 </form>
+
+<div *ngIf="edited">
+  <div class="col-md-4">
+    <h4 i18n>{ totalSequences, plural,
+      =0 {There are no sequences with this transcript}
+      =1 {There is 1 sequence with this transcript}
+      other { There are {{totalSequences}} sequences with this transcript} }</h4>
+  </div>
+  <div class="row">
+    <div class="panel-group col-md-12">
+      <div class="panel panel-default" *ngFor="let sequence of sequences">
+        <div class="panel-heading">
+          <h4>Sequence: <a routerLink="/sequences/{{sequence.trinityId}}">{{sequence.trinityId}}</a>
+            Experiment: {{sequence.experiment}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

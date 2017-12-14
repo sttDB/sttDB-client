@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Sequence} from "../../sequence";
+import {SequenceService} from "../../sequence.service";
 
 @Component({
   selector: 'app-search-by-transcript',
@@ -8,12 +10,15 @@ import {Router} from "@angular/router";
   styleUrls: ['./search-by-transcript.component.css']
 })
 export class SearchByTranscriptComponent implements OnInit {
-
+  public sequences: Sequence[] = [];
+  public totalSequences = 0;
+  public errorMessage = '';
   public transcript: string;
   public transcriptForm: FormGroup;
-  public errorMessage: string;
+  public edited = false;
 
-  constructor(private fb: FormBuilder,
+  constructor(private sequenceService: SequenceService,
+              private fb: FormBuilder,
               private router: Router) {
     this.transcriptForm = fb.group({
       'transcript': ['Transcript']
@@ -24,8 +29,14 @@ export class SearchByTranscriptComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("Querying!! " + this.transcript);
-    // query service
+    this.edited = false;
+    this.sequenceService.getSequencesByTranscript(this.transcript)
+      .subscribe(
+        (sequences: Sequence[]) => {
+          this.sequences = sequences;
+          this.totalSequences = sequences.length;
+          this.edited = true; },
+        error => this.errorMessage = <any>error.message);
   }
 
 }
