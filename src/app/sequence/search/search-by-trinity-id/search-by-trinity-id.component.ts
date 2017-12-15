@@ -31,7 +31,7 @@ export class SearchByTrinityIdComponent implements OnInit {
 
   onSubmit(): void {
     this.edited = false;
-    this.sequenceService.getSequencesByTrinityId(this.trinityId)
+    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId)
       .subscribe(
         (sequences: Sequence[]) => {
           this.sequences = sequences;
