@@ -1,51 +1,65 @@
 <header class="container sttdb-header">
   <figure>
     <a href="https://www.endesaclientes.com">
-      <img class="sttdb-header-img img-responsive" src="../assets/img/head.png" alt="sttDB header image with endesa collaborator">
+      <img class="sttdb-header-img img-responsive" src="../assets/img/head.png"
+           alt="sttDB header image with endesa collaborator">
     </a>
   </figure>
 </header>
 <div class="container white-bg" style="padding: 0;">
   <nav class="navbar sttdb-navbar">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#" class="nav-link">Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="nav-link">Search</a>
-          <div class="dropdown-content">
-            <a class="nav-link" [routerLink]="['/search/by-id']">
-              By Trinity ID
-            </a>
-            <a class="nav-link" [routerLink]="['/search/by-transcript']">
-              By Transcript
-            </a>
-            <a class="nav-link" [routerLink]="['/search/by-family']">
-              By Family
-            </a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="nav-link">Blast</a>
-          <div class="dropdown-content">
-            <a class="nav-link" href="">Unigenes</a>
-          </div>
-        </li>
-        <li><a href="#" class="nav-link">GBrowse</a></li>
-        <li><a href="#" class="nav-link">Downloads</a></li>
-        <li><a href="#" class="nav-link">References</a></li>
-        <li><a href="#" class="nav-link">Help</a></li>
-        <li><a href="#" class="nav-link">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" class="nav-link"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-      </ul>
+    <div class="container">
+
+
+      <!--<div class="navbar-header">-->
+      <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+      <!--</button>-->
+      <!--</div>-->
+
+
+      <div class="navbar-header pull-left">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar white-bg"></span>
+          <span class="icon-bar white-bg"></span>
+          <span class="icon-bar white-bg"></span>
+        </button>
+      </div>
+
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" class="nav-link">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">Search</a>
+            <div class="dropdown-content">
+              <a class="nav-link" [routerLink]="['/search/by-id']">
+                By Trinity ID
+              </a>
+              <a class="nav-link" [routerLink]="['/search/by-transcript']">
+                By Transcript
+              </a>
+              <a class="nav-link" [routerLink]="['/search/by-family']">
+                By Family
+              </a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">Blast</a>
+            <div class="dropdown-content">
+              <a class="nav-link" href="">Unigenes</a>
+            </div>
+          </li>
+          <li><a href="#" class="nav-link">GBrowse</a></li>
+          <li><a href="#" class="nav-link">Downloads</a></li>
+          <li><a href="#" class="nav-link">References</a></li>
+          <li><a href="#" class="nav-link">Help</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="nav-link"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 </div>
