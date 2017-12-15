@@ -2,7 +2,14 @@
   border-radius: 0;
 }
 
-.small-header {
+.sttdb-header-img {
+  width: 75%;
+  height: 75%;
+  margin: 0 auto;
+}
+
+.sttdb-header {
+  align-content: center;
   background-color: white;
 }
 
