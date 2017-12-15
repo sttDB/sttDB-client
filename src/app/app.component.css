@@ -2,14 +2,6 @@
   border-radius: 0;
 }
 
-.salmo-trutta-header {
-  background: url('../assets/img/salmo-trutta-top.jpg') no-repeat;
-  background-size: 30%;
-  padding: 60px 80px;
-  position: relative;
-  background-position: center;
-}
-
 .small-header {
   background-color: white;
 }
