@@ -35,6 +35,8 @@
       =0 {There are no sequences with this transcript}
       =1 {There is 1 sequence with this transcript}
       other { There are {{totalSequences}} sequences with this transcript} }</h4>
+      <button id="family" type="button" (click)="onDownload()"
+              class="btn btn-primary">Download them as a fasta file</button>
   </div>
   <div class="row">
     <div class="panel-group col-md-12">
