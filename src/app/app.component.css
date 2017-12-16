@@ -2,19 +2,15 @@
   border-radius: 0;
 }
 
-.salmo-trutta-header {
-  background: url('../assets/img/salmo-trutta-top.jpg') no-repeat;
-  background-size: 30%;
-  padding: 60px 80px;
-  position: relative;
-  background-position: center;
+.sttdb-header-img {
+  width: 75%;
+  height: 75%;
+  margin: 0 auto;
 }
 
-.small-header {
+.sttdb-header {
+  align-content: center;
   background-color: white;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
 }
 
 .endesa-img {
