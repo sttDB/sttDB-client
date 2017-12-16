@@ -1,34 +1,31 @@
-<div class="jumbotron small-header">
-  <div class="container salmo-trutta-header">
-    <div class="row">
-      <div id="page-title" class="col-sm-6">
-        <h1>sttDB</h1>
-        <p><i>Salmo trutta</i> transcriptome DataBase</p>
-      </div>
-      <div class="col-sm-6">
-        <figure class="">
-          <a href="https://www.endesaclientes.com">
-            <img src="../assets/img/logo-endesa.png" alt="Principal collaborator, Endesa."
-                 class="endesa-img pull-right">
-          </a>
-        </figure>
-      </div>
-    </div>
-  </div>
+<header class="container sttdb-header">
+  <figure>
+    <a href="https://www.endesaclientes.com">
+      <img class="sttdb-header-img img-responsive" src="../assets/img/head.png"
+           alt="sttDB header image with endesa collaborator">
+    </a>
+  </figure>
+</header>
+<div class="container white-bg" style="padding: 0;">
   <nav class="navbar sttdb-navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+    <div class="container">
+
+
+      <div class="navbar-header pull-left">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar white-bg"></span>
+          <span class="icon-bar white-bg"></span>
+          <span class="icon-bar white-bg"></span>
         </button>
       </div>
+
+
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#" class="nav-link">Home</a></li>
-          <li class="dropdown">
-            <a href="#" class="nav-link">Search</a>
+          <li class="dropdown" style="display: block">
+            <a href="" class="nav-link">Search</a>
             <div class="dropdown-content">
               <a class="nav-link" [routerLink]="['/search/by-id']">
                 By Trinity ID
@@ -41,32 +38,31 @@
               </a>
             </div>
           </li>
-          <li class="dropdown">
-            <a href="#" class="nav-link">Blast</a>
+          <li class="dropdown" style="display: block">
+            <a href="" class="nav-link">Blast</a>
             <div class="dropdown-content">
               <a class="nav-link" href="">Unigenes</a>
             </div>
           </li>
-          <li><a href="#" class="nav-link">GBrowse</a></li>
-          <li><a href="#" class="nav-link">Downloads</a></li>
-          <li><a href="#" class="nav-link">References</a></li>
-          <li><a href="#" class="nav-link">Help</a></li>
-          <li><a href="#" class="nav-link">Contact</a></li>
+          <li><a href="" class="nav-link">Downloads</a></li>
+          <li><a href="" class="nav-link">References</a></li>
+          <li><a href="" class="nav-link">Help</a></li>
+          <li><a href="" class="nav-link">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" class="nav-link"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+          <li><a href="" class="nav-link"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
         </ul>
       </div>
     </div>
   </nav>
 </div>
 
-<div class="jumbotron">
+<div class="container white-bg" style="padding: 3%">
   <router-outlet></router-outlet>
 </div>
 
 
-<footer class="container-fluid text-center white-bg">
+<footer class="container text-center white-bg">
   <div id="collaborators" class="row">
     <figure class="col-sm-3">
       <a href="https://www.udl.cat">
