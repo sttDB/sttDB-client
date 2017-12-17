@@ -50,9 +50,9 @@
         </div>
       </td>
       <td class="text-center">
-        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle text-warning"></i></span>
+        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
       </td>
       <td nowrap>
         <button type="button" class="btn btn-success btn-xs"
