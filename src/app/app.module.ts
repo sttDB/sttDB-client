@@ -14,7 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
-import { FamilyUploadComponent } from './family-upload/family-upload.component';
+import { InterproUploadComponent } from './interpro-upload/interpro-upload.component';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { FamilyUploadComponent } from './family-upload/family-upload.component';
     SearchByTrinityIdComponent,
     SequenceDetailComponent,
     FastaUploadComponent,
-    FamilyUploadComponent
+    InterproUploadComponent
   ],
   imports: [
     BrowserModule,

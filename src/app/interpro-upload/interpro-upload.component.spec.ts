@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FamilyUploadComponent } from './family-upload.component';
+import { InterproUploadComponent } from './interpro-upload.component';
 
-describe('FamilyUploadComponent', () => {
-  let component: FamilyUploadComponent;
-  let fixture: ComponentFixture<FamilyUploadComponent>;
+describe('InterproUploadComponent', () => {
+  let component: InterproUploadComponent;
+  let fixture: ComponentFixture<InterproUploadComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FamilyUploadComponent ]
+      declarations: [ InterproUploadComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FamilyUploadComponent);
+    fixture = TestBed.createComponent(InterproUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
