@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SequenceService} from "../../sequence.service";
 import {Sequence} from "../../sequence";
+import {FastaDownloaderService} from "../../../file-downloader/fasta-downloader.service";
 
 @Component({
   selector: 'app-search-by-trinity-id',
@@ -18,6 +19,7 @@ export class SearchByTrinityIdComponent implements OnInit {
   public edited = false;
 
   constructor(private sequenceService: SequenceService,
+              private fastaDownloaderService: FastaDownloaderService,
               private fb: FormBuilder,
               private router: Router) {
     this.trinityForm = fb.group({
@@ -29,14 +31,18 @@ export class SearchByTrinityIdComponent implements OnInit {
 
   }
 
-  onSubmit(): void {
+  onSubmit() {
     this.edited = false;
-    this.sequenceService.getSequencesByTrinityId(this.trinityId)
+    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId)
       .subscribe(
         (sequences: Sequence[]) => {
           this.sequences = sequences;
           this.totalSequences = sequences.length;
           this.edited = true; },
         error => this.errorMessage = <any>error.message);
+  }
+
+  onDownload() {
+    this.fastaDownloaderService.createFasta(this.trinityId, "");
   }
 }

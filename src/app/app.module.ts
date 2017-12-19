@@ -15,6 +15,7 @@ import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
 import { InterproUploadComponent } from './interpro-upload/interpro-upload.component';
+import {FastaDownloaderService} from './file-downloader/fasta-downloader.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { InterproUploadComponent } from './interpro-upload/interpro-upload.compo
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SequenceService],
+  providers: [SequenceService, FastaDownloaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
