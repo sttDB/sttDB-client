@@ -17,6 +17,7 @@ import {SequenceDetailComponent} from './sequence/detail/sequence-detail.compone
 import { InterproUploadComponent } from './interpro-upload/interpro-upload.component';
 import {FastaDownloaderService} from './file-downloader/fasta-downloader.service';
 import {FamilyDetailComponent} from './family/detail/family-detail.component';
+import {FamilyService} from './family/family.service';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import {FamilyDetailComponent} from './family/detail/family-detail.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SequenceService, FastaDownloaderService],
+  providers: [SequenceService, FastaDownloaderService, FamilyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
