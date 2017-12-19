@@ -16,7 +16,7 @@ export class FamilyService {
   // GET /families /interproId
   getFamilyByInterproId(interproId: string): Observable<Family> {
     return this.http.get(`${environment.API}/families/search/findByInterproId?interproId=${interproId}`)
-      .map((res: Response) => res.json()._embedded.families.map(json => new Family(json)))
+      .map((res: Response) => new Family(res.json()))
       .catch((error: any) => Observable.throw(error.json()));
   }
 }
