@@ -19,6 +19,13 @@ export class SequenceService {
       .catch((error: any) => Observable.throw(error.json()));
   }
 
+  // GET /sequences /trinityIdLike
+  getSequencesByTrinityIdLike(trinityId: string): Observable<Sequence[]> {
+    return this.http.get(`${environment.API}/sequences/search/findByTrinityIdLike?trinityId=${trinityId}`)
+      .map((res: Response) => res.json()._embedded.sequences.map(json => new Sequence(json)))
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
   // GET /sequences /transcript
   getSequencesByTranscript(transcript: string): Observable<Sequence[]> {
     return this.http.get(`${environment.API}/sequences/search/findByTranscript?transcript=${transcript}`)

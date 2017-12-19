@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Sequence} from "../sequence";
 import {SequenceService} from "../sequence.service";
+import {FastaDownloaderService} from "../../file-downloader/fasta-downloader.service";
 
 @Component({
   selector: 'app-sequence-detail',
@@ -13,7 +14,8 @@ export class SequenceDetailComponent implements OnInit {
   public errorMessage: string;
 
   constructor(private route: ActivatedRoute,
-              private sequenceService: SequenceService) {
+              private sequenceService: SequenceService,
+              private fastaDownloaderService: FastaDownloaderService) {
   }
 
   ngOnInit() {
@@ -21,5 +23,9 @@ export class SequenceDetailComponent implements OnInit {
     this.sequenceService.getSequencesByTrinityId(`${this.id}`).subscribe(
       sequences => this.sequence = sequences[0],
       error => this.errorMessage = <any>error.message);
+  }
+
+  onSubmit() {
+    this.fastaDownloaderService.createFasta(this.sequence.trinityId, this.sequence.experiment);
   }
 }
