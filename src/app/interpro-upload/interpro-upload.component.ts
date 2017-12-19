@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class InterproUploadComponent implements OnInit {
 
-  uploader = new FileUploader({url: `${environment.API}/uploadInterpro`});
+  uploader = new FileUploader({url: `${environment.API}/upload/interpro`});
 
   constructor() { }
 
