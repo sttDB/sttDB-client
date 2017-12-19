@@ -43,8 +43,6 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   onDownload() {
-    const sequencesId = [];
-    this.sequences.forEach(sequence => sequencesId.push(sequence.trinityId));
-    this.fastaDownloaderService.createFasta(sequencesId);
+    this.fastaDownloaderService.createFasta(this.trinityId);
   }
 }
