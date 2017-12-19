@@ -10,14 +10,13 @@ export class FastaDownloaderService {
   constructor(private http: Http) {
   }
 
-  createFasta(id: String) {
+  createFasta(id: String, experiment: String) {
     const type = 'application/vnd.ms-excel';
     const options = new RequestOptions({
       responseType: ResponseContentType.Blob,
       headers: new Headers({ 'Accept': type })
     });
-
-    this.http.get(`${environment.API}/downloadFasta?id=${id}`, options)
+    this.http.get(`${environment.API}/downloadFasta?trinityId=${id}&experiment=${experiment}`, options)
       .subscribe(data => {
         window.open(data.url);
         },

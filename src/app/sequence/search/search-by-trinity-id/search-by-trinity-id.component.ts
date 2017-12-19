@@ -43,6 +43,6 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   onDownload() {
-    this.fastaDownloaderService.createFasta(this.trinityId);
+    this.fastaDownloaderService.createFasta(this.trinityId, "");
   }
 }
