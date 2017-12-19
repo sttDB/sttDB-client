@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
+import {FastaDownloaderService} from './file-downloader/fasta-downloader.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import {SequenceDetailComponent} from './sequence/detail/sequence-detail.compone
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SequenceService],
+  providers: [SequenceService, FastaDownloaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
