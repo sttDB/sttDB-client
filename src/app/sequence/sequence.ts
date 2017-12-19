@@ -1,3 +1,5 @@
+import {Family} from "../family/family";
+
 export class Sequence {
   uri: string;
   id: number;
@@ -5,7 +7,7 @@ export class Sequence {
   sequence: string;
   specie: string;
   transcript: string;
-  families: string[];
+  families: Family[];
   experiment: string;
   length: number;
   _links: any = {};
