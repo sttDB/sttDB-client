@@ -8,8 +8,10 @@
       <p>{{sequence.trinityId}}</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-      <h5>Family:</h5>
-      <p>{{sequence.familyId}}</p>
+      <h5>Families:</h5>
+      <div *ngFor="let family of sequence.families">
+        <a routerLink="/families/{{family}}">{{family}}</a>
+      </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
       <h5>Experiment:</h5>

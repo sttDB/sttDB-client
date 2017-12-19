@@ -5,7 +5,7 @@ export class Sequence {
   sequence: string;
   specie: string;
   transcript: string;
-  familyId: string;
+  families: string[];
   experiment: string;
   length: number;
   _links: any = {};
