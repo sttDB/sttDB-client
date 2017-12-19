@@ -16,6 +16,7 @@ import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
 import { InterproUploadComponent } from './interpro-upload/interpro-upload.component';
 import {FastaDownloaderService} from './file-downloader/fasta-downloader.service';
+import {FamilyDetailComponent} from './family/detail/family-detail.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {FastaDownloaderService} from './file-downloader/fasta-downloader.service
     SearchByTranscriptComponent,
     SearchByTrinityIdComponent,
     SequenceDetailComponent,
+    FamilyDetailComponent,
     FastaUploadComponent,
     InterproUploadComponent
   ],
