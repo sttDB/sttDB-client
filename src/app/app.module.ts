@@ -14,7 +14,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
+import { InterproUploadComponent } from './interpro-upload/interpro-upload.component';
 import {FastaDownloaderService} from './file-downloader/fasta-downloader.service';
+import {FamilyDetailComponent} from './family/detail/family-detail.component';
+import {FamilyService} from './family/family.service';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import {FastaDownloaderService} from './file-downloader/fasta-downloader.service
     SearchByTranscriptComponent,
     SearchByTrinityIdComponent,
     SequenceDetailComponent,
-    FastaUploadComponent
+    FamilyDetailComponent,
+    FastaUploadComponent,
+    InterproUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import {FastaDownloaderService} from './file-downloader/fasta-downloader.service
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SequenceService, FastaDownloaderService],
+  providers: [SequenceService, FastaDownloaderService, FamilyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
