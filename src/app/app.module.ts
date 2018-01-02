@@ -7,7 +7,6 @@ import { AboutComponent } from './about/about.component';
 import {routes} from '../app.routing';
 import {RouterModule} from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { SearchByTranscriptComponent } from './sequence/search/search-by-transcript/search-by-transcript.component';
 import { SearchByTrinityIdComponent } from './sequence/search/search-by-trinity-id/search-by-trinity-id.component';
 import { FastaUploadComponent } from './fasta-upload/fasta-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -27,7 +26,6 @@ import {FamilyService} from './family/family.service';
     AppComponent,
     AboutComponent,
     WelcomeComponent,
-    SearchByTranscriptComponent,
     SearchByTrinityIdComponent,
     SequenceDetailComponent,
     FamilyDetailComponent,
