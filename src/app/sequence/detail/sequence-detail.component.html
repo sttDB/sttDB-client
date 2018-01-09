@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <div>{{sequence.trinityId}}</div>
   </div>
-  <div class="row" style="margin-left: auto">
+  <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
       <h4>TrinityId:</h4>
       <p>{{sequence.trinityId}}</p>
@@ -18,14 +18,14 @@
       <p>{{sequence.length}}</p>
     </div>
   </div>
-  <div class="row" style="margin-left: auto">
+  <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-12">
       <h4>Transcript:</h4>
-      <div style="overflow: auto">{{sequence.transcript}}</div>
+      <div class="long-text">{{sequence.transcript}}</div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-12">
       <h4>Experiment:</h4>
-      <p style="overflow: auto">{{sequence.experiment}}</p>
+      <div class="long-text">{{sequence.experiment}}</div>
     </div>
   </div>
   <div class="panel-footer text-center">
