@@ -1,0 +1,7 @@
+.row {
+  margin-left: auto;
+}
+
+div .long-text {
+  overflow: auto;
+}

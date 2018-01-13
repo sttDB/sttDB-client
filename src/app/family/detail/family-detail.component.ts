@@ -5,7 +5,8 @@ import {FamilyService} from "../family.service";
 
 @Component({
   selector: 'app-family-detail',
-  templateUrl: './family-detail.component.html'
+  templateUrl: './family-detail.component.html',
+  styleUrls: ['family-detail-component.css']
 })
 export class FamilyDetailComponent implements OnInit {
   private id: string;
