@@ -16,7 +16,7 @@ export class FastaDownloaderService {
       responseType: ResponseContentType.Blob,
       headers: new Headers({ 'Accept': type })
     });
-    this.http.get(`${environment.API}/downloadFasta?trinityId=${id}&experiment=${experiment}`, options)
+    this.http.get(`${environment.API}/download/fasta?trinityId=${id}&experiment=${experiment}`, options)
       .subscribe(data => {
         window.open(data.url);
         },
