@@ -16,6 +16,6 @@ export const routes: Routes = [
   {path: 'sequences/:id', component: SequenceDetailComponent},
   {path: 'families/:id', component: FamilyDetailComponent},
   // Should add path 'upload' as entry point for other upload options
-  {path: 'upload', component: FastaUploadComponent}, // should change path to 'upload/fasta' or 'upload/trinity'
+  {path: 'upload/fasta', component: FastaUploadComponent}, // should change path to 'upload/fasta' or 'upload/trinity'
   {path: 'upload/interpro', component: InterproUploadComponent}
 ];

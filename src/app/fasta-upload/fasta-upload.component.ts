@@ -12,7 +12,7 @@ import {environment} from '../../environments/environment.prod';
 export class FastaUploadComponent implements OnInit {
 
   fastaForm: FormGroup;
-  uploader = new FileUploader({url: `${environment.API}/uploadFasta`});
+  uploader = new FileUploader({url: `${environment.API}/upload/fasta`});
 
   constructor(private fb: FormBuilder,
               private router: Router) {
