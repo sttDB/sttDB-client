@@ -6,7 +6,8 @@ import {FastaDownloaderService} from "../../file-downloader/fasta-downloader.ser
 
 @Component({
   selector: 'app-sequence-detail',
-  templateUrl: './sequence-detail.component.html'
+  templateUrl: './sequence-detail.component.html',
+  styleUrls: ['sequence-detail.component.css']
 })
 export class SequenceDetailComponent implements OnInit {
   private id: string;

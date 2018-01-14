@@ -2,32 +2,36 @@
   <div class="panel-heading">
     <div>{{sequence.trinityId}}</div>
   </div>
-  <div class="row fine-border-bot">
+  <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-      <h5>TrinityId:</h5>
+      <h4>TrinityId:</h4>
       <p>{{sequence.trinityId}}</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-      <h5>Families:</h5>
+      <h4>Families:</h4>
       <div *ngFor="let family of sequence.families">
         <a routerLink="/families/{{family.interproId}}">{{family.interproId}}</a>
       </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-      <h5>Length:</h5>
+      <h4>Length:</h4>
       <p>{{sequence.length}}</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-      <h5>Transcript:</h5>
-      <p style="overflow: auto">{{sequence.transcript}}</p>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+      <h4>Transcript:</h4>
+      <div class="long-text">{{sequence.transcript}}</div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-      <h5>Experiment:</h5>
-      <p style="overflow: auto">{{sequence.experiment}}</p>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+      <h4>Experiment:</h4>
+      <div class="long-text">{{sequence.experiment}}</div>
     </div>
   </div>
   <div class="panel-footer text-center">
     <button id="family" type="button" (click)="onSubmit()"
-            class="btn btn-primary">Download sequence</button>
+            class="btn btn-primary">Download sequence
+    </button>
   </div>
 </div>
+
