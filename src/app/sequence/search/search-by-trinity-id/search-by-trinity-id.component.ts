@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {SequenceService} from "../../sequence.service";
 import {Sequence} from "../../sequence";
 import {FastaDownloaderService} from "../../../file-downloader/fasta-downloader.service";
+import {Page} from "../../../pager/page";
 
 @Component({
   selector: 'app-search-by-trinity-id',
@@ -18,6 +19,8 @@ export class SearchByTrinityIdComponent implements OnInit {
   public errorMessage: '';
   public edited = false;
   public positions = [1,2,3,4,5,6,7,8,9];
+  public totalPages: number;
+  public pageIndex: number;
 
   constructor(private sequenceService: SequenceService,
               private fastaDownloaderService: FastaDownloaderService,
@@ -36,9 +39,11 @@ export class SearchByTrinityIdComponent implements OnInit {
     this.edited = false;
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId)
       .subscribe(
-        (sequences: Sequence[]) => {
-          this.sequences = sequences;
-          this.totalSequences = sequences.length;
+        (page: Page) => {
+          this.sequences = page.listOfElements;
+          this.totalSequences = page.totalElements;
+          this.totalPages = page.totalPages;
+          this.pageIndex = page.pageIndex;
           this.edited = true; },
         error => this.errorMessage = <any>error.message);
   }

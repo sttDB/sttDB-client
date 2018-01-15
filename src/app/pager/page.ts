@@ -1,10 +1,10 @@
 export class Page {
   listOfElements: any = [];
-  numberOfElements: number;
-  numberOfPages: number;
+  totalElements: number;
+  totalPages: number;
   pageIndex: number;
 
-  constructor(values: Object = {}){
+  constructor(values: Object = {}) {
     Object.assign(this, values);
   }
 }

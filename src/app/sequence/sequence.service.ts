@@ -6,6 +6,7 @@ import 'rxjs/add/observable/throw';
 import {Observable} from 'rxjs/Observable';
 import {Sequence} from './sequence';
 import {environment} from '../../environments/environment';
+import {Page} from "../pager/page";
 
 @Injectable()
 export class SequenceService {
@@ -21,9 +22,16 @@ export class SequenceService {
   }
 
   // GET /sequences /trinityIdLike
-  getSequencesByTrinityIdLike(trinityId: string): Observable<Sequence[]> {
+  getSequencesByTrinityIdLike(trinityId: string): Observable<Page> {
     return this.http.get(`${environment.API}/sequences/search/findByTrinityIdLike?trinityId=${trinityId}`)
-      .map((res: Response) => res.json()._embedded.sequences.map(json => new Sequence(json)))
+      .map((res: Response) => {
+        const page = {listOfElements: res.json()._embedded.sequences,
+                      numberOfElements: res.json().page.totalElements,
+                      numberOfPages: res.json().page.totalPages,
+                      pageIndex: res.json().page.number};
+        console.log(page);
+        return new Page(page);
+      })
       .catch((error: any) => Observable.throw(error.json()));
   }
 
