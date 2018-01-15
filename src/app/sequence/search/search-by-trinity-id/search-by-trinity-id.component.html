@@ -30,14 +30,29 @@
 </form>
 
 <div *ngIf="edited">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <h4 i18n>{ totalSequences, plural,
       =0 {There are no sequences with this transcript}
       =1 {There is 1 sequence with this transcript}
       other { There are {{totalSequences}} sequences with this transcript} }</h4>
-      <button id="family" type="button" (click)="onDownload()"
-              class="btn btn-primary">Download them as a fasta file</button>
   </div>
+  <div class="col-md-6">
+    <button id="family" type="button" (click)="onDownload()"
+            class="btn btn-primary">Download them as a fasta file</button>
+  </div>
+  <nav aria-label="Page navigation example" class="col-md-12">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <ng-container *ngFor="let position of positions">
+        <li class="page-item"><a class="page-link" href="#">{{position}}</a></li>
+      </ng-container>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
   <div class="row">
     <div class="panel-group col-md-12">
       <div class="panel panel-default" *ngFor="let sequence of sequences">

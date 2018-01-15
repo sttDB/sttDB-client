@@ -17,6 +17,7 @@ export class SearchByTrinityIdComponent implements OnInit {
   public trinityForm: FormGroup;
   public errorMessage: '';
   public edited = false;
+  public positions = [1,2,3,4,5,6,7,8,9];
 
   constructor(private sequenceService: SequenceService,
               private fastaDownloaderService: FastaDownloaderService,
