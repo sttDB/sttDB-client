@@ -26,8 +26,8 @@ export class SequenceService {
     return this.http.get(`${environment.API}/sequences/search/findByTrinityIdLike?trinityId=${trinityId}`)
       .map((res: Response) => {
         const page = {listOfElements: res.json()._embedded.sequences,
-                      numberOfElements: res.json().page.totalElements,
-                      numberOfPages: res.json().page.totalPages,
+                      totalElements: res.json().page.totalElements,
+                      totalPages: res.json().page.totalPages,
                       pageIndex: res.json().page.number};
         console.log(page);
         return new Page(page);
