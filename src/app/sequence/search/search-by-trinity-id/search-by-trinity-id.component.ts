@@ -43,7 +43,7 @@ export class SearchByTrinityIdComponent implements OnInit {
           this.sequences = page.listOfElements;
           this.totalSequences = page.totalElements;
           this.totalPages = page.totalPages;
-          this.pageIndex = page.pageIndex;
+          this.pageIndex = page.pageIndex + 1;
           this.edited = true; },
         error => this.errorMessage = <any>error.message);
   }
