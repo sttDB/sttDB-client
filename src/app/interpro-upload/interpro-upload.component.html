@@ -1,3 +1,9 @@
+<div *ngIf="uploader.isUploading" class="bg-danger alert-box">
+  <p class="text-uppercase text-center">The files is being uploaded. But it might take a while.
+    <br>
+    DO NOT CLOSE THE TAB.</p>
+</div>
+
 <h2>Upload interpro families for sequences</h2>
 <div class="bg-warning" style="padding: 1%">
   <p>
@@ -51,6 +57,7 @@
       </td>
       <td class="text-center">
         <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+        <span *ngIf="item.isUploading"><i class="glyphicon glyphicon-time text-warning"></i></span>
         <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle text-warning"></i></span>
         <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
       </td>
