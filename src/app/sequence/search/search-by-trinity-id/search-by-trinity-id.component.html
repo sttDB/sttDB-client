@@ -46,8 +46,8 @@
         <a class="page-link" href="#" tabindex="-1">Previous</a>
       </li>
       <ng-container *ngFor="let position of positions">
-        <li class="page-item active" *ngIf="position == pageIndex"><a class="page-link" href="#">{{position}}</a></li>
-        <li class="page-item" *ngIf="position != pageIndex"><a class="page-link" href="#">{{position}}</a></li>
+        <li class="page-item active" *ngIf="position == pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
+        <li class="page-item" *ngIf="position != pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
       </ng-container>
       <li class="page-item">
         <a class="page-link" href="#">Next</a>
@@ -61,7 +61,7 @@
           <div class="col-md-4">
             <h4>Sequence: <a routerLink="/sequences/{{sequence.trinityId}}">{{sequence.trinityId}}</a></h4>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-8">
             <h5>Experiment: {{sequence.experiment}}</h5>
           </div>
         </div>

@@ -12,6 +12,7 @@ import {Page} from "../../../pager/page";
   styleUrls: ['./search-by-trinity-id.component.css']
 })
 export class SearchByTrinityIdComponent implements OnInit {
+
   public sequences: Sequence[] = [];
   public totalSequences = 0;
   public trinityId: string;
@@ -37,18 +38,44 @@ export class SearchByTrinityIdComponent implements OnInit {
 
   onSubmit() {
     this.edited = false;
-    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId)
+    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, 0)
       .subscribe(
         (page: Page) => {
           this.sequences = page.listOfElements;
           this.totalSequences = page.totalElements;
           this.totalPages = page.totalPages;
           this.pageIndex = page.pageIndex + 1;
-          this.edited = true; },
+          this.edited = true;
+          this.positions = this.getPaginating(this.pageIndex + 1)},
         error => this.errorMessage = <any>error.message);
   }
 
   onDownload() {
     this.fastaDownloaderService.createFasta(this.trinityId, "");
+  }
+
+  rePage(wantedPage: number): void {
+    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage - 1)
+      .subscribe(
+        (page: Page) => {
+          this.sequences = page.listOfElements;
+          this.totalSequences = page.totalElements;
+          this.totalPages = page.totalPages;
+          this.pageIndex = page.pageIndex + 1;
+          this.positions = this.getPaginating(this.pageIndex + 1);
+        },
+        error => this.errorMessage = <any>error.message);
+  }
+
+  getPaginating(pageIndex: number): number[] {
+    return pageIndex - 5 < 1 ?  this.createArrayIndex(1) : this.createArrayIndex(pageIndex - 5);
+  }
+
+  createArrayIndex(firstNumber: number): number[] {
+    let pageIndexes = [];
+    for(let i = firstNumber; i<firstNumber+9 && i<this.totalPages; i++){
+      pageIndexes.push(i);
+    }
+    return pageIndexes;
   }
 }
