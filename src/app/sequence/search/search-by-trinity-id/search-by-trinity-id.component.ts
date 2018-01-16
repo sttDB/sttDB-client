@@ -73,7 +73,7 @@ export class SearchByTrinityIdComponent implements OnInit {
 
   createArrayIndex(firstNumber: number): number[] {
     let pageIndexes = [];
-    for(let i = firstNumber; i<firstNumber+9 && i<this.totalPages; i++){
+    for(let i = firstNumber; i<firstNumber+9 && i<this.totalPages+1; i++){
       pageIndexes.push(i);
     }
     return pageIndexes;
