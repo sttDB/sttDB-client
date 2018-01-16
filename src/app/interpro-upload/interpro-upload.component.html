@@ -1,7 +1,13 @@
-<div *ngIf="uploader.isUploading" class="bg-danger alert-box">
+<div *ngIf="uploader.isUploading" class="bg-warning alert-box">
   <p class="text-uppercase text-center">The files is being uploaded. But it might take a while.
     <br>
     DO NOT CLOSE THE TAB.</p>
+</div>
+
+<div *ngFor="let item of uploader.queue">
+  <div *ngIf="item?.isError" class="bg-danger alert-box">
+    Error uploading the file: "{{item?.file?.name}}
+  </div>
 </div>
 
 <h2>Upload interpro families for sequences</h2>
