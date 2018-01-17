@@ -38,7 +38,8 @@
   </div>
   <div class="col-md-6">
     <button id="family" type="button" (click)="onDownload()"
-            class="btn btn-primary">Download them as a fasta file</button>
+            class="btn btn-primary">Download them as a fasta file
+    </button>
   </div>
   <nav aria-label="Page navigation example" class="col-md-12">
     <ul class="pagination justify-content-center">
@@ -46,8 +47,10 @@
         <a class="page-link" (click)="rePage(page.pageIndex - 1)" tabindex="-1">Previous</a>
       </li>
       <ng-container *ngFor="let position of positions">
-        <li class="page-item active" *ngIf="position == page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
-        <li class="page-item" *ngIf="position != page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
+        <li class="page-item active" *ngIf="position == page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a>
+        </li>
+        <li class="page-item" *ngIf="position != page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a>
+        </li>
       </ng-container>
       <li class="page-item">
         <a class="page-link" (click)="rePage(page.pageIndex + 1)">Next</a>
@@ -59,7 +62,8 @@
       <div class="panel panel-default" *ngFor="let sequence of page.listOfElements">
         <div class="panel-body">
           <div class="col-md-4">
-            <h4>Sequence: <a routerLink="/sequences/{{sequence.trinityId}}/{{sequence.experiment}}">{{sequence.trinityId}}</a></h4>
+            <h4>Sequence: <a routerLink="/sequences/{{sequence.trinityId}}/{{sequence.experiment}}">{{sequence.trinityId}}</a>
+            </h4>
           </div>
           <div class="col-md-8">
             <h5>Experiment: {{sequence.experiment}}</h5>

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SequenceService} from "../../sequence.service";
-import {Sequence} from "../../sequence";
 import {FastaDownloaderService} from "../../../file-downloader/fasta-downloader.service";
 import {Page} from "../../../pager/page";
 
@@ -41,7 +40,8 @@ export class SearchByTrinityIdComponent implements OnInit {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
           this.positions = this.page.getPaginating(this.page.pageIndex + 1);
-          this.edited = true;},
+          this.edited = true;
+        },
         error => this.errorMessage = <any>error.message);
   }
 
@@ -50,9 +50,9 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   rePage(wantedPage: number): void {
-    if(wantedPage < 1){
+    if (wantedPage < 1) {
       wantedPage = 1;
-    }else if(wantedPage > this.page.totalPages - 1){
+    } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage - 1)
@@ -61,7 +61,8 @@ export class SearchByTrinityIdComponent implements OnInit {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
           this.positions = this.page.getPaginating(this.page.pageIndex + 1);
-          this.edited = true;},
+          this.edited = true;
+        },
         error => this.errorMessage = <any>error.message);
   }
 

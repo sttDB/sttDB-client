@@ -9,8 +9,10 @@
       <a class="page-link" (click)="rePage(page.pageIndex - 1)" tabindex="-1">Previous</a>
     </li>
     <ng-container *ngFor="let position of positions">
-      <li class="page-item active" *ngIf="position == page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
-      <li class="page-item" *ngIf="position != page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
+      <li class="page-item active" *ngIf="position == page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a>
+      </li>
+      <li class="page-item" *ngIf="position != page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a>
+      </li>
     </ng-container>
     <li class="page-item">
       <a class="page-link" (click)="rePage(page.pageIndex + 1)">Next</a>

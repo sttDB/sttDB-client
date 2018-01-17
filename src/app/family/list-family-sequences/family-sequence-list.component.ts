@@ -1,14 +1,13 @@
 import {Component} from '@angular/core';
 import {FamilyService} from '../family.service';
 import {ActivatedRoute} from '@angular/router';
-import {Sequence} from "../../sequence/sequence";
 import {Page} from "../../pager/page";
 
 @Component({
   selector: 'app-family-sequence-list',
   templateUrl: './family-sequence-list.component.html'
 })
-export class FamilyListSequencesComponent{
+export class FamilyListSequencesComponent {
   private id: string;
   public errorMessage: string;
   public positions = [];
@@ -25,7 +24,8 @@ export class FamilyListSequencesComponent{
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex + 1);},
+          this.positions = this.page.getPaginating(this.page.pageIndex + 1);
+        },
         error => this.errorMessage = <any>error.message);
   }
 
@@ -35,9 +35,9 @@ export class FamilyListSequencesComponent{
   }
 
   rePage(wantedPage: number): void {
-    if(wantedPage < 1){
+    if (wantedPage < 1) {
       wantedPage = 1;
-    }else if(wantedPage > this.page.totalPages - 1){
+    } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
     this.familyService.getFamilySequences(this.id, wantedPage - 1)
@@ -45,7 +45,8 @@ export class FamilyListSequencesComponent{
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex + 1);},
+          this.positions = this.page.getPaginating(this.page.pageIndex + 1);
+        },
         error => this.errorMessage = <any>error.message);
   }
 
