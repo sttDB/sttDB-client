@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Sequence} from "../sequence";
 import {SequenceService} from "../sequence.service";
 import {FastaDownloaderService} from "../../file-downloader/fasta-downloader.service";
+import {Family} from "../../family/family";
 
 @Component({
   selector: 'app-sequence-detail',
@@ -24,7 +25,18 @@ export class SequenceDetailComponent implements OnInit {
     this.id = this.route.params['_value']['id'];
     this.experiment = this.route.params['_value']['experiment'];
     this.sequenceService.getSequencesByTrinityIdAndExperiment(`${this.id}`, `${this.experiment}`).subscribe(
-      sequence => this.sequence = sequence,
+      sequence => {
+        this.sequence = sequence[0];
+        this.insertFamilies();
+      },
+      error => this.errorMessage = <any>error.message);
+  }
+
+  private insertFamilies() {
+    this.sequenceService.getSequenceFamilies(this.sequence._links.families.href).subscribe(
+      (families: Family[]) => {
+        this.sequence.families = families;
+      },
       error => this.errorMessage = <any>error.message);
   }
 

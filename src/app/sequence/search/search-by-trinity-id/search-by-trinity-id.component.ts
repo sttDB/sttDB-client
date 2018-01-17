@@ -45,8 +45,8 @@ export class SearchByTrinityIdComponent implements OnInit {
           this.totalSequences = page.totalElements;
           this.totalPages = page.totalPages;
           this.pageIndex = page.pageIndex + 1;
-          this.edited = true;
-          this.positions = this.getPaginating(this.pageIndex + 1)},
+          this.positions = this.getPaginating(this.pageIndex + 1);
+          this.edited = true;},
         error => this.errorMessage = <any>error.message);
   }
 
