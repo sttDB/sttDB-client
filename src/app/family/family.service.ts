@@ -7,6 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import {Family} from './family';
 import {environment} from '../../environments/environment';
 import {Sequence} from '../sequence/sequence';
+import {Page} from '../pager/page';
 
 @Injectable()
 export class FamilyService {
@@ -16,14 +17,21 @@ export class FamilyService {
 
   // GET /families /interproId
   getFamilyByInterproId(interproId: string): Observable<Family> {
-    return this.http.get(`${environment.API}/families/search/findByInterproId?interproId=${interproId}`)
+    return this.http.get(`${environment.API}/families/${interproId}`)
       .map((res: Response) => new Family(res.json()))
       .catch((error: any) => Observable.throw(error.json()));
   }
 
-  getFamilySequences(interproId: string): Observable<Sequence[]> {
-    return this.http.get(`${environment.API}/families/${interproId}/sequences`)
-      .map((res: Response) => res.json()._embedded.sequences.map((json) => new Sequence(json)))
+  getFamilySequences(interproId: string): Observable<Page> {
+    return this.http.get(`${environment.API}/families/?interproId=${interproId}/sequences?page=${0}`)
+      .map((res: Response) => {
+        const page = {listOfElements: res.json()._embedded.sequences,
+          totalElements: res.json().page.totalElements,
+          totalPages: res.json().page.totalPages,
+          pageIndex: res.json().page.number};
+        return new Page(page);
+      })
       .catch((error: any) => Observable.throw(error.json()));
+
   }
 }
