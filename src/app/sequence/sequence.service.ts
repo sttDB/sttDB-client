@@ -7,6 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import {Sequence} from './sequence';
 import {environment} from '../../environments/environment';
 import {Page} from "../pager/page";
+import {Family} from "../family/family";
 
 @Injectable()
 export class SequenceService {
@@ -14,10 +15,10 @@ export class SequenceService {
   constructor(private http: Http) {
   }
 
-  // GET /sequences /trinityId
-  getSequencesByTrinityId(trinityId: string): Observable<Sequence[]> {
-    return this.http.get(`${environment.API}/sequences/search/findByTrinityId?trinityId=${trinityId}`)
-      .map((res: Response) => res.json()._embedded.sequences.map(json => new Sequence(json)))
+  // GET /sequences /trinityId /experiment
+  getSequencesByTrinityIdAndExperiment(trinityId: string, experiment: string): Observable<Sequence> {
+    return this.http.get(`${environment.API}/sequences/search/findByTrinityId?trinityId=${trinityId}&experiment=${experiment}`)
+      .map((res: Response) => new Sequence(res.json()))
       .catch((error: any) => Observable.throw(error.json()));
   }
 
@@ -38,6 +39,12 @@ export class SequenceService {
   getSequence(id: string) {
     return this.http.get(`${environment.API}/sequences/${id}`)
       .map((res: Response) => new Sequence(res.json()))
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
+  getSequenceFamilies(url: string): Observable<Family[]> {
+    return this.http.get(`${url}`)
+      .map((res: Response) => console.log(res))
       .catch((error: any) => Observable.throw(error.json()));
   }
 }

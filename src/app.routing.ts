@@ -14,7 +14,7 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'search/by-id', component: SearchByTrinityIdComponent},
   // {path: 'search/by-family', component: SearchByFamilyComponent},
-  {path: 'sequences/:id', component: SequenceDetailComponent},
+  {path: 'sequences/:id/:experiment', component: SequenceDetailComponent},
   {path: 'families/:id', component: FamilyDetailComponent},
   {path: 'families/:id/sequences', component: FamilyListSequencesComponent},
   // Should add path 'upload' as entry point for other upload options
