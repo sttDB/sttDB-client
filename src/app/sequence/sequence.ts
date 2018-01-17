@@ -11,6 +11,7 @@ export class Sequence {
   experiment: string;
   length: number;
   _links: any = {};
+  _embedded: any = {};
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

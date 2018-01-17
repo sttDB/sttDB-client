@@ -27,15 +27,6 @@ export class SequenceDetailComponent implements OnInit {
     this.sequenceService.getSequencesByTrinityIdAndExperiment(`${this.id}`, `${this.experiment}`).subscribe(
       sequence => {
         this.sequence = sequence[0];
-        this.insertFamilies();
-      },
-      error => this.errorMessage = <any>error.message);
-  }
-
-  private insertFamilies() {
-    this.sequenceService.getSequenceFamilies(this.sequence._links.families.href).subscribe(
-      (families: Family[]) => {
-        this.sequence.families = families;
       },
       error => this.errorMessage = <any>error.message);
   }
