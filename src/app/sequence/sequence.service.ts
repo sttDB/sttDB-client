@@ -16,9 +16,9 @@ export class SequenceService {
   }
 
   // GET /sequences /trinityId /experiment
-  getSequencesByTrinityIdAndExperiment(trinityId: string, experiment: string): Observable<Sequence> {
+  getSequencesByTrinityIdAndExperiment(trinityId: string, experiment: string): Observable<Sequence[]> {
     return this.http.get(`${environment.API}/sequences/search/findByTrinityId?trinityId=${trinityId}&experiment=${experiment}`)
-      .map((res: Response) => new Sequence(res.json()))
+      .map((res: Response) => res.json()._embedded.sequences.map(json => new Sequence(json)))
       .catch((error: any) => Observable.throw(error.json()));
   }
 
@@ -44,7 +44,7 @@ export class SequenceService {
 
   getSequenceFamilies(url: string): Observable<Family[]> {
     return this.http.get(`${url}`)
-      .map((res: Response) => console.log(res))
+      .map((res: Response) => res.json()._embedded.families.map(json => new Family(json)))
       .catch((error: any) => Observable.throw(error.json()));
   }
 }

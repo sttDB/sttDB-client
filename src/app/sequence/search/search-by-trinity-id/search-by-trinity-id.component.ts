@@ -58,7 +58,7 @@ export class SearchByTrinityIdComponent implements OnInit {
     if(wantedPage < 1){
       wantedPage = 1;
     }else if(wantedPage > this.totalPages - 1){
-      wantedPage = this.totalPages - 1;
+      wantedPage = this.totalPages;
     }
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage - 1)
       .subscribe(
