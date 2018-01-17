@@ -10,12 +10,8 @@ import {Page} from "../../pager/page";
 })
 export class FamilyListSequencesComponent{
   private id: string;
-  public sequences: Sequence[];
-  public totalSequences = 0;
   public errorMessage: string;
   public positions = [];
-  public totalPages: number;
-  public pageIndex: number;
   public page: Page;
 
   constructor(private route: ActivatedRoute,
