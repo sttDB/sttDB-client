@@ -1,15 +1,13 @@
 <div *ngFor="let item of uploader.queue">
-  <div *ngIf="item?.isError" class="bg-danger alert-box">
+  <h3><div *ngIf="item?.isError" class="bg-danger alert-box">
     Error uploading the file: "{{item?.file?.name}}
-  </div>
+  </div></h3>
 </div>
-<div *ngFor="let item of uploader.queue">
-  <div *ngIf="item?.isUploaded" class="bg-success alert-box">
-    The file "{{item?.file?.name}} has been uploaded but the server is still working.
-    <br>
-    You can close the tab.
-  </div>
+<div *ngIf="uploader.progress === 100" class="bg-success alert-box">
+  <h4>The files have been uploaded but the server is still working.
+  <br>You can close the tab.</h4>
 </div>
+
 
 <h2>Upload interpro families for sequences</h2>
 <div class="bg-warning" style="padding: 1%">
