@@ -3,6 +3,10 @@
     Error uploading the file: "{{item?.file?.name}}
   </div>
 </div>
+<div *ngIf="uploader.progress === 100" class="bg-success alert-box">
+  <h4>The files have been uploaded but the server is still working.
+    <br>You can close the tab.</h4>
+</div>
 
 <h2 class="">Upload data to the server</h2>
 <p class="text-info">

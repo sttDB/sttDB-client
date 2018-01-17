@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Sequence} from "../sequence";
 import {SequenceService} from "../sequence.service";
 import {FastaDownloaderService} from "../../file-downloader/fasta-downloader.service";
+import {Family} from "../../family/family";
 
 @Component({
   selector: 'app-sequence-detail',
@@ -11,6 +12,7 @@ import {FastaDownloaderService} from "../../file-downloader/fasta-downloader.ser
 })
 export class SequenceDetailComponent implements OnInit {
   private id: string;
+  private experiment: string;
   public sequence: Sequence = new Sequence();
   public errorMessage: string;
 
@@ -21,8 +23,11 @@ export class SequenceDetailComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.params['_value']['id'];
-    this.sequenceService.getSequencesByTrinityId(`${this.id}`).subscribe(
-      sequences => this.sequence = sequences[0],
+    this.experiment = this.route.params['_value']['experiment'];
+    this.sequenceService.getSequencesByTrinityIdAndExperiment(`${this.id}`, `${this.experiment}`).subscribe(
+      sequence => {
+        this.sequence = sequence[0];
+      },
       error => this.errorMessage = <any>error.message);
   }
 

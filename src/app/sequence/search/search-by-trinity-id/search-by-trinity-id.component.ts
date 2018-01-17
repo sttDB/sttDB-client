@@ -19,7 +19,7 @@ export class SearchByTrinityIdComponent implements OnInit {
   public trinityForm: FormGroup;
   public errorMessage: '';
   public edited = false;
-  public positions = [1,2,3,4,5,6,7,8,9];
+  public positions = [];
   public totalPages: number;
   public pageIndex: number;
 
@@ -45,8 +45,8 @@ export class SearchByTrinityIdComponent implements OnInit {
           this.totalSequences = page.totalElements;
           this.totalPages = page.totalPages;
           this.pageIndex = page.pageIndex + 1;
-          this.edited = true;
-          this.positions = this.getPaginating(this.pageIndex + 1)},
+          this.positions = this.getPaginating(this.pageIndex + 1);
+          this.edited = true;},
         error => this.errorMessage = <any>error.message);
   }
 
@@ -55,6 +55,11 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   rePage(wantedPage: number): void {
+    if(wantedPage < 1){
+      wantedPage = 1;
+    }else if(wantedPage > this.totalPages - 1){
+      wantedPage = this.totalPages;
+    }
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage - 1)
       .subscribe(
         (page: Page) => {

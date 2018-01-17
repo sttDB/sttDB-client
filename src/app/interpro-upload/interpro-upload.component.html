@@ -1,14 +1,13 @@
-<div *ngIf="uploader.isUploading" class="bg-warning alert-box">
-  <p class="text-uppercase text-center">The files is being uploaded. But it might take a while.
-    <br>
-    DO NOT CLOSE THE TAB.</p>
+<div *ngFor="let item of uploader.queue">
+  <h3><div *ngIf="item?.isError" class="bg-danger alert-box">
+    Error uploading the file: "{{item?.file?.name}}
+  </div></h3>
+</div>
+<div *ngIf="uploader.progress === 100" class="bg-success alert-box">
+  <h4>The files have been uploaded but the server is still working.
+  <br>You can close the tab.</h4>
 </div>
 
-<div *ngFor="let item of uploader.queue">
-  <div *ngIf="item?.isError" class="bg-danger alert-box">
-    Error uploading the file: "{{item?.file?.name}}
-  </div>
-</div>
 
 <h2>Upload interpro families for sequences</h2>
 <div class="bg-warning" style="padding: 1%">
@@ -31,13 +30,12 @@
   </table>
 </div>
 
-<div class="col-md-3">
-
+<div>
   <h3>Select files</h3>
   <input type="file" ng2FileSelect [uploader]="uploader"/>
 </div>
 
-<div class="col-md-9" style="margin-bottom: 40px">
+<div class="row" style="margin-bottom: 40px">
 
   <h3>Upload queue</h3>
   <p>Queue length: {{ uploader?.queue?.length }}</p>
