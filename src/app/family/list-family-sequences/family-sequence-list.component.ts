@@ -16,6 +16,7 @@ export class FamilyListSequencesComponent{
   public positions = [];
   public totalPages: number;
   public pageIndex: number;
+  public page: Page;
 
   constructor(private route: ActivatedRoute,
               private familyService: FamilyService) {
@@ -26,11 +27,9 @@ export class FamilyListSequencesComponent{
     this.familyService.getFamilySequences(this.id, 0)
       .subscribe(
         (page: Page) => {
-          this.sequences = page.listOfElements;
-          this.totalSequences = page.totalElements;
-          this.totalPages = page.totalPages;
-          this.pageIndex = page.pageIndex + 1;
-          this.positions = this.getPaginating(this.pageIndex + 1)},
+          this.page = page;
+          this.page.pageIndex = page.pageIndex + 1;
+          this.positions = this.page.getPaginating(this.page.pageIndex + 1);},
         error => this.errorMessage = <any>error.message);
   }
 
@@ -42,30 +41,16 @@ export class FamilyListSequencesComponent{
   rePage(wantedPage: number): void {
     if(wantedPage < 1){
       wantedPage = 1;
-    }else if(wantedPage > this.totalPages - 1){
-      wantedPage = this.totalPages;
+    }else if(wantedPage > this.page.totalPages - 1){
+      wantedPage = this.page.totalPages;
     }
     this.familyService.getFamilySequences(this.id, wantedPage - 1)
       .subscribe(
         (page: Page) => {
-          this.sequences = page.listOfElements;
-          this.totalSequences = page.totalElements;
-          this.totalPages = page.totalPages;
-          this.pageIndex = page.pageIndex + 1;
-          this.positions = this.getPaginating(this.pageIndex + 1);
-        },
+          this.page = page;
+          this.page.pageIndex = page.pageIndex + 1;
+          this.positions = this.page.getPaginating(this.page.pageIndex + 1);},
         error => this.errorMessage = <any>error.message);
   }
 
-  getPaginating(pageIndex: number): number[] {
-    return pageIndex - 5 < 1 ?  this.createArrayIndex(1) : this.createArrayIndex(pageIndex - 5);
-  }
-
-  createArrayIndex(firstNumber: number): number[] {
-    let pageIndexes = [];
-    for(let i = firstNumber; i<firstNumber+9 && i<this.totalPages+1; i++){
-      pageIndexes.push(i);
-    }
-    return pageIndexes;
-  }
 }
