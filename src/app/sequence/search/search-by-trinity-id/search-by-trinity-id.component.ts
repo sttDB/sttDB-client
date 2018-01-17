@@ -55,6 +55,11 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   rePage(wantedPage: number): void {
+    if(wantedPage < 1){
+      wantedPage = 1;
+    }else if(wantedPage > this.totalPages - 1){
+      wantedPage = this.totalPages - 1;
+    }
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage - 1)
       .subscribe(
         (page: Page) => {

@@ -22,16 +22,15 @@ export class FamilyService {
       .catch((error: any) => Observable.throw(error.json()));
   }
 
-  getFamilySequences(interproId: string): Observable<Page> {
-    return this.http.get(`${environment.API}/families/?interproId=${interproId}/sequences?page=${0}`)
+  getFamilySequences(interproId: string, pageNumber: number): Observable<Page> {
+    return this.http.get(`${environment.API}/families/${interproId}/sequences?page=${pageNumber}`)
       .map((res: Response) => {
-        const page = {listOfElements: res.json()._embedded.sequences,
-          totalElements: res.json().page.totalElements,
-          totalPages: res.json().page.totalPages,
-          pageIndex: res.json().page.number};
+        const page = {listOfElements: res.json().content,
+          totalElements: res.json().totalElements,
+          totalPages: res.json().totalPages,
+          pageIndex: res.json().number};
         return new Page(page);
       })
       .catch((error: any) => Observable.throw(error.json()));
-
   }
 }

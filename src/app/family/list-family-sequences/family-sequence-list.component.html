@@ -5,6 +5,21 @@
 <button id="family" type="button" (click)="onDownload()"
         class="btn btn-primary">Download them as a fasta file</button>
 
+<nav aria-label="Page navigation example" class="col-md-12">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" (click)="rePage(pageIndex - 1)" tabindex="-1">Previous</a>
+    </li>
+    <ng-container *ngFor="let position of positions">
+      <li class="page-item active" *ngIf="position == pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
+      <li class="page-item" *ngIf="position != pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a></li>
+    </ng-container>
+    <li class="page-item">
+      <a class="page-link" (click)="rePage(pageIndex + 1)">Next</a>
+    </li>
+  </ul>
+</nav>
+
 <div class="row">
   <div class="panel-group col-md-12">
     <div class="panel panel-default" *ngFor="let sequence of sequences">
