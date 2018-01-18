@@ -32,6 +32,6 @@ export class SequenceDetailComponent implements OnInit {
   }
 
   onSubmit() {
-    this.fastaDownloaderService.createFasta(this.sequence.trinityId, this.sequence.experiment);
+    this.fastaDownloaderService.createFasta(this.sequence.trinityId, this.sequence.experiment.name);
   }
 }
