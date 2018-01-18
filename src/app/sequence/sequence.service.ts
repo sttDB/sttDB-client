@@ -17,22 +17,22 @@ export class SequenceService {
 
   // GET /sequences /trinityId /experiment
   getSequencesByTrinityIdAndExperiment(trinityId: string, experiment: string): Observable<Sequence[]> {
-    return this.http.get(`${environment.API}/sequences/search/findByTrinityId?trinityId=${trinityId}&experiment=${experiment}`)
-      .map((res: Response) => res.json()._embedded.sequences.map(json => new Sequence(json)))
+    return this.http.get(`${environment.API}/sequences?trinityId=${trinityId}&experiment=${experiment}`)
+      .map((res: Response) => res.json().content.map(json => new Sequence(json)))
       .catch((error: any) => Observable.throw(error.json()));
   }
 
   // GET /sequences /trinityIdLike
   getSequencesByTrinityIdLike(trinityId: string, pageNumber: number): Observable<Page> {
-    return this.http.get(`${environment.API}/sequences/search/findByTrinityIdLike?trinityId=${trinityId}&page=${pageNumber}`)
+    return this.http.get(`${environment.API}/sequences?trinityId=${trinityId}&page=${pageNumber}`)
       .map((res: Response) => {
-        const page = {listOfElements: res.json()._embedded.sequences,
-                      totalElements: res.json().page.totalElements,
-                      totalPages: res.json().page.totalPages,
-                      pageIndex: res.json().page.number};
+        const page = {listOfElements: res.json().content,
+          totalElements: res.json().totalElements,
+          totalPages: res.json().totalPages,
+          pageIndex: res.json().number};
         return new Page(page);
       })
-      .catch((error: any) => Observable.throw(error.json()));
+      .catch((error: any) => Observable.throw(error));
   }
 
   // GET /sequences /id
@@ -44,7 +44,7 @@ export class SequenceService {
 
   getSequenceFamilies(url: string): Observable<Family[]> {
     return this.http.get(`${url}`)
-      .map((res: Response) => res.json()._embedded.families.map(json => new Family(json)))
+      .map((res: Response) => res.json().content.map(json => new Family(json)))
       .catch((error: any) => Observable.throw(error.json()));
   }
 }
