@@ -24,7 +24,7 @@ export class SearchByTrinityIdComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router) {
     this.trinityForm = fb.group({
-      'trinity-id': ['Administrator username']
+      'trinity-id': ['Sequence attribute']
     });
   }
 
