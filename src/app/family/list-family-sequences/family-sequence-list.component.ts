@@ -24,7 +24,7 @@ export class FamilyListSequencesComponent {
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex + 1);
+          this.positions = this.page.getPaginating(this.page.pageIndex);
         },
         error => this.errorMessage = <any>error.message);
   }
@@ -45,7 +45,7 @@ export class FamilyListSequencesComponent {
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex + 1);
+          this.positions = this.page.getPaginating(this.page.pageIndex);
         },
         error => this.errorMessage = <any>error.message);
   }
