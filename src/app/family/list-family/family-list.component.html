@@ -1,0 +1,70 @@
+<h2>Query families using a key word of their description.</h2>
+
+<form id="family-form" [formGroup]="familyForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+
+    <!-- Text input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="keyword">Key word</label>
+      <input id="keyword" type="text" class="form-control input-md"
+             [formControl]="familyForm.controls['keyword']"
+             [(ngModel)]="keyword"/>
+    </div>
+
+    <div *ngIf="errorMessage" class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="label-danger col-md-9">{{ errorMessage }}</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <button id="submit-trinity-id" type="submit"
+                class="btn btn-success pull-right">Submit
+        </button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+
+<div *ngIf="edited">
+  <div class="col-md-6">
+    <h4>{ page.totalElements, plural,
+      =0 {There are no sequences with this transcript}
+      =1 {There is 1 sequence with this transcript}
+      other { There are {{page.totalElements}} sequences with this transcript} }</h4>
+  </div>
+  <nav aria-label="Page navigation" class="col-md-12">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" (click)="rePage(page.pageIndex - 1)" tabindex="-1">Previous</a>
+      </li>
+      <ng-container *ngFor="let position of positions">
+        <li class="page-item active" *ngIf="position == page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a>
+        </li>
+        <li class="page-item" *ngIf="position != page.pageIndex"><a class="page-link" (click)="rePage(position)">{{position}}</a>
+        </li>
+      </ng-container>
+      <li class="page-item">
+        <a class="page-link" (click)="rePage(page.pageIndex + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="row">
+    <div class="panel-group col-md-12">
+      <div class="panel panel-default" *ngFor="let family of page.listOfElements">
+        <div class="panel-body">
+          <div class="col-md-4">
+            <h4>InterproId: <a routerLink="/families/{{family.interproId}}">{{family.interproId}}</a>
+            </h4>
+          </div>
+          <div class="col-md-8">
+            <h5>Description: {{family.description}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
