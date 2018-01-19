@@ -9,7 +9,7 @@ export class Sequence {
   specie: string;
   transcript: string;
   families: Family[];
-  experiment: Experiment;
+  experiment: string;
   length: number;
   _links: any = {};
   _embedded: any = {};

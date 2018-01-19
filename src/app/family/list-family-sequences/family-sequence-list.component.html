@@ -25,10 +25,10 @@
     <div class="panel panel-default" *ngFor="let sequence of page.listOfElements">
       <div class="panel-body">
         <div class="col-md-4">
-          <h4>Sequence: <a routerLink="/sequences/{{sequence.trinityId}}/{{sequence.experiment.name}}">{{sequence.trinityId}}</a></h4>
+          <h4>Sequence: <a routerLink="/sequences/{{sequence.trinityId}}/{{sequence.experiment}}">{{sequence.trinityId}}</a></h4>
         </div>
         <div class="col-md-4">
-          <h5>Experiment: {{sequence.experiment.name}}</h5>
+          <h5>Experiment: {{sequence.experiment}}</h5>
         </div>
       </div>
     </div>
