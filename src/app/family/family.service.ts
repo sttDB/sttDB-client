@@ -33,4 +33,16 @@ export class FamilyService {
       })
       .catch((error: any) => Observable.throw(error.json()));
   }
+
+  getFamilyByDescription(keyword: string, pageNumber: number): Observable<Page> {
+    return this.http.get(`${environment.API}/families?descriptionKeyword=${keyword}&page=${pageNumber}`)
+      .map((res: Response) => {
+        const page = {listOfElements: res.json().content,
+          totalElements: res.json().totalElements,
+          totalPages: res.json().totalPages,
+          pageIndex: res.json().number};
+        return new Page(page);
+      })
+      .catch((error: any) => Observable.throw(error.json()));
+  }
 }
