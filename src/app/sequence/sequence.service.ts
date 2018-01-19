@@ -16,9 +16,9 @@ export class SequenceService {
   }
 
   // GET /sequences /trinityId /experiment
-  getSequencesByTrinityIdAndExperiment(trinityId: string, experiment: string): Observable<Sequence[]> {
+  getSequencesByTrinityIdAndExperiment(trinityId: string, experiment: string): Observable<Sequence> {
     return this.http.get(`${environment.API}/sequences?trinityId=${trinityId}&experiment=${experiment}`)
-      .map((res: Response) => res.json().content.map(json => new Sequence(json)))
+      .map((res: Response) => {return new Sequence(res.json()['0'])})
       .catch((error: any) => Observable.throw(error.json()));
   }
 
