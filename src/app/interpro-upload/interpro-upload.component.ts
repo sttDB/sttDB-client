@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FileUploader} from 'ng2-file-upload';
+import {Component, OnInit} from '@angular/core';
+import {FileItem, FileUploader, FileUploaderOptions} from 'ng2-file-upload';
 import {environment} from '../../environments/environment';
 
 @Component({
@@ -11,9 +11,17 @@ export class InterproUploadComponent implements OnInit {
 
   uploader = new FileUploader({url: `${environment.API}/upload/interpro`});
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  upload(item: FileItem) {
+    let options: FileUploaderOptions = {};
+    options.headers = [{name: 'experiment', value: 'Trinity_primitive_output.fasta'}];
+    this.uploader.setOptions(options);
+    item.upload()
   }
 
 }

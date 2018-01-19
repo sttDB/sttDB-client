@@ -33,13 +33,12 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   onSubmit() {
-    this.edited = false;
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, 0)
       .subscribe(
         (page: Page) => {
-          this.page = page;
+          this.page = new Page(page);
           this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex + 1);
+          this.positions = this.page.getPaginating(this.page.pageIndex);
           this.edited = true;
         },
         error => this.errorMessage = <any>error.message);
@@ -60,7 +59,7 @@ export class SearchByTrinityIdComponent implements OnInit {
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex + 1);
+          this.positions = this.page.getPaginating(this.page.pageIndex);
           this.edited = true;
         },
         error => this.errorMessage = <any>error.message);
