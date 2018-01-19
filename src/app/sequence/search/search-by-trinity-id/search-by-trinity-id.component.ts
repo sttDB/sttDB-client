@@ -33,6 +33,7 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   onSubmit() {
+    this.edited = false;
     this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, 0)
       .subscribe(
         (page: Page) => {
