@@ -31,7 +31,7 @@
 
 <div *ngIf="edited">
   <div class="col-md-6">
-    <h4 i18n>{ totalSequences, plural,
+    <h4>{ page.totalElements, plural,
       =0 {There are no sequences with this transcript}
       =1 {There is 1 sequence with this transcript}
       other { There are {{page.totalElements}} sequences with this transcript} }</h4>
@@ -41,7 +41,7 @@
             class="btn btn-primary">Download them as a fasta file
     </button>
   </div>
-  <nav aria-label="Page navigation example" class="col-md-12">
+  <nav aria-label="Page navigation" class="col-md-12">
     <ul class="pagination justify-content-center">
       <li class="page-item">
         <a class="page-link" (click)="rePage(page.pageIndex - 1)" tabindex="-1">Previous</a>
