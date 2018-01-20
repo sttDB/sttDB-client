@@ -1,5 +1,6 @@
 <h2>Query sequences using the Trinity ID</h2>
 
+<div class="col-md-12">
 <form id="trinity-form" [formGroup]="trinityForm" (ngSubmit)="onSubmit()">
   <fieldset>
 
@@ -28,6 +29,7 @@
 
   </fieldset>
 </form>
+</div>
 
 <div *ngIf="edited">
   <div class="col-md-6">
