@@ -11,10 +11,10 @@ import {Family} from "../../family/family";
   styleUrls: ['sequence-detail.component.css']
 })
 export class SequenceDetailComponent implements OnInit {
-  private id: string;
-  private experiment: string;
-  public sequence: Sequence = new Sequence();
-  public errorMessage: string;
+  id: string;
+  experiment: string;
+  sequence: Sequence;
+  errorMessage: string;
 
   constructor(private route: ActivatedRoute,
               private sequenceService: SequenceService,
@@ -26,7 +26,7 @@ export class SequenceDetailComponent implements OnInit {
     this.experiment = this.route.params['_value']['experiment'];
     this.sequenceService.getSequencesByTrinityIdAndExperiment(`${this.id}`, `${this.experiment}`).subscribe(
       sequence => {
-        this.sequence = sequence[0];
+        this.sequence = sequence;
       },
       error => this.errorMessage = <any>error.message);
   }

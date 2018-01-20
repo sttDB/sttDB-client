@@ -7,13 +7,14 @@ import {SequenceDetailComponent} from './app/sequence/detail/sequence-detail.com
 import {InterproUploadComponent} from './app/interpro-upload/interpro-upload.component';
 import {FamilyDetailComponent} from './app/family/detail/family-detail.component';
 import {FamilyListSequencesComponent} from './app/family/list-family-sequences/family-sequence-list.component';
+import {FamilyListComponent} from './app/family/list-family/family-list.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'search/by-id', component: SearchByTrinityIdComponent},
-  // {path: 'search/by-family', component: SearchByFamilyComponent},
+  {path: 'search/by-keyword', component: FamilyListComponent},
   {path: 'sequences/:id/:experiment', component: SequenceDetailComponent},
   {path: 'families/:id', component: FamilyDetailComponent},
   {path: 'families/:id/sequences', component: FamilyListSequencesComponent},

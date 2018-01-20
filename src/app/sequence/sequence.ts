@@ -1,4 +1,5 @@
-import {Family} from "../family/family";
+import {Family} from '../family/family';
+import {Experiment} from '../experiment/experiment';
 
 export class Sequence {
   uri: string;

@@ -18,6 +18,7 @@ import {FastaDownloaderService} from './file-downloader/fasta-downloader.service
 import {FamilyDetailComponent} from './family/detail/family-detail.component';
 import {FamilyService} from './family/family.service';
 import {FamilyListSequencesComponent} from './family/list-family-sequences/family-sequence-list.component';
+import {FamilyListComponent} from './family/list-family/family-list.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {FamilyListSequencesComponent} from './family/list-family-sequences/famil
     WelcomeComponent,
     SearchByTrinityIdComponent,
     SequenceDetailComponent,
+    FamilyListComponent,
     FamilyDetailComponent,
     FamilyListSequencesComponent,
     FastaUploadComponent,

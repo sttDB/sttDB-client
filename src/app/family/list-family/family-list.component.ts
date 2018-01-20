@@ -1,37 +1,44 @@
-import {Component} from '@angular/core';
-import {FamilyService} from '../family.service';
-import {ActivatedRoute} from '@angular/router';
 import {Page} from "../../pager/page";
+import {FamilyService} from "../family.service";
+import {ActivatedRoute} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component} from "@angular/core";
 
 @Component({
-  selector: 'app-family-sequence-list',
-  templateUrl: './family-sequence-list.component.html'
+  selector: 'app-family-list',
+  templateUrl: './family-list.component.html'
 })
-export class FamilyListSequencesComponent {
-  private id: string;
+export class FamilyListComponent {
+
+  public keyword: string;
+  public familyForm: FormGroup;
   public errorMessage: string;
   public positions = [];
   public page: Page;
+  public edited = false;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private fb: FormBuilder,
               private familyService: FamilyService) {
+    this.familyForm = fb.group({
+      'keyword': ['Description keyword']
+    });
   }
 
-  ngOnInit() {
-    this.id = this.route.params['_value']['id'];
-    this.familyService.getFamilySequences(this.id, 0)
+  ngOnInit(){
+
+  }
+
+  onSubmit() {
+    this.edited = false;
+    this.familyService.getFamilyByDescription(this.keyword, 0)
       .subscribe(
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
           this.positions = this.page.getPaginating(this.page.pageIndex);
+          this.edited = true;
         },
         error => this.errorMessage = <any>error.message);
-  }
-
-
-  onDownload() {
-    // this.fastaDownloaderService.createFasta(this.trinityId, "");
   }
 
   rePage(wantedPage: number): void {
@@ -40,14 +47,14 @@ export class FamilyListSequencesComponent {
     } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
-    this.familyService.getFamilySequences(this.id, wantedPage - 1)
+    this.familyService.getFamilyByDescription(this.keyword, wantedPage - 1)
       .subscribe(
         (page: Page) => {
           this.page = page;
           this.page.pageIndex = page.pageIndex + 1;
           this.positions = this.page.getPaginating(this.page.pageIndex);
+          this.edited = true;
         },
         error => this.errorMessage = <any>error.message);
   }
-
 }
