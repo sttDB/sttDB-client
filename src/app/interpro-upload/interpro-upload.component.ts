@@ -34,8 +34,9 @@ export class InterproUploadComponent implements OnInit {
     if (this.selectedExperiment == null || this.selectedExperiment === 'none-selected') {
       this.warning = "Please select a experiment";
     } else {
+      this.warning = "";
       let options: FileUploaderOptions = {};
-      options.headers = [{name: 'experiment', value: 'small-trinity'}];
+      options.headers = [{name: 'experiment', value: this.selectedExperiment}];
       this.uploader.setOptions(options);
       item.upload()
     }
