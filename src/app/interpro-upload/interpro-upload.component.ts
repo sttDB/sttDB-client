@@ -1,25 +1,38 @@
 import {Component, OnInit} from '@angular/core';
 import {FileItem, FileUploader, FileUploaderOptions} from 'ng2-file-upload';
 import {environment} from '../../environments/environment';
+import {ExperimentService} from "../experiment/experiment.service";
+import {Experiment} from "../experiment/experiment";
+import {Page} from "../pager/page";
 
 @Component({
   selector: 'app-family-upload',
   templateUrl: './interpro-upload.component.html',
-  styleUrls: ['./interpro-upload.component.css']
+  styleUrls: ['./interpro-upload.component.css'],
+  providers: [ExperimentService]
 })
 export class InterproUploadComponent implements OnInit {
 
   uploader = new FileUploader({url: `${environment.API}/upload/interpro`});
+  experimentSelector = Array<Experiment>();
+  experiments: Experiment[];
+  errorMessage: string;
 
-  constructor() {
+  constructor(private experimentService: ExperimentService) {
   }
 
   ngOnInit() {
+    this.experimentService.getExperiments()
+      .subscribe(
+        (page: Page) => {
+          this.experiments = page.listOfElements;
+        },
+        error => this.errorMessage = <any>error.message);
   }
 
   upload(item: FileItem) {
     let options: FileUploaderOptions = {};
-    options.headers = [{name: 'experiment', value: 'Trinity_primitive_output.fasta'}];
+    options.headers = [{name: 'experiment', value: 'small-trinity'}];
     this.uploader.setOptions(options);
     item.upload()
   }
