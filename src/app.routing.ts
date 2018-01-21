@@ -8,6 +8,7 @@ import {InterproUploadComponent} from './app/interpro-upload/interpro-upload.com
 import {FamilyDetailComponent} from './app/family/detail/family-detail.component';
 import {FamilyListSequencesComponent} from './app/family/list-family-sequences/family-sequence-list.component';
 import {FamilyListComponent} from './app/family/list-family/family-list.component';
+import {LoginBasicComponent} from './app/login-basic/login-basic.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {path: 'sequences/:id/:experiment', component: SequenceDetailComponent},
   {path: 'families/:id', component: FamilyDetailComponent},
   {path: 'families/:id/sequences', component: FamilyListSequencesComponent},
+  {path: 'login', component:LoginBasicComponent},
   // Should add path 'upload' as entry point for other upload options
   {path: 'upload/fasta', component: FastaUploadComponent}, // should change path to 'upload/fasta' or 'upload/trinity'
   {path: 'upload/interpro', component: InterproUploadComponent}
