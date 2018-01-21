@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FileItem, FileUploader, FileUploaderOptions} from 'ng2-file-upload';
 import {environment} from '../../environments/environment';
 import {ExperimentService} from "../experiment/experiment.service";
-import {Experiment} from "../experiment/experiment";
 import {Page} from "../pager/page";
 
 @Component({
@@ -14,9 +13,10 @@ import {Page} from "../pager/page";
 export class InterproUploadComponent implements OnInit {
 
   uploader = new FileUploader({url: `${environment.API}/upload/interpro`});
-  experimentSelector = Array<Experiment>();
-  experiments: Experiment[];
+  experiments: string[];
+  selectedExperiment: string;
   errorMessage: string;
+  warning;
 
   constructor(private experimentService: ExperimentService) {
   }
@@ -31,10 +31,14 @@ export class InterproUploadComponent implements OnInit {
   }
 
   upload(item: FileItem) {
-    let options: FileUploaderOptions = {};
-    options.headers = [{name: 'experiment', value: 'small-trinity'}];
-    this.uploader.setOptions(options);
-    item.upload()
+    if (this.selectedExperiment == null || this.selectedExperiment === 'none-selected') {
+      this.warning = "Please select a experiment";
+    } else {
+      // let options: FileUploaderOptions = {};
+      // options.headers = [{name: 'experiment', value: 'small-trinity'}];
+      // this.uploader.setOptions(options);
+      // item.upload()
+    }
   }
 
 }

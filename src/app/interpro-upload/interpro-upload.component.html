@@ -34,11 +34,16 @@
   <h4>Select in which experiment you want to upload the families</h4>
 
   <label for="experiment-selector">Experiment:</label>
-  <select id="experiment-selector" name="select-experiment" [(ngModel)]="experimentSelector">
+  <select id="experiment-selector" name="select-experiment" [(ngModel)]="selectedExperiment">
+    <option value="none-selected" selected>
+      Select a experiment
+    </option>
     <option *ngFor="let experiment of experiments">
       {{experiment.name}}
     </option>
   </select>
+
+  <div *ngIf="warning" class="bg-danger">{{warning}}</div>
 
 </div>
 
