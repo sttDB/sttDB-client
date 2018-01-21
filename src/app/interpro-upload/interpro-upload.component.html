@@ -31,11 +31,28 @@
 </div>
 
 <div>
+  <h4>Select in which experiment you want to upload the families</h4>
+
+  <label for="experiment-selector">Experiment:</label>
+  <select id="experiment-selector" name="select-experiment" [(ngModel)]="selectedExperiment">
+    <option value="none-selected" selected>
+      Select a experiment
+    </option>
+    <option *ngFor="let experiment of experiments">
+      {{experiment.name}}
+    </option>
+  </select>
+
+  <div *ngIf="warning" class="bg-danger">{{warning}}</div>
+
+</div>
+
+<div>
   <h3>Select files</h3>
   <input type="file" ng2FileSelect [uploader]="uploader"/>
 </div>
 
-<div class="row" style="margin-bottom: 40px">
+<div style="margin-bottom: 40px">
 
   <h3>Upload queue</h3>
   <p>Queue length: {{ uploader?.queue?.length }}</p>
