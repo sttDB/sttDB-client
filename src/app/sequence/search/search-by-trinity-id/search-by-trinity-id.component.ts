@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SequenceService} from "../../sequence.service";
-import {FastaDownloaderService} from "../../../file-downloader/fasta-downloader.service";
+import {FileDownloaderService} from "../../../file-downloader/file-downloader.service";
 import {Page} from "../../../pager/page";
 
 @Component({
@@ -20,7 +20,7 @@ export class SearchByTrinityIdComponent implements OnInit {
   public page: Page;
 
   constructor(private sequenceService: SequenceService,
-              private fastaDownloaderService: FastaDownloaderService,
+              private fileDownloaderService: FileDownloaderService,
               private fb: FormBuilder,
               private router: Router) {
     this.trinityForm = fb.group({
@@ -46,7 +46,7 @@ export class SearchByTrinityIdComponent implements OnInit {
   }
 
   onDownload() {
-    this.fastaDownloaderService.createFasta(this.trinityId, "");
+    this.fileDownloaderService.createFasta(this.trinityId, "");
   }
 
   rePage(wantedPage: number): void {
