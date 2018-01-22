@@ -14,7 +14,7 @@ export class Page {
 
   createArrayIndex(firstNumber: number): number[] {
     let pageIndexes = [];
-    for(let i = firstNumber; i<firstNumber+9 && i<this.totalPages+1; i++){
+    for(let i = firstNumber; i<firstNumber+9 && i<this.totalPages; i++){
       pageIndexes.push(i);
     }
     return pageIndexes;
