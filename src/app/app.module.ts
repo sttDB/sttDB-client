@@ -46,8 +46,7 @@ import { ContactComponent } from './contact/contact.component';
     AdminPanelComponent,
     FileDownloaderComponent,
     ReferencesComponent,
-    HelpComponent,
-    ContactComponent
+    HelpComponent
   ],
   imports: [
     BrowserModule,
