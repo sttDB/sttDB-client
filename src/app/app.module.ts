@@ -22,6 +22,7 @@ import {FamilyListComponent} from './family/list-family/family-list.component';
 import { LoginBasicComponent } from './login-basic/login-basic.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { FileDownloaderComponent } from './file-downloader/file-downloader.component';
+import {ExperimentService} from "./experiment/experiment.service";
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { FileDownloaderComponent } from './file-downloader/file-downloader.compo
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SequenceService, FileDownloaderService, FamilyService],
+  providers: [SequenceService, FileDownloaderService, FamilyService, ExperimentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
