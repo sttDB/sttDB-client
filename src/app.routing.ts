@@ -12,7 +12,7 @@ import {LoginBasicComponent} from './app/login-basic/login-basic.component';
 import {AdminPanelComponent} from './app/admin-panel/admin-panel.component';
 import {FileDownloaderComponent} from "./app/file-downloader/file-downloader.component";
 import {ReferencesComponent} from "./app/references/references.component";
-import {HelpComponent} from "./app/help/help.component";
+import {ContactComponent} from "./app/contact/contact.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -20,7 +20,7 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'downloads', component: FileDownloaderComponent},
   {path: 'references', component: ReferencesComponent},
-  {path: 'help', component: HelpComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'search/by-id', component: SearchByTrinityIdComponent},
   {path: 'search/by-keyword', component: FamilyListComponent},
   {path: 'sequences/:id/:experiment', component: SequenceDetailComponent},

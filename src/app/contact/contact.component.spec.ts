@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelpComponent } from './help.component';
+import { HelpComponent } from './contact.component';
 
 describe('HelpComponent', () => {
   let component: HelpComponent;
