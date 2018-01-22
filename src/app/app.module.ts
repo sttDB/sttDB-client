@@ -19,6 +19,8 @@ import {FamilyDetailComponent} from './family/detail/family-detail.component';
 import {FamilyService} from './family/family.service';
 import {FamilyListSequencesComponent} from './family/list-family-sequences/family-sequence-list.component';
 import {FamilyListComponent} from './family/list-family/family-list.component';
+import { LoginBasicComponent } from './login-basic/login-basic.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import {FamilyListComponent} from './family/list-family/family-list.component';
     FamilyDetailComponent,
     FamilyListSequencesComponent,
     FastaUploadComponent,
-    InterproUploadComponent
+    InterproUploadComponent,
+    LoginBasicComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
