@@ -23,6 +23,9 @@ import { LoginBasicComponent } from './login-basic/login-basic.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { FileDownloaderComponent } from './file-downloader/file-downloader.component';
 import {ExperimentService} from "./experiment/experiment.service";
+import { ReferencesComponent } from './references/references.component';
+import { HelpComponent } from './help/help.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import {ExperimentService} from "./experiment/experiment.service";
     InterproUploadComponent,
     LoginBasicComponent,
     AdminPanelComponent,
-    FileDownloaderComponent
+    FileDownloaderComponent,
+    ReferencesComponent,
+    HelpComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
