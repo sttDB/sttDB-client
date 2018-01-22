@@ -10,6 +10,7 @@ import {ExperimentService} from "../experiment/experiment.service";
 export class FileDownloaderComponent implements OnInit {
   experiments: Experiment[];
   errorMessage = '';
+  files: string[];
 
   constructor(private experimentService: ExperimentService) { }
 
@@ -22,6 +23,10 @@ export class FileDownloaderComponent implements OnInit {
   }
 
   chargeExperimentFiles() {
+
+  }
+
+  download(file: string) {
 
   }
 
