@@ -25,6 +25,7 @@ import {FileDownloaderComponent} from './file-downloader/file-downloader.compone
 import {ExperimentService} from "./experiment/experiment.service";
 import {ReferencesComponent} from './references/references.component';
 import {ContactComponent} from './contact/contact.component';
+import { HelpComponent } from './help/help.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {ContactComponent} from './contact/contact.component';
     AdminPanelComponent,
     FileDownloaderComponent,
     ReferencesComponent,
-    ContactComponent
+    ContactComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
