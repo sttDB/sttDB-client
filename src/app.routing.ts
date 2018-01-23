@@ -10,18 +10,26 @@ import {FamilyListSequencesComponent} from './app/family/list-family-sequences/f
 import {FamilyListComponent} from './app/family/list-family/family-list.component';
 import {LoginBasicComponent} from './app/login-basic/login-basic.component';
 import {AdminPanelComponent} from './app/admin-panel/admin-panel.component';
+import {FileDownloaderComponent} from "./app/file-downloader/file-downloader.component";
+import {ReferencesComponent} from "./app/references/references.component";
+import {ContactComponent} from "./app/contact/contact.component";
+import {HelpComponent} from "./app/help/help.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'downloads', component: FileDownloaderComponent},
+  {path: 'references', component: ReferencesComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'search/by-id', component: SearchByTrinityIdComponent},
   {path: 'search/by-keyword', component: FamilyListComponent},
   {path: 'sequences/:id/:experiment', component: SequenceDetailComponent},
   {path: 'families/:id', component: FamilyDetailComponent},
   {path: 'families/:id/sequences', component: FamilyListSequencesComponent},
-  {path: 'login', component:LoginBasicComponent},
-  {path: 'admin', component:AdminPanelComponent},
+  {path: 'admin', component: AdminPanelComponent},
+  {path: 'login', component: LoginBasicComponent},
+  {path: 'help', component: HelpComponent},
   // Should add path 'upload' as entry point for other upload options
   {path: 'upload/fasta', component: FastaUploadComponent}, // should change path to 'upload/fasta' or 'upload/trinity'
   {path: 'upload/interpro', component: InterproUploadComponent}

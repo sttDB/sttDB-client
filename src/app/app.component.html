@@ -1,6 +1,6 @@
 <header class="container sttdb-header">
   <figure>
-    <a href="https://www.endesaclientes.com">
+    <a target="_blank" href="https://www.endesaclientes.com">
       <img class="sttdb-header-img img-responsive" src="../assets/img/head.png"
            alt="sttDB header image with endesa collaborator">
     </a>
@@ -28,7 +28,7 @@
             <a href="" class="nav-link">Search</a>
             <div class="dropdown-content">
               <a class="nav-link" [routerLink]="['/search/by-id']">
-                By Trinity ID
+                Sequences by Trinity ID
               </a>
               <a class="nav-link" [routerLink]="['/search/by-keyword']">
                 Families by KeyWord
@@ -38,13 +38,13 @@
           <li class="dropdown" style="display: block">
             <a href="" class="nav-link">Blast</a>
             <div class="dropdown-content">
-              <a class="nav-link" href="">Unigenes</a>
+              <a class="nav-link" href="">Blastn</a>
             </div>
           </li>
-          <li><a href="" class="nav-link">Downloads</a></li>
-          <li><a href="" class="nav-link">References</a></li>
-          <li><a href="" class="nav-link">Help</a></li>
-          <li><a href="" class="nav-link">Contact</a></li>
+          <li><a [routerLink]="['/downloads']" class="nav-link">Downloads</a></li>
+          <li><a [routerLink]="['/references']" class="nav-link">References</a></li>
+          <li><a [routerLink]="['/contact']" class="nav-link">Contact</a></li>
+          <li><a [routerLink]="['/help']" class="nav-link">Help</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a routerLink="/login" class="nav-link"><span class="glyphicon glyphicon-user"></span></a></li>
@@ -62,7 +62,7 @@
 <footer class="container text-center white-bg">
   <div id="collaborators" class="row">
     <figure class="col-sm-3">
-      <a href="https://www.udl.cat">
+      <a target="_blank" href="http://www.udl.cat">
         <img src="../assets/img/logo_udl1.jpg" alt="University of Lleida" class="footer-image">
       </a>
     </figure>
@@ -71,7 +71,7 @@
       <p class="panel-title">University of Lleida - Research Institute of Lleida</p>
     </div>
     <figure class="col-sm-3">
-      <a href="https://www.udl.cat">
+      <a target="_blank" href="http://www.irblleida.org/es/">
         <img src="../assets/img/logo_IRBlleida2.png" alt="Research Institute of Lleida" class="footer-image">
       </a>
     </figure>

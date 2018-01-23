@@ -5,7 +5,7 @@ import {environment} from "../../environments/environment";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
-export class FastaDownloaderService {
+export class FileDownloaderService {
 
   constructor(private http: Http) {
   }

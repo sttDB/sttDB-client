@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {Sequence} from "../sequence";
 import {SequenceService} from "../sequence.service";
-import {FastaDownloaderService} from "../../file-downloader/fasta-downloader.service";
-import {Family} from "../../family/family";
+import {FileDownloaderService} from "../../file-downloader/file-downloader.service";
 
 @Component({
   selector: 'app-sequence-detail',
@@ -18,7 +17,7 @@ export class SequenceDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private sequenceService: SequenceService,
-              private fastaDownloaderService: FastaDownloaderService) {
+              private fileDownloaderService: FileDownloaderService) {
   }
 
   ngOnInit() {
@@ -32,6 +31,6 @@ export class SequenceDetailComponent implements OnInit {
   }
 
   onSubmit() {
-    this.fastaDownloaderService.createFasta(this.sequence.trinityId, this.sequence.experiment);
+    this.fileDownloaderService.createFasta(this.sequence.trinityId, this.sequence.experiment);
   }
 }

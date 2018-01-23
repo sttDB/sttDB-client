@@ -14,13 +14,18 @@ import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
 import {InterproUploadComponent} from './interpro-upload/interpro-upload.component';
-import {FastaDownloaderService} from './file-downloader/fasta-downloader.service';
+import {FileDownloaderService} from './file-downloader/file-downloader.service';
 import {FamilyDetailComponent} from './family/detail/family-detail.component';
 import {FamilyService} from './family/family.service';
 import {FamilyListSequencesComponent} from './family/list-family-sequences/family-sequence-list.component';
 import {FamilyListComponent} from './family/list-family/family-list.component';
-import { LoginBasicComponent } from './login-basic/login-basic.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import {LoginBasicComponent} from './login-basic/login-basic.component';
+import {AdminPanelComponent} from './admin-panel/admin-panel.component';
+import {FileDownloaderComponent} from './file-downloader/file-downloader.component';
+import {ExperimentService} from "./experiment/experiment.service";
+import {ReferencesComponent} from './references/references.component';
+import {ContactComponent} from './contact/contact.component';
+import { HelpComponent } from './help/help.component';
 
 
 @NgModule({
@@ -38,7 +43,11 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     FastaUploadComponent,
     InterproUploadComponent,
     LoginBasicComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    FileDownloaderComponent,
+    ReferencesComponent,
+    ContactComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +56,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SequenceService, FastaDownloaderService, FamilyService],
+  providers: [SequenceService, FileDownloaderService, FamilyService, ExperimentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
