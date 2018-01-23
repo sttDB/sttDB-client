@@ -1,6 +1,6 @@
 <div class="col-md-3" style="border-right: 3px solid #81a0b3">
   <ul class="nav nav-pills nav-stacked" *ngFor="let experiment of experiments">
-    <li><a class="btn" (click)="chargeExperimentFiles()">{{experiment.name}}</a></li>
+    <li><a class="btn" (click)="chargeExperimentFiles(experiment.name)">{{experiment.name}}</a></li>
   </ul>
 </div>
 <div class="col-md-9">

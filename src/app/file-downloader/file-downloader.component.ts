@@ -22,8 +22,12 @@ export class FileDownloaderComponent implements OnInit {
         error => this.errorMessage = <any>error.message);
   }
 
-  chargeExperimentFiles() {
-
+  chargeExperimentFiles(experiment: string) {
+    this.experimentService.getExperimentFiles(experiment).subscribe(
+      (exp: string[]) => {
+        this.files = exp;
+      },
+      error => this.errorMessage = <any>error.message);
   }
 
   download(file: string) {
