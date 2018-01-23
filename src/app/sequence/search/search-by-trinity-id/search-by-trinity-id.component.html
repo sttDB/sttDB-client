@@ -29,6 +29,9 @@
 
   </fieldset>
 </form>
+<div *ngIf="!edited">
+  <p class="text-info">The queries will be done with a "like", you do not need to give the exact trinity ID</p>
+</div>
 </div>
 
 <div *ngIf="edited">
