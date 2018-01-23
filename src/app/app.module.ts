@@ -17,7 +17,6 @@ import {InterproUploadComponent} from './interpro-upload/interpro-upload.compone
 import {FileDownloaderService} from './file-downloader/file-downloader.service';
 import {FamilyDetailComponent} from './family/detail/family-detail.component';
 import {FamilyService} from './family/family.service';
-import {FamilyListSequencesComponent} from './family/list-family-sequences/family-sequence-list.component';
 import {FamilyListComponent} from './family/list-family/family-list.component';
 import {LoginBasicComponent} from './login-basic/login-basic.component';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
@@ -39,7 +38,6 @@ import { HelpComponent } from './help/help.component';
     SequenceDetailComponent,
     FamilyListComponent,
     FamilyDetailComponent,
-    FamilyListSequencesComponent,
     FastaUploadComponent,
     InterproUploadComponent,
     LoginBasicComponent,
