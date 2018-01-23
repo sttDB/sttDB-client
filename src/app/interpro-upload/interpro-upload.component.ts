@@ -3,6 +3,7 @@ import {FileItem, FileUploader, FileUploaderOptions} from 'ng2-file-upload';
 import {environment} from '../../environments/environment';
 import {ExperimentService} from "../experiment/experiment.service";
 import {Page} from "../pager/page";
+import {Experiment} from "../experiment/experiment";
 
 @Component({
   selector: 'app-family-upload',
@@ -13,7 +14,7 @@ import {Page} from "../pager/page";
 export class InterproUploadComponent implements OnInit {
 
   uploader = new FileUploader({url: `${environment.API}/upload/interpro`});
-  experiments: string[];
+  experiments: Experiment[];
   selectedExperiment: string;
   errorMessage: string;
   warning;
