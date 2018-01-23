@@ -22,7 +22,7 @@ export class InterproUploadComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.experimentService.getExperiments()
+    this.experimentService.getExperimentsAsPage()
       .subscribe(
         (page: Page) => {
           this.experiments = page.listOfElements;
