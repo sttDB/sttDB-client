@@ -26,9 +26,10 @@ export class FamilyDetailComponent implements OnInit {
     this.familyService.getFamilyByInterproId(`${this.id}`).subscribe(
       family => this.family = family,
       error => this.errorMessage = <any>error.message);
+    this.showSequences(this.id);
   }
 
-  onShow(id: string) {
+  showSequences(id: string) {
     this.familyService.getFamilySequences(id, 0)
       .subscribe(
         (page: Page) => {
