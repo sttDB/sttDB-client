@@ -9,7 +9,13 @@
   </div>
   <div class="panel-footer">
     <p *ngIf="!edited" id="family" class="text-info">Waiting for any sequences to be received...</p>
-    <nav *ngIf="edited" aria-label="Page navigation" class="col-md-12">
+    <div *ngIf="edited" class="col-md-12">
+      <h4>{ page.totalElements, plural,
+        =0 {There are no sequences with this family}
+        =1 {There is 1 sequence with this family}
+        other { There are {{page.totalElements}} sequences with this family} }</h4>
+    </div>
+    <nav *ngIf="edited" aria-label="Page navigation" class="col-md-6">
       <ul class="pagination justify-content-center">
         <li class="page-item">
           <a class="page-link btn" (click)="rePage(page.pageIndex - 1)"
@@ -32,6 +38,11 @@
         </li>
       </ul>
     </nav>
+    <div class="col-md-6">
+      <button id="sequence-download" type="button" (click)="onDownload()"
+              class="btn btn-primary">Download them as a fasta file
+      </button>
+    </div>
     <div *ngIf="edited" class="row">
       <div class="panel-group col-md-12">
         <div class="panel panel-default" *ngFor="let sequence of page.listOfElements">
