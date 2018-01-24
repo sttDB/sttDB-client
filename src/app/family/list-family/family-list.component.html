@@ -1,34 +1,38 @@
 <h2>Query families using a key word of their description</h2>
 
 <div class="col-md-12">
-<form id="family-form" [formGroup]="familyForm" (ngSubmit)="onSubmit()">
-  <fieldset>
+  <form id="family-form" [formGroup]="familyForm" (ngSubmit)="onSubmit()">
+    <fieldset>
 
-    <!-- Text input-->
-    <div class="form-group row">
-      <label class="col-md-3 control-label" for="keyword">Key word</label>
-      <input id="keyword" type="text" class="form-control input-md"
-             [formControl]="familyForm.controls['keyword']"
-             [(ngModel)]="keyword"/>
-    </div>
-
-    <div *ngIf="errorMessage" class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="label-danger col-md-9">{{ errorMessage }}</div>
-    </div>
-
-    <!-- Button -->
-    <div class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-9">
-        <button id="submit-trinity-id" type="submit"
-                class="btn btn-success pull-right">Submit
-        </button>
+      <!-- Text input-->
+      <div class="form-group row">
+        <label class="col-md-3 control-label" for="keyword">Key word</label>
+        <div class="col-md-9" *ngIf="!edited">
+          <p class="text-info">If a family has the description: "This is an example.", you can input "is an" and it will be
+            displayed.</p>
+        </div>
+        <input id="keyword" type="text" class="form-control input-md"
+               [formControl]="familyForm.controls['keyword']"
+               [(ngModel)]="keyword"/>
       </div>
-    </div>
 
-  </fieldset>
-</form>
+      <div *ngIf="errorMessage" class="form-group row">
+        <div class="col-md-3"></div>
+        <div class="label-danger col-md-9">{{ errorMessage }}</div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <button id="submit-trinity-id" type="submit"
+                  class="btn btn-success pull-right">Submit
+          </button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
 </div>
 
 <div *ngIf="edited">
