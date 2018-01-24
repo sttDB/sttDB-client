@@ -1,4 +1,16 @@
+
+<div *ngIf="!edited">
+  Select what you want to query.
+  <button type="button" class="btn btn-default"
+          [ngStyle]="{'background-color':!edited ? '#a6e681' : '#e6e6e6' }">Interpro family</button>
+  <button type="button" class="btn btn-default"
+          [ngStyle]="{'background-color':edited ? '#a6e681' : '#e6e6e6' }">GO</button>
+  <button type="button" class="btn btn-default"
+          [ngStyle]="{'background-color':edited ? '#a6e681' : '#e6e6e6' }">KEGG</button>
+</div>
+
 <h2>Query families using a key word of their description</h2>
+
 
 <div class="col-md-12">
   <form id="family-form" [formGroup]="familyForm" (ngSubmit)="onSubmit()">
