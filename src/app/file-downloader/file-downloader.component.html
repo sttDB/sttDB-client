@@ -1,6 +1,6 @@
 <div class="col-md-3" style="border-right: 3px solid #81a0b3">
   <ul class="nav nav-pills nav-stacked" *ngFor="let experiment of experiments">
-    <li><a class="btn" (click)="chargeExperimentFiles()">{{experiment.name}}</a></li>
+    <li><a class="btn" (click)="chargeExperimentFiles(experiment.name)">{{experiment.name}}</a></li>
   </ul>
 </div>
 <div class="col-md-9">
@@ -10,7 +10,7 @@
   <div *ngIf="files != null && files.length != 0">
     <h4>Experiment files</h4>
     <ul *ngFor="let file of files">
-      <li><a class="btn" (click)="download(file)">Download: {{file}}</a></li>
+      <li><a class="btn" (click)="download(actualExperimentName, file)">Download: {{file}}</a></li>
     </ul>
   </div>
 </div>

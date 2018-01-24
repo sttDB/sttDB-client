@@ -30,4 +30,10 @@ export class ExperimentService {
       })
       .catch((error: any) => Observable.throw(error));
   }
+
+  getExperimentFiles(experiment: string): Observable<string[]> {
+    return this.http.get(`${environment.API}/experiments/${experiment}/files`)
+      .map((res: Response) => {return res.json()})
+      .catch((error: any) => Observable.throw(error));
+  }
 }

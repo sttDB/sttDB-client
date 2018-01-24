@@ -5,9 +5,10 @@
 </div>
 <div *ngIf="uploader.progress === 100" class="bg-success alert-box">
   <h4>The files have been uploaded but the server is still working.
-  <br>You can close the tab.</h4>
+  <br>You can navigate and do other things.</h4>
 </div>
 
+<button routerLink="/admin" class="btn btn-default">Return to admin panel</button>
 
 <h2>Upload interpro families for sequences</h2>
 <div class="bg-warning" style="padding: 1%">

@@ -1,34 +1,38 @@
 <h2>Query sequences using the Trinity ID</h2>
 
 <div class="col-md-12">
-<form id="trinity-form" [formGroup]="trinityForm" (ngSubmit)="onSubmit()">
-  <fieldset>
+  <form id="trinity-form" [formGroup]="trinityForm" (ngSubmit)="onSubmit()">
+    <fieldset>
 
-    <!-- Text input-->
-    <div class="form-group row">
-      <label class="col-md-3 control-label" for="trinity-id">Trinity ID</label>
-      <input id="trinity-id" type="text" class="form-control input-md"
-             [formControl]="trinityForm.controls['trinity-id']"
-             [(ngModel)]="trinityId"/>
-    </div>
-
-    <div *ngIf="errorMessage" class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="label-danger col-md-9">{{ errorMessage }}</div>
-    </div>
-
-    <!-- Button -->
-    <div class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-9">
-        <button id="submit-trinity-id" type="submit"
-                class="btn btn-success pull-right">Submit
-        </button>
+      <!-- Text input-->
+      <div class="form-group row">
+        <label class="col-md-3 control-label" for="trinity-id">Trinity ID</label>
+        <div class="col-md-9" *ngIf="!edited">
+          <p class="text-info">A complete trinity id can be used, like comp6_c0_seq1, or part of it, like comp6 / c0 /
+            seq1.</p>
+        </div>
+        <input id="trinity-id" type="text" class="form-control input-md"
+               [formControl]="trinityForm.controls['trinity-id']"
+               [(ngModel)]="trinityId"/>
       </div>
-    </div>
 
-  </fieldset>
-</form>
+      <div *ngIf="errorMessage" class="form-group row">
+        <div class="col-md-3"></div>
+        <div class="label-danger col-md-9">{{ errorMessage }}</div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <button id="submit-trinity-id" type="submit"
+                  class="btn btn-success pull-right">Submit
+          </button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
 </div>
 
 <div *ngIf="edited">
