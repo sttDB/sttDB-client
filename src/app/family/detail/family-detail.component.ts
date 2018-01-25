@@ -3,6 +3,7 @@ import {Family} from "../family";
 import {ActivatedRoute} from "@angular/router";
 import {FamilyService} from "../family.service";
 import {Page} from "../../pager/page";
+import {FileDownloaderService} from "../../file-downloader/file-downloader.service";
 
 @Component({
   selector: 'app-family-detail',
@@ -18,7 +19,8 @@ export class FamilyDetailComponent implements OnInit {
   public edited = false;
 
   constructor(private route: ActivatedRoute,
-              private familyService: FamilyService) {
+              private familyService: FamilyService,
+              private fileDownloadService: FileDownloaderService) {
   }
 
   ngOnInit() {
@@ -43,7 +45,7 @@ export class FamilyDetailComponent implements OnInit {
 
 
   onDownload() {
-    // this.fastaDownloaderService.createFasta(this.trinityId, "");
+    this.fileDownloadService.downloadFastaFamilySequences(this.id);
   }
 
   rePage(wantedPage: number): void {

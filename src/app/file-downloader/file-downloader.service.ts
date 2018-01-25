@@ -16,7 +16,7 @@ export class FileDownloaderService {
       .subscribe(data => {
         window.open(data.url);
         },
-        error => console.log(error));
+        error => window.alert(error));
   }
 
   downloadExperimentFile(experiment: string, name: string) {
@@ -25,7 +25,16 @@ export class FileDownloaderService {
       .subscribe(data => {
           window.open(data.url);
         },
-        error => console.log(error));
+        error => window.alert(error));
+  }
+
+  downloadFastaFamilySequences(interpro: string) {
+    const options = this.prepareOptions();
+    this.http.get(`${environment.API}/download/fasta?interproId=${interpro}`, options).subscribe(
+      data => {
+        window.open(data.url);
+      },
+      error => window.alert(error));
   }
 
   private prepareOptions() {
