@@ -25,6 +25,7 @@ import {ExperimentService} from "./experiment/experiment.service";
 import {ReferencesComponent} from './references/references.component';
 import {ContactComponent} from './contact/contact.component';
 import { HelpComponent } from './help/help.component';
+import { BlastComponent } from './blast/blast.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HelpComponent } from './help/help.component';
     FileDownloaderComponent,
     ReferencesComponent,
     ContactComponent,
-    HelpComponent
+    HelpComponent,
+    BlastComponent
   ],
   imports: [
     BrowserModule,
