@@ -3,7 +3,6 @@ body {
 }
 iframe {
   display: block;       /* iframes are inline by default */
-  background: #ffffff;
   border: none;         /* Reset default border */
   height: 100vh;        /* Viewport-relative units */
   width: 100%;
