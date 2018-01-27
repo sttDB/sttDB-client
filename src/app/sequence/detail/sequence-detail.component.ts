@@ -14,6 +14,7 @@ export class SequenceDetailComponent implements OnInit {
   experiment: string;
   sequence: Sequence;
   errorMessage: string;
+  splittedTranscript: String[] = [];
 
   constructor(private route: ActivatedRoute,
               private sequenceService: SequenceService,
@@ -26,8 +27,19 @@ export class SequenceDetailComponent implements OnInit {
     this.sequenceService.getSequencesByTrinityIdAndExperiment(`${this.id}`, `${this.experiment}`).subscribe(
       sequence => {
         this.sequence = sequence;
+        this.splitTranscript(this.sequence.transcript);
       },
       error => this.errorMessage = <any>error.message);
+  }
+
+  private splitTranscript(transcript: string) {
+    let i = 0;
+    while(i + 30 < transcript.length) {
+      let partialTranscript = transcript.substring(i, i + 29);
+      this.splittedTranscript.push(partialTranscript);
+      i = i + 30;
+    }
+    this.splittedTranscript.push(transcript.substring(i, transcript.length));
   }
 
   onSubmit() {
