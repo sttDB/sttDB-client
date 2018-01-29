@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {ExperimentService} from "../experiment/experiment.service";
 import {Page} from "../pager/page";
 import {Experiment} from "../experiment/experiment";
+import {AuthenticationBasicService} from "../login-basic/authentication-basic.service";
 
 @Component({
   selector: 'app-family-upload',
@@ -13,13 +14,14 @@ import {Experiment} from "../experiment/experiment";
 })
 export class InterproUploadComponent implements OnInit {
 
-  uploader = new FileUploader({url: `${environment.API}/upload/interpro`});
+  uploader = new FileUploader({url: `${environment.API}/upload/interpro`,
+    authToken: this.authentication.getCurrentUser().authorization});
   experiments: Experiment[];
   selectedExperiment: string;
   errorMessage: string;
   warning;
 
-  constructor(private experimentService: ExperimentService) {
+  constructor(private experimentService: ExperimentService, private authentication: AuthenticationBasicService) {
   }
 
   ngOnInit() {

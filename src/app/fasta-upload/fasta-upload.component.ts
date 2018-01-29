@@ -15,7 +15,7 @@ export class FastaUploadComponent implements OnInit {
 
   fastaForm: FormGroup;
   uploader = new FileUploader({url: `${environment.API}/upload/fasta`,
-                              authTokenHeader: this.authentication.getCurrentUser().authorization});
+    authToken: this.authentication.getCurrentUser().authorization});
 
   constructor(private fb: FormBuilder,
               private router: Router,
