@@ -1,36 +1,49 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthenticationBasicService} from './authentication-basic.service';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { AuthenticationBasicService } from './authentication-basic.service';
+import { ModalDirective } from 'ngx-bootstrap';
 import {User} from './user';
 
 @Component({
-  selector: 'app-login-basic',
+  selector: 'app-login-basic,[app-login-basic]',
   templateUrl: './login-basic.component.html',
   styleUrls: ['./login-basic.component.css'],
   providers: [AuthenticationBasicService]
 })
 export class LoginBasicComponent implements OnInit {
-
+  @ViewChild('loginModal') public loginModal: ModalDirective;
+  @ViewChild('username') username;
   errorMessage = '';
 
-  constructor(private router: Router, private authenticationService: AuthenticationBasicService) { }
+  constructor(private authenticationService: AuthenticationBasicService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  showLoginModal(): void {
+    this.loginModal.show();
+    setTimeout(() => this.username.nativeElement.focus(), 500);
   }
 
-  login(userInput: HTMLInputElement, passwordInput: HTMLInputElement): void {
+  hideLoginModal(userInput: HTMLInputElement, passwordInput: HTMLInputElement): void {
+    this.loginModal.hide();
+    this.errorMessage = '';
+    userInput.value = '';
+    passwordInput.value = '';
+  }
+
+  login(userInput: HTMLInputElement, passwordInput: HTMLInputElement): boolean {
     this.authenticationService.login(userInput.value, passwordInput.value)
       .subscribe(
         user => {
           this.authenticationService.storeCurrentUser(user);
-          this.router.navigate(['/admin']);
+          this.hideLoginModal(userInput, passwordInput);
         },
         error =>  this.errorMessage = <any>error.message);
+    return false;
   }
 
-  logout(): void {
+  logout(): boolean {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    return false;
   }
 
   getCurrentUserName(): string {
@@ -44,5 +57,4 @@ export class LoginBasicComponent implements OnInit {
   getUser(): User {
     return this.authenticationService.getCurrentUser();
   }
-
 }

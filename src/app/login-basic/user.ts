@@ -1,7 +1,7 @@
 export class User {
   username = '';
   authorities: string[] = [];
-  authorization = '';
+  authorization: any;
   password = '';
 
   constructor(values: Object = {}) {

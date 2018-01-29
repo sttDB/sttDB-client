@@ -1,24 +1,43 @@
-<form *ngIf="!isLoggedIn()" class="col-md-6 form-signin" (ngSubmit)="login(username, password)">
-    <label for="username">Username</label>
-    <input class="form-control" id="username" aria-describedby="userHelp" placeholder="Enter username" required #username>
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" required #password>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <div *ngIf="errorMessage" class="form-group row">
-    <div class="col-md-3"></div>
-    <div class="label-danger col-md-9">{{ errorMessage }}</div>
+<li [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }" *ngIf="isLoggedIn()" id="currentUser">
+  <a [routerLink]="['/users/'+getCurrentUserName()]"><span class="fa fa-user-circle-o"></span> {{getCurrentUserName()}}</a>
+</li>
+<li *ngIf="isLoggedIn()">
+  <a (click)="logout()" href="#" (click)="$event.preventDefault()"><span class="fa fa-unlock"></span> Logout</a>
+</li>
+<li *ngIf="!isLoggedIn()">
+  <a (click)="showLoginModal()" href="#" (click)="$event.preventDefault()"><span class="fa fa-key"></span> Login</a>
+</li>
+
+<!-- Sign in Modal -->
+<div bsModal #loginModal="bs-modal" class="modal fade" tabindex="-1" [config]="{backdrop: false}" role="dialog"
+     aria-labelledby="Login Form" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="hideLoginModal(username, password)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Please, sign in...</h4>
+      </div>
+      <div class="modal-body">
+
+        <div *ngIf="errorMessage" class="label-danger">{{ errorMessage }}</div>
+
+        <form class="form-signin" (submit)="login(username, password)">
+          <label for="username" class="sr-only">User</label>
+          <input type="text" id="username" class="form-control" placeholder="User E-Mail" required #username>
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Password" required #password>
+          <p></p>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <h2>Do not have an user?</h2>
+        <p>Do not worry, you can use all the services of the website.</p>
+        <p>Only workers of the bio team have accounts, because of explicit features.</p>
+      </div>
+    </div>
   </div>
-</form>
-
-<div *ngIf="isLoggedIn()" class="col-md-6">
-  <h2>You are logged in</h2>
-  <button type="submit" class="btn btn-primary" routerLink="/admin">Go to admin panel</button>
-  <button type="submit" class="btn btn-danger" (click)="logout()">Logout</button>
-</div>
-
-
-<div class="col-md-6">
-  <h2>Do not have an user?</h2>
-  <p>Do not worry, you can use all the services of the website.</p>
-  <p>Only workers of the bio team have accounts, because of explicit features.</p>
 </div>
