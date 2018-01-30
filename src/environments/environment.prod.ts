@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API: 'http://localhost:8080'
+  API: 'http://sttdb-server.dev.rhizomik.net'
 };
