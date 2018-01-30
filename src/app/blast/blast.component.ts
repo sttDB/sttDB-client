@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-blast',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlastComponent implements OnInit {
 
-  constructor() { }
+  blastServerUrl: string;
+
+  constructor() {
+    this.blastServerUrl = environment.BLAST_URL;
+  }
 
   ngOnInit() {
   }
