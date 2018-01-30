@@ -7,9 +7,9 @@
       <h4>TrinityId:</h4>
       <p>{{sequence?.trinityId}}</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-12" *ngIf="sequence?.families.length !== 0">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12" *ngIf="sequence?.dynamicData['families'] !== null">
       <h4>Families:</h4>
-      <div *ngFor="let family of sequence?.families">
+      <div *ngFor="let family of sequence?.dynamicData['families']">
         <a routerLink="/families/{{family.interproId}}">{{family.interproId}}</a>
       </div>
     </div>
