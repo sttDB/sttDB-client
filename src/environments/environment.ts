@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  API: 'localhost:8080',
-  BLAST_URL: 'localhost:4567'
+  API: 'http://localhost:8080',
+  BLAST_URL: 'http://localhost:4567'
 };
