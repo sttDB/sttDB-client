@@ -8,7 +8,8 @@ export class Sequence {
   sequence: string;
   specie: string;
   transcript: string;
-  families: Family[];
+  dynamicData = {};
+  anonymousData = {};
   experiment: string;
   length: number;
   _links: any = {};
