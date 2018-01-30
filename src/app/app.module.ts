@@ -26,6 +26,8 @@ import {ReferencesComponent} from './references/references.component';
 import {ContactComponent} from './contact/contact.component';
 import { HelpComponent } from './help/help.component';
 import { BlastComponent } from './blast/blast.component';
+import {LoginBasicModule} from "./login-basic/login-basic.module";
+import {LoggedInGuard} from "./login-basic/loggedin.guard";
 
 
 @NgModule({
@@ -41,7 +43,6 @@ import { BlastComponent } from './blast/blast.component';
     FamilyDetailComponent,
     FastaUploadComponent,
     InterproUploadComponent,
-    LoginBasicComponent,
     AdminPanelComponent,
     FileDownloaderComponent,
     ReferencesComponent,
@@ -54,9 +55,10 @@ import { BlastComponent } from './blast/blast.component';
     HttpModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
+    LoginBasicModule,
     FormsModule
   ],
-  providers: [SequenceService, FileDownloaderService, FamilyService, ExperimentService],
+  providers: [SequenceService, FileDownloaderService, FamilyService, ExperimentService, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
