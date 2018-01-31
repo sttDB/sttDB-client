@@ -10,7 +10,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {SearchByTrinityIdComponent} from './sequence/search/search-by-trinity-id/search-by-trinity-id.component';
 import {FastaUploadComponent} from './fasta-upload/fasta-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
+import {FileDropDirective, FileSelectDirective, FileUploadModule} from 'ng2-file-upload';
 import {SequenceService} from './sequence/sequence.service';
 import {SequenceDetailComponent} from './sequence/detail/sequence-detail.component';
 import {InterproUploadComponent} from './interpro-upload/interpro-upload.component';
@@ -32,8 +32,8 @@ import {LoggedInGuard} from "./login-basic/loggedin.guard";
 
 @NgModule({
   declarations: [
-    FileDropDirective,
-    FileSelectDirective,
+    // FileDropDirective,
+    // FileSelectDirective,
     AppComponent,
     AboutComponent,
     WelcomeComponent,
@@ -56,7 +56,8 @@ import {LoggedInGuard} from "./login-basic/loggedin.guard";
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     LoginBasicModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
   ],
   providers: [SequenceService, FileDownloaderService, FamilyService, ExperimentService, LoggedInGuard],
   bootstrap: [AppComponent]

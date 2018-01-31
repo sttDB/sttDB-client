@@ -2,11 +2,12 @@
   <div *ngIf="item?.isError" class="bg-danger alert-box">
     Error uploading the file: "{{item?.file?.name}}
   </div>
+  <div *ngIf="uploader.progress === 100 && !item?.isError" class="bg-success alert-box">
+    <h4>The files have been uploaded but the server is still working.
+      <br>You can navigate and do other things.</h4>
+  </div>
 </div>
-<div *ngIf="uploader.progress === 100 && !item?.isError" class="bg-success alert-box">
-  <h4>The files have been uploaded but the server is still working.
-    <br>You can navigate and do other things.</h4>
-</div>
+
 
 <button routerLink="/admin" class="btn btn-default">Return to admin panel</button>
 
