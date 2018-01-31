@@ -1,10 +1,16 @@
 # SttDBClient
+Front-end of the salmo-trutta database, a project between the Genetic and Biodiversity Research Group and GRIHO research group, University of Lleida(UdL).
+
+## Objective
+The project objective is to construct, with the SttDB-server github project, a web page to visualize, compare and provide information about DNA sequences of the salmo-trutta specie.
+
+## Development and contribute
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
-## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Contributing implies using pull request, and must contain issue features/solved problems. The master branch contains a working on code, and the releases contain stable code.
 
 ## Code scaffolding
 
@@ -14,14 +20,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Contact
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Joan Fibla (Owner) - [email](mailto:joan.fibla@cmb.udl.cat)
+* Marc Ribalta (Developer) - [email](mailto:mrg20@alumnes.udl.cat)
+* Roger Arqués (Developer) - [email](mailto:rav3@alumnes.udl.cat)
 
-## Running end-to-end tests
+### Cites
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> SequenceServer blast tool: [Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, Leonard G, Rumpf W & Wurm Y. 2015. Sequenceserver: A modern graphical user interface for custom BLAST databases. biorxiv doi: 10.1101/033142](http://www.biorxiv.org/content/early/2015/11/27/033142).
