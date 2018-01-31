@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  API: 'http://sttdb-server.dev.rhizomik.net',
-  BLAST_URL: 'http://dev.rhizomik.net:4567'
+  API: 'http://localhost:8080',
+  BLAST_URL: 'http://localhost:4567'
 };
