@@ -3,10 +3,10 @@ services:
   sttdb-client:
     image: sttdb/sttdb-client
     container_name: sttdb-client
-    expose:
-      - "80"
-    environment:
-      - VIRTUAL_HOST=sttdb.dev.rhizomik.net
-      - LETSENCRYPT_HOST=sttdb.dev.rhizomik.net
-      - LETSENCRYPT_EMAIL=contact@email.example
-    network_mode: "bridge"
+    ports:
+      - "80:80"
+    # environment:
+    #   - VIRTUAL_HOST=sttdb.dev.rhizomik.net
+    #   - LETSENCRYPT_HOST=sttdb.dev.rhizomik.net
+    #   - LETSENCRYPT_EMAIL=contact@email.example
+    # network_mode: "bridge"
