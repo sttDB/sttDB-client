@@ -1,3 +1,5 @@
+[![codebeat badge](https://codebeat.co/badges/0e31057c-a376-4b0b-8761-758e1a72d4d9)](https://codebeat.co/projects/github-com-sttdb-sttdb-client-master)
+
 # SttDBClient
 Front-end of the salmo-trutta database, a project between the Genetic and Biodiversity Research Group and GRIHO research group, University of Lleida(UdL).
 
