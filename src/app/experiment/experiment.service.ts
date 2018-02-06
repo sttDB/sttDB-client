@@ -20,13 +20,7 @@ export class ExperimentService {
   getExperimentsAsPage(): Observable<Page> {
     return this.http.get(`${environment.API}/experiments`)
       .map((res: Response) => {
-        const page = {
-          listOfElements: res.json().content.map(json => new Experiment(json)),
-          totalElements: res.json().totalElements,
-          totalPages: res.json().totalPages,
-          pageIndex: res.json().number
-        };
-        return new Page(page);
+        return new Page(res.json());
       })
       .catch((error: any) => Observable.throw(error));
   }

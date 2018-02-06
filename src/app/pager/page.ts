@@ -5,7 +5,9 @@ export class Page {
   pageIndex: number;
 
   constructor(values: Object = {}) {
+    values['listOfElements'] = values['content'];
     Object.assign(this, values);
+    this.pageIndex = this['number'];
   }
 
   getPaginating(pageIndex: number): number[] {

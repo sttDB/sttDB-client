@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
 import {SequenceService} from "../../sequence.service";
 import {FileDownloaderService} from "../../../file-downloader/file-downloader.service";
 import {Page} from "../../../pager/page";
@@ -21,8 +20,7 @@ export class SearchByTrinityIdComponent implements OnInit {
 
   constructor(private sequenceService: SequenceService,
               private fileDownloaderService: FileDownloaderService,
-              private fb: FormBuilder,
-              private router: Router) {
+              private fb: FormBuilder) {
     this.trinityForm = fb.group({
       'trinity-id': ['Sequence attribute']
     });
