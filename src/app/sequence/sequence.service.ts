@@ -26,11 +26,7 @@ export class SequenceService {
   getSequencesByTrinityIdLike(trinityId: string, pageNumber: number): Observable<Page> {
     return this.http.get(`${environment.API}/sequences?trinityId=${trinityId}&page=${pageNumber}`)
       .map((res: Response) => {
-        const page = {listOfElements: res.json().content.map(json => new Sequence(json)),
-          totalElements: res.json().totalElements,
-          totalPages: res.json().totalPages,
-          pageIndex: res.json().number};
-        return new Page(page);
+        return new Page(res.json());
       })
       .catch((error: any) => Observable.throw(error));
   }

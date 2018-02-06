@@ -25,11 +25,7 @@ export class FamilyService {
   getFamilySequences(interproId: string, pageNumber: number): Observable<Page> {
     return this.http.get(`${environment.API}/families/${interproId}/sequences?page=${pageNumber}`)
       .map((res: Response) => {
-        const page = {listOfElements: res.json().content,
-          totalElements: res.json().totalElements,
-          totalPages: res.json().totalPages,
-          pageIndex: res.json().number};
-        return new Page(page);
+        return new Page(res.json());
       })
       .catch((error: any) => Observable.throw(error.json()));
   }
@@ -37,11 +33,7 @@ export class FamilyService {
   getFamilyByDescription(keyword: string, pageNumber: number): Observable<Page> {
     return this.http.get(`${environment.API}/families?descriptionKeyword=${keyword}&page=${pageNumber}`)
       .map((res: Response) => {
-        const page = {listOfElements: res.json().content,
-          totalElements: res.json().totalElements,
-          totalPages: res.json().totalPages,
-          pageIndex: res.json().number};
-        return new Page(page);
+        return new Page(res.json());
       })
       .catch((error: any) => Observable.throw(error.json()));
   }
