@@ -1,3 +1,5 @@
+[![codebeat badge](https://codebeat.co/badges/0e31057c-a376-4b0b-8761-758e1a72d4d9)](https://codebeat.co/projects/github-com-sttdb-sttdb-client-master)
+
 # SttDBClient
 Front-end of the salmo-trutta database, a project between the Genetic and Biodiversity Research Group and GRIHO research group, University of Lleida(UdL).
 
@@ -23,6 +25,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Contact
 
 * Joan Fibla (Owner) - [email](mailto:joan.fibla@cmb.udl.cat)
+* Marta Oliva (Supervisor) - [email](mailto:oliva@diei.udl.cat)
 * Marc Ribalta (Developer) - [email](mailto:mrg20@alumnes.udl.cat)
 * Roger Arqués (Developer) - [email](mailto:rav3@alumnes.udl.cat)
 
