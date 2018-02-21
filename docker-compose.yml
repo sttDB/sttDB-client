@@ -4,9 +4,4 @@ services:
     image: sttdb/sttdb-client
     container_name: sttdb-client
     ports:
-      - "80:80"
-    # environment:
-    #   - VIRTUAL_HOST=sttdb.dev.rhizomik.net
-    #   - LETSENCRYPT_HOST=sttdb.dev.rhizomik.net
-    #   - LETSENCRYPT_EMAIL=contact@email.example
-    # network_mode: "bridge"
+      - "443:443"
