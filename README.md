@@ -1,7 +1,7 @@
 [![codebeat badge](https://codebeat.co/badges/0e31057c-a376-4b0b-8761-758e1a72d4d9)](https://codebeat.co/projects/github-com-sttdb-sttdb-client-master)
 
 # SttDBClient
-Front-end of the salmo-trutta database, a project between the Genetic and Biodiversity Research Group and GRIHO research group, University of Lleida(UdL).
+Front-end of the [salmo-trutta database](http://sttdb.udl.cat), a project between the Genetic and Biodiversity Research Group and GRIHO research group, University of Lleida(UdL).
 
 ## Objective
 The project objective is to construct, with the SttDB-server github project, a web page to visualize, compare and provide information about DNA sequences of the salmo-trutta specie.
