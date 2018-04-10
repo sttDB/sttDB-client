@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FileUploader} from 'ng2-file-upload';
-import {environment} from '../../environments/environment.prod';
+import {environment} from '../../environments/environment';
 import {AuthenticationBasicService} from "../login-basic/authentication-basic.service";
 
 @Component({
