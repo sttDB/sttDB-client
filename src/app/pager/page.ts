@@ -21,4 +21,8 @@ export class Page {
     }
     return pageIndexes;
   }
+
+  append(page: Page) {
+
+  }
 }
