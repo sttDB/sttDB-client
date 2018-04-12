@@ -23,6 +23,8 @@ export class Page {
   }
 
   append(page: Page) {
-
+    this.listOfElements.append(page.listOfElements);
+    this.totalElements += page.totalElements;
+    this.totalPages += page.totalPages;
   }
 }
