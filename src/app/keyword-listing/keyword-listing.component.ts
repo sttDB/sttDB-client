@@ -12,6 +12,7 @@ import {KeywordService} from "./keyword.service";
 export class KeywordListingComponent implements OnInit {
 
 
+  serviceCallType: any;
   public keyword: string;
   public preListForm: FormGroup;
   public errorMessage: string;
@@ -31,7 +32,7 @@ export class KeywordListingComponent implements OnInit {
   }
 
   /**
-   * Idealment seria
+   * Idealment seria:
    * decideServiceMethod
    * useMethodListedFilers
    * showResult
@@ -39,7 +40,16 @@ export class KeywordListingComponent implements OnInit {
 
   onSubmit() {
     this.edited = false;
-    this.keywordService.getEntityByDescription("family", this.keyword, 0)
+    this.serviceCallType = this.decideServiceCall();
+    this.getKeywordInfo();
+  }
+
+  private decideServiceCall() {
+
+  }
+
+  private getKeywordInfo() {
+    this.serviceCallType("family", this.keyword, 0)
       .subscribe(
         (page: Page) => {
           this.page = page;
