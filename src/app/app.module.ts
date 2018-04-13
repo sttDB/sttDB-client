@@ -17,7 +17,6 @@ import {InterproUploadComponent} from './interpro-upload/interpro-upload.compone
 import {FileDownloaderService} from './file-downloader/file-downloader.service';
 import {FamilyDetailComponent} from './family/detail/family-detail.component';
 import {FamilyService} from './family/family.service';
-import {FamilyListComponent} from './family/list-family/family-list.component';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 import {FileDownloaderComponent} from './file-downloader/file-downloader.component';
 import {ExperimentService} from "./experiment/experiment.service";
@@ -40,7 +39,6 @@ import {KeywordService} from "./keyword-listing/keyword.service";
     WelcomeComponent,
     SearchByTrinityIdComponent,
     SequenceDetailComponent,
-    FamilyListComponent,
     FamilyDetailComponent,
     FastaUploadComponent,
     InterproUploadComponent,

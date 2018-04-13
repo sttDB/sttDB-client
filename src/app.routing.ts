@@ -6,7 +6,6 @@ import {SearchByTrinityIdComponent} from './app/sequence/search/search-by-trinit
 import {SequenceDetailComponent} from './app/sequence/detail/sequence-detail.component';
 import {InterproUploadComponent} from './app/interpro-upload/interpro-upload.component';
 import {FamilyDetailComponent} from './app/family/detail/family-detail.component';
-import {FamilyListComponent} from './app/family/list-family/family-list.component';
 import {AdminPanelComponent} from './app/admin-panel/admin-panel.component';
 import {FileDownloaderComponent} from './app/file-downloader/file-downloader.component';
 import {ReferencesComponent} from './app/references/references.component';

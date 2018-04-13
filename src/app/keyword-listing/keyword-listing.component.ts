@@ -45,11 +45,15 @@ export class KeywordListingComponent implements OnInit {
   }
 
   private decideServiceCall() {
-
+    /*This should be refactored into a class*/
+    if(this.keyword.search(" AND | and | or | OR | NOT | not ") == -1){
+      return this.keywordService.combinations.simple;
+    }
   }
 
   private getKeywordInfo() {
-    this.serviceCallType("family", this.keyword, 0)
+    console.log(this.serviceCallType);
+    this.serviceCallType("families", this.keyword, 0)
       .subscribe(
         (page: Page) => {
           this.page = page;
