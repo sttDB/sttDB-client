@@ -10,7 +10,7 @@ import {KeywordService} from "./keyword.service";
 })
 export class KeywordListingComponent implements OnInit {
 
-  query = {params: [], sign: []};
+  query = {};
   serviceCallType: any;
   public keyword: string;
   public preListForm: FormGroup;
@@ -38,26 +38,18 @@ export class KeywordListingComponent implements OnInit {
 
   //TO DO: refactor this shitty method
   private decideServiceCall() {
-    this.query = {params: [], sign: []};
-    /*This should be refactored into a class TO DO*/
-    if(this.keyword.search(" AND | and | or | OR | NOT | not ") == -1){
-      this.query.params.push(this.keyword);
-      return this.keywordService.combinations.simple;
-    }
-
+    let commandParser = new KeywordCommandParser();
+    this.query = commandParser.createQuery(this.keyword);
     //find method to be returned
-    if(this.query.sign.length >= 2){
-      console.log(this.query.sign[0] + " " + this.query.sign[1]);
-      console.log(this.query.params);
-      return this.keywordService.combinations[this.query.sign[0] + " " + this.query.sign[1]];
+    if(this.query['sign'].length >= 2){
+      return this.keywordService.combinations[this.query['sign'][0] + " " + this.query['sign'][1]];
     }else{
-      console.log("b");
-      return this.keywordService.combinations[this.query.sign[0]];
+      return this.keywordService.combinations[this.query['sign'][0]];
     }
   }
 
   private getKeywordInfo() {
-    this.serviceCallType("families", this.query.params, 0)
+    this.serviceCallType("families", this.query['params'], 0)
       .subscribe(
         (page: Page) => {
           this.page = page;
@@ -74,7 +66,7 @@ export class KeywordListingComponent implements OnInit {
     } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
-    this.keywordService.getEntityByDescription("families", this.query.params, wantedPage - 1)
+    this.keywordService.getEntityByDescription("families", this.query['params'], wantedPage - 1)
       .subscribe(
         (page: Page) => {
           this.page = page;

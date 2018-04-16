@@ -5,23 +5,30 @@ class KeywordCommandParser {
   private query = {params: [], sign: []};
   private command: string;
 
-  createQuery(command: string): {}{
+  public createQuery(command: string): {params: [], sign: []}{
     if(command.search(" AND | and | or | OR | NOT | not ") == -1){ //simple like
       return this.constructSimpleLike(command);
     }else if(command.search("\\(")){ // (x - y) - z
       return this.constructComplexLike(command);
     }else{ // x - y
-
+      return this.constructNormalLike(command);
     }
   }
 
-  private constructSimpleLike(command: string): {}{
+  private constructSimpleLike(command: string): {params: [], sign: []}{
     this.query.sign.push("simple");
     this.query.params.push(command);
     return this.query;
   }
 
-  private constructComplexLike(command: string): {}{
+  private constructNormalLike(command: string): {params: [], sign: []}{
+    let params = this.findCondition(command);
+    this.query.params.push(params[0]);
+    this.query.params.push(params[1]);
+    return this.query;
+  }
+
+  private constructComplexLike(command: string): {params: [], sign: []}{
     // parse the two lines
     let {outerCondition, innerCondition} = this.getLineConditions();
     let params = this.findCondition(innerCondition);
