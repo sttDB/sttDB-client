@@ -20,8 +20,8 @@ export class KeywordService {
     "AND OR": (entity, params, pageNumber) => this.getEntityByDescriptionLikeAndLikeOrLike(entity, params, pageNumber),
     "OR NOT": (entity, params, pageNumber) => this.getEntityByAnyKeywordNotOther(entity, params, pageNumber),
     "OR AND": (entity, params, pageNumber) => this.getEntityByAnyKeywordAndOther(entity, params, pageNumber),
-    "NOT AND": (entity, params, pageNumber) => this.getEntityByDescriptionLikeAndLikeAndNotLike(entity, params, pageNumber),
-    "NOT OR": (entity, params, pageNumber) => this.getEntityByAnyKeywordNotOther(entity, params, pageNumber)
+    "NOT AND": (entity, params, pageNumber) => this.getEntityByDescriptionLikeNotLikeAndLike(entity, params, pageNumber),
+    "NOT OR": () => {}
   };
 
   constructor(private http: Http) {
@@ -85,6 +85,14 @@ export class KeywordService {
 
   getEntityByAnyKeywordAndOther(entity: string, params: string[], pageNumber: number): Observable<Page> {
     return this.http.get(`${environment.API}/${entity}?orKeyword=${params[0]}&otherOrKeyword=${params[1]}&andKeyword=${params[2]}&page=${pageNumber}`)
+      .map((res: Response) => {
+        return new Page(res.json());
+      })
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
+  getEntityByDescriptionLikeNotLikeAndLike(entity: string, params: string[], pageNumber: number): Observable<Page> {
+    return this.http.get(`${environment.API}/${entity}?firstKeyword=${params[0]}&secondKeyword=${params[2]}&notKeyword=${params[1]}&page=${pageNumber}`)
       .map((res: Response) => {
         return new Page(res.json());
       })
