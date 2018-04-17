@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Page} from "../pager/page";
 import {KeywordService} from "./keyword.service";
+import {KeywordCommandParser} from "./keyword-command-parser";
 
 @Component({
   selector: 'app-keyword-listing',
@@ -36,9 +37,8 @@ export class KeywordListingComponent implements OnInit {
     this.getKeywordInfo();
   }
 
-  //TO DO: refactor this shitty method
   private decideServiceCall() {
-    let commandParser = new KeywordCommandParser();
+    let commandParser: KeywordCommandParser = new KeywordCommandParser();
     this.query = commandParser.createQuery(this.keyword);
     //find method to be returned
     if(this.query['sign'].length >= 2){

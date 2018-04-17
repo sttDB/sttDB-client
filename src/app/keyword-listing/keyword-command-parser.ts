@@ -1,36 +1,36 @@
 
 
 
-class KeywordCommandParser {
+export class KeywordCommandParser {
   private query = {params: [], sign: []};
-  private command: string;
 
-  public createQuery(command: string): {params: [], sign: []}{
-    if(command.search(" AND | and | or | OR | NOT | not ") == -1){ //simple like
+  constructor(){}
+
+  public createQuery(command: string): {params: string[], sign: string[]}{
+    if(command.search(" AND | and | or | OR | NOT | not ") == -1){ // x
       return this.constructSimpleLike(command);
-    }else if(command.search("\\(")){ // (x - y) - z
+    }else if(command.search("\\(") != -1){ // (x - y) - z
       return this.constructComplexLike(command);
     }else{ // x - y
       return this.constructNormalLike(command);
     }
   }
 
-  private constructSimpleLike(command: string): {params: [], sign: []}{
+  private constructSimpleLike(command: string): {params: string[], sign: string[]}{
     this.query.sign.push("simple");
     this.query.params.push(command);
     return this.query;
   }
 
-  private constructNormalLike(command: string): {params: [], sign: []}{
+  private constructNormalLike(command: string): {params: string[], sign: string[]}{
     let params = this.findCondition(command);
     this.query.params.push(params[0]);
     this.query.params.push(params[1]);
     return this.query;
   }
 
-  private constructComplexLike(command: string): {params: [], sign: []}{
-    // parse the two lines
-    let {outerCondition, innerCondition} = this.getLineConditions();
+  private constructComplexLike(command: string): {params: string[], sign: string[]}{
+    let {outerCondition, innerCondition} = this.getLineConditions(command);
     let params = this.findCondition(innerCondition);
     this.query.params.push(params[0]);
     this.query.params.push(params[1]);
@@ -39,8 +39,9 @@ class KeywordCommandParser {
     return this.query;
   }
 
-  private getLineConditions() {
-    let outerCondition = this.command.split(" ").join("");
+  private getLineConditions(command: string) {
+    // separate two conditions
+    let outerCondition = command.split(" ").join("");
     let innerConditionStart = outerCondition.search("\\(");
     let innerConditionEnd = outerCondition.search("\\)");
     let innerCondition = outerCondition.substring(innerConditionStart, innerConditionEnd + 1);
