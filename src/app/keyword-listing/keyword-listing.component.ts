@@ -66,7 +66,7 @@ export class KeywordListingComponent implements OnInit {
     } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
-    this.keywordService.getEntityByDescription("families", this.query['params'], wantedPage - 1)
+    this.serviceCallType("families", this.query['params'], wantedPage - 1)
       .subscribe(
         (page: Page) => {
           this.page = page;
