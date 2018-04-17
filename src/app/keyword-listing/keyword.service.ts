@@ -19,7 +19,9 @@ export class KeywordService {
     "AND NOT": (entity, params, pageNumber) => this.getEntityByDescriptionLikeAndLikeAndNotLike(entity, params, pageNumber),
     "AND OR": (entity, params, pageNumber) => this.getEntityByDescriptionLikeAndLikeOrLike(entity, params, pageNumber),
     "OR NOT": (entity, params, pageNumber) => this.getEntityByAnyKeywordNotOther(entity, params, pageNumber),
-    "OR AND": (entity, params, pageNumber) => this.getEntityByAnyKeywordAndOther(entity, params, pageNumber)
+    "OR AND": (entity, params, pageNumber) => this.getEntityByAnyKeywordAndOther(entity, params, pageNumber),
+    "NOT AND": (entity, params, pageNumber) => this.getEntityByDescriptionLikeAndLikeAndNotLike(entity, params, pageNumber),
+    "NOT OR": (entity, params, pageNumber) => this.getEntityByAnyKeywordNotOther(entity, params, pageNumber)
   };
 
   constructor(private http: Http) {
