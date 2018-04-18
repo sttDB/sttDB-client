@@ -6,7 +6,6 @@ import {SearchByTrinityIdComponent} from './app/sequence/search/search-by-trinit
 import {SequenceDetailComponent} from './app/sequence/detail/sequence-detail.component';
 import {InterproUploadComponent} from './app/interpro-upload/interpro-upload.component';
 import {FamilyDetailComponent} from './app/family/detail/family-detail.component';
-import {FamilyListComponent} from './app/family/list-family/family-list.component';
 import {AdminPanelComponent} from './app/admin-panel/admin-panel.component';
 import {FileDownloaderComponent} from './app/file-downloader/file-downloader.component';
 import {ReferencesComponent} from './app/references/references.component';
@@ -14,6 +13,7 @@ import {ContactComponent} from './app/contact/contact.component';
 import {HelpComponent} from './app/help/help.component';
 import {BlastComponent} from './app/blast/blast.component';
 import {LoggedInGuard} from "./app/login-basic/loggedin.guard";
+import {KeywordListingComponent} from "./app/keyword-listing/keyword-listing.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -24,7 +24,7 @@ export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'blast', component: BlastComponent},
   {path: 'search/by-id', component: SearchByTrinityIdComponent},
-  {path: 'search/by-keyword', component: FamilyListComponent},
+  {path: 'search/by-keyword', component: KeywordListingComponent},
   {path: 'sequences/:id/:experiment', component: SequenceDetailComponent},
   {path: 'families/:id', component: FamilyDetailComponent},
   {path: 'admin', component: AdminPanelComponent, canActivate:[LoggedInGuard]},

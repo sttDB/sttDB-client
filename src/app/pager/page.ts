@@ -21,4 +21,10 @@ export class Page {
     }
     return pageIndexes;
   }
+
+  append(page: Page) {
+    this.listOfElements.append(page.listOfElements);
+    this.totalElements += page.totalElements;
+    this.totalPages += page.totalPages;
+  }
 }

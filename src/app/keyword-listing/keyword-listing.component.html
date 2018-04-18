@@ -13,7 +13,7 @@
 
 
 <div class="col-md-12">
-  <form id="family-form" [formGroup]="familyForm" (ngSubmit)="onSubmit()">
+  <form id="pre-list-form" [formGroup]="preListForm" (ngSubmit)="onSubmit()">
     <fieldset>
 
       <!-- Text input-->
@@ -24,7 +24,7 @@
             displayed.</p>
         </div>
         <input id="keyword" type="text" class="form-control input-md"
-               [formControl]="familyForm.controls['keyword']"
+               [formControl]="preListForm.controls['keyword']"
                [(ngModel)]="keyword"/>
       </div>
 
