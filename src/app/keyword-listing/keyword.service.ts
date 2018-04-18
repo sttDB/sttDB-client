@@ -21,7 +21,7 @@ export class KeywordService {
     "OR NOT": (entity, params, pageNumber) => this.getEntityByAnyKeywordNotOther(entity, params, pageNumber),
     "OR AND": (entity, params, pageNumber) => this.getEntityByAnyKeywordAndOther(entity, params, pageNumber),
     "NOT AND": (entity, params, pageNumber) => this.getEntityByDescriptionLikeNotLikeAndLike(entity, params, pageNumber),
-    "NOT OR": () => {}
+    "NOT OR": (entity, params, pageNumber) => this.getEntityByDescriptionLikeNotLikeOrLike(entity, params, pageNumber)
   };
 
   constructor(private http: Http) {
@@ -93,6 +93,14 @@ export class KeywordService {
 
   getEntityByDescriptionLikeNotLikeAndLike(entity: string, params: string[], pageNumber: number): Observable<Page> {
     return this.http.get(`${environment.API}/${entity}?firstKeyword=${params[0]}&secondKeyword=${params[2]}&notKeyword=${params[1]}&page=${pageNumber}`)
+      .map((res: Response) => {
+        return new Page(res.json());
+      })
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
+  getEntityByDescriptionLikeNotLikeOrLike(entity: string, params: string[], pageNumber: number): Observable<Page> {
+    return this.http.get(`${environment.API}/${entity}?orKeyword=${params[0]}&notKeyword=${params[1]}&otherKeyword=${params[2]}&page=${pageNumber}`)
       .map((res: Response) => {
         return new Page(res.json());
       })
