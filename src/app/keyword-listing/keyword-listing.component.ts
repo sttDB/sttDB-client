@@ -41,23 +41,15 @@ export class KeywordListingComponent implements OnInit {
     let commandParser: KeywordCommandParser = new KeywordCommandParser();
     this.query = commandParser.createQuery(this.keyword);
     //find method to be returned
-    if(this.query['sign'].length >= 2){
+    if (this.query['sign'].length >= 2) {
       return this.keywordService.combinations[this.query['sign'][0] + " " + this.query['sign'][1]];
-    }else{
+    } else {
       return this.keywordService.combinations[this.query['sign'][0]];
     }
   }
 
   private getKeywordInfo() {
-    this.serviceCallType("families", this.query['params'], 0)
-      .subscribe(
-        (page: Page) => {
-          this.page = page;
-          this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex);
-          this.edited = true;
-        },
-        error => this.errorMessage = <any>error.message);
+    this.sendKeywords(0);
   }
 
   rePage(wantedPage: number): void {
@@ -66,7 +58,11 @@ export class KeywordListingComponent implements OnInit {
     } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
-    this.serviceCallType("families", this.query['params'], wantedPage - 1)
+    this.sendKeywords(wantedPage - 1);
+  }
+
+  private sendKeywords(wantedPage: number) {
+    this.serviceCallType("families", this.query['params'], wantedPage)
       .subscribe(
         (page: Page) => {
           this.page = page;
@@ -75,5 +71,11 @@ export class KeywordListingComponent implements OnInit {
           this.edited = true;
         },
         error => this.errorMessage = <any>error.message);
+  }
+
+  showPossibleMethods() {
+    let introduction = "The user can query keywords by using X [operand] Y.\n For example: (protein AND nucle) OR Glu \n" +
+      "Checkout the help screen for further explanation and to see all the possible combinations";
+    window.alert(introduction);
   }
 }

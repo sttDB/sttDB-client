@@ -24,8 +24,8 @@ export class KeywordCommandParser {
 
   private constructNormalLike(command: string): {params: string[], sign: string[]}{
     let params = this.findCondition(command);
-    this.query.params.push(params[0]);
-    this.query.params.push(params[1]);
+    this.query.params.push(params[0].substring(0, params[0].length-1));
+    this.query.params.push(params[1].substring(1, params[0].length));
     return this.query;
   }
 

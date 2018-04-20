@@ -32,15 +32,7 @@ export class SearchByTrinityIdComponent implements OnInit {
 
   onSubmit() {
     this.edited = false;
-    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, 0)
-      .subscribe(
-        (page: Page) => {
-          this.page = new Page(page);
-          this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex);
-          this.edited = true;
-        },
-        error => this.errorMessage = <any>error.message);
+    this.searchByTrinityId(0);
   }
 
   onDownload() {
@@ -53,15 +45,18 @@ export class SearchByTrinityIdComponent implements OnInit {
     } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
-    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage - 1)
+    this.searchByTrinityId(wantedPage - 1);
+  }
+
+  private searchByTrinityId(wantedPage: number) {
+    this.sequenceService.getSequencesByTrinityIdLike(this.trinityId, wantedPage)
       .subscribe(
         (page: Page) => {
-          this.page = page;
+          this.page = new Page(page);
           this.page.pageIndex = page.pageIndex + 1;
           this.positions = this.page.getPaginating(this.page.pageIndex);
           this.edited = true;
         },
         error => this.errorMessage = <any>error.message);
   }
-
 }

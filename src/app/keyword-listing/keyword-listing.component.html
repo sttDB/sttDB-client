@@ -1,16 +1,17 @@
-
 <div *ngIf="!edited">
   Select what you want to query.
   <button type="button" class="btn btn-default"
-          [ngStyle]="{'background-color':!edited ? '#a6e681' : '#e6e6e6' }">Interpro family</button>
+          [ngStyle]="{'background-color':!edited ? '#a6e681' : '#e6e6e6' }">Interpro family
+  </button>
   <button type="button" class="btn btn-default"
-          [ngStyle]="{'background-color':edited ? '#a6e681' : '#e6e6e6' }">GO</button>
+          [ngStyle]="{'background-color':edited ? '#a6e681' : '#e6e6e6' }">GO
+  </button>
   <button type="button" class="btn btn-default"
-          [ngStyle]="{'background-color':edited ? '#a6e681' : '#e6e6e6' }">KEGG</button>
+          [ngStyle]="{'background-color':edited ? '#a6e681' : '#e6e6e6' }">KEGG
+  </button>
 </div>
 
-<h2>Query families using a key word of their description</h2>
-
+<h2>Query families, Go, Kegg using a key word of their description</h2>
 
 <div class="col-md-12">
   <form id="pre-list-form" [formGroup]="preListForm" (ngSubmit)="onSubmit()">
@@ -20,8 +21,8 @@
       <div class="form-group row">
         <label class="col-md-3 control-label" for="keyword">Key word</label>
         <div class="col-md-9" *ngIf="!edited">
-          <p class="text-info">If a family has the description: "This is an example.", you can input "is an" and it will be
-            displayed.</p>
+          <p class="text-info">Use the protein name, like “histone-like transcription factor”, or a part of it, like
+            “histone” or “transcription factor”</p>
         </div>
         <input id="keyword" type="text" class="form-control input-md"
                [formControl]="preListForm.controls['keyword']"
@@ -35,7 +36,9 @@
 
       <!-- Button -->
       <div class="form-group row">
-        <div class="col-md-3"></div>
+        <a class="col-md-3 text-primary" (click)="showPossibleMethods()">
+          Need help about custom queries?
+        </a>
         <div class="col-md-9">
           <button id="submit-trinity-id" type="submit"
                   class="btn btn-success pull-right">Submit
@@ -52,7 +55,7 @@
     <h4>{ page.totalElements, plural,
       =0 {There are no families with this keyword}
       =1 {There is 1 family with this keyword}
-      other { There are {{page.totalElements}} families with this interproId} }</h4>
+      other { There are {{page.totalElements}} elements with this keyword} }</h4>
   </div>
   <nav aria-label="Page navigation" class="col-md-12">
     <ul class="pagination justify-content-center">
