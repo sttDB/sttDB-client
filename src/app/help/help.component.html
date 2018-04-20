@@ -71,8 +71,7 @@
   <em>
     Search-&gt;Sequences by Id
   </em>
-  , an input will apear. It is needed to enter a trinity identificator. This identificator can be incompleted, so we
-  have two options:
+  , an input will apear. It is needed to enter a trinity identificator. This identificator can be incompleted, so we have two options:
   <br/>
   <code>
     Completed: comp6_c0_seq1
@@ -80,8 +79,7 @@
   </code>
 </p>
 <p>
-  Enter a Trinity ID in the search bar to find a sequence. All the components of an ID are separated by “_”, you can use
-  only a component or the complete ID.
+  Enter a Trinity ID in the search bar to find a sequence. All the components of an ID are separated by “_”, you can use only a component or the complete ID.
 </p>
 <p>
   Example: use the complete Trinity ID like comp6_c0_seq1, or part of it, like comp6 or c0 or seq1.
@@ -90,8 +88,7 @@
   Families of a sequence
 </h3>
 <p>
-  After searching sequences in any way, the user can select one and be redirected to the details panel of the selected
-  sequence. In this panel, all the information of the sequence will be displayed, including a list of families.
+  After searching sequences in any way, the user can select one and be redirected to the details panel of the selected sequence. In this panel, all the information of the sequence will be displayed, including a list of families.
 </p>
 <h3 id="search-families-using-keywords">
   Search families using keywords
@@ -101,12 +98,29 @@
   <em>
     Search-&gt;Families by Keyword
   </em>
-  , an input will appear. Knowing a part of an interpro family description, it is possible to get all the families that
-  contain it.
+  , an input will appear. Knowing a part of an interpro family description, it is possible to get all the families that contain it.
 </p>
 <p>
   Enter keywords, gene names or gene families in the search box to get all the families that contain it.
 </p>
+<p>
+  Also, this component contains the possibility to do custom queries. For example, if it is needed to search two key words there is the possibility to search X AND Y, and if we want to search two key words but not containing another word, it is possible to do: (X AND Y) NOT Z.
+</p>
+<p>
+  This is the list of all the possible operations:
+</p>
+<pre><code>x, y, z being key-words.
+
+x AND y
+x OR y
+x NOT y
+(x AND y) OR z
+(x AND y) NOT z
+(x OR y) AND z
+(x OR y) NOT z
+(x NOT y) AND z
+(x NOT y) OR z
+</code></pre>
 <h3 id="search-sequences-of-a-family">
   Search sequences of a family
 </h3>
@@ -120,11 +134,10 @@
   Enter a sequence in the search bar to compare it to our databases.
 </p>
 <p>
-  Use BLASTN to search protein databases using a translated nucleotide query or use TBLASTN to search translated
-  nucleotide databases using a translated nucleotide query.
+  Use BLASTN to search protein databases using a translated nucleotide query or use TBLASTN to search translated nucleotide databases using a translated nucleotide query.
 </p>
 <p>
-  More information by clicking the information button in the SequenceServer screen.
+  More information by clicking the information button in the SequenceServer  screen.
 </p>
 <h2 id="api_1">
   API
@@ -147,8 +160,7 @@ extraInfo: Any sort of information not know in the domain. g_ID, m_ID, ORF_type.
 <p>
   Available methods:
   <br/>
-  By default, when the API returns a Page object, the first page is always returned. If another page is needed, the
-  optional parameter must be specified.
+  By default, when the API returns a Page object, the first page is always returned. If another page is needed, the optional parameter must be specified.
 </p>
 <p>
   List all sequences:
@@ -213,6 +225,18 @@ Response: A page object containing 20 families
 Optional parameter: page
 Complete method: /families?descriptionKeyword=x&amp;page=y
 Response: A page object containing 20 sequences
+</code></pre>
+<p>
+  Alternative methods to GET families by diferent keywords:
+</p>
+<pre><code>x AND y -&gt; /families?firstKeyword=x&amp;secondKeyword=y
+x OR y -&gt; /families?orKeyword=x&amp;otherOrKeyword=y
+x NOT y -&gt; /families?keyword=x&amp;notKeyword=y
+(x AND y) OR z -&gt; /families?firstKeyword=x&amp;secondKeyword=y&amp;notKeyword=z
+(x AND y) NOT z || (x NOT y) AND z -&gt; /families?firstKeyword=x&amp;secondKeyword=y&amp;otherKeyword=z
+(x OR y) AND z -&gt; /families?orKeyword=x&amp;otherOrKeyword=y&amp;notKeyword=z
+(x OR y) NOT z -&gt; /families?orKeyword=x&amp;otherOrKeyword=y&amp;andKeyword=z
+(x NOT y) OR z -&gt; /families?orKeyword=x&amp;notKeyword=y&amp;otherKeyword=z
 </code></pre>
 <p>
   Get family:
