@@ -49,15 +49,7 @@ export class KeywordListingComponent implements OnInit {
   }
 
   private getKeywordInfo() {
-    this.serviceCallType("families", this.query['params'], 0)
-      .subscribe(
-        (page: Page) => {
-          this.page = page;
-          this.page.pageIndex = page.pageIndex + 1;
-          this.positions = this.page.getPaginating(this.page.pageIndex);
-          this.edited = true;
-        },
-        error => this.errorMessage = <any>error.message);
+    this.sendKeywords(0);
   }
 
   rePage(wantedPage: number): void {
@@ -66,7 +58,11 @@ export class KeywordListingComponent implements OnInit {
     } else if (wantedPage > this.page.totalPages - 1) {
       wantedPage = this.page.totalPages;
     }
-    this.serviceCallType("families", this.query['params'], wantedPage - 1)
+    this.sendKeywords(wantedPage - 1);
+  }
+
+  private sendKeywords(wantedPage: number) {
+    this.serviceCallType("families", this.query['params'], wantedPage)
       .subscribe(
         (page: Page) => {
           this.page = page;
