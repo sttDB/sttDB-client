@@ -31,6 +31,11 @@
       Search sequences of an interpro family
     </a>
   </li>
+  <li>
+    <a href="help#blast-tool">
+      Blast, SequenceServer
+    </a>
+  </li>
 </ul>
 <h3 id="api">
   API
@@ -66,18 +71,27 @@
   <em>
     Search-&gt;Sequences by Id
   </em>
-  , an input will apear. It is needed to enter a trinity identificator. This identificator can be incompleted, so we have two options:
+  , an input will apear. It is needed to enter a trinity identificator. This identificator can be incompleted, so we
+  have two options:
   <br/>
   <code>
     Completed: comp6_c0_seq1
     Incompleted : comp6 or comp6*
   </code>
 </p>
+<p>
+  Enter a Trinity ID in the search bar to find a sequence. All the components of an ID are separated by “_”, you can use
+  only a component or the complete ID.
+</p>
+<p>
+  Example: use the complete Trinity ID like comp6_c0_seq1, or part of it, like comp6 or c0 or seq1.
+</p>
 <h3 id="families-of-a-sequence">
   Families of a sequence
 </h3>
 <p>
-  After searching sequences in any way, the user can select one and be redirected to the details panel of the selected sequence. In this panel, all the information of the sequence will be displayed, including a list of families.
+  After searching sequences in any way, the user can select one and be redirected to the details panel of the selected
+  sequence. In this panel, all the information of the sequence will be displayed, including a list of families.
 </p>
 <h3 id="search-families-using-keywords">
   Search families using keywords
@@ -87,7 +101,11 @@
   <em>
     Search-&gt;Families by Keyword
   </em>
-  , an input will apear. Knowing a part of an interpro family description, it is possible to get all the families that contain it.
+  , an input will appear. Knowing a part of an interpro family description, it is possible to get all the families that
+  contain it.
+</p>
+<p>
+  Enter keywords, gene names or gene families in the search box to get all the families that contain it.
 </p>
 <h3 id="search-sequences-of-a-family">
   Search sequences of a family
@@ -95,12 +113,22 @@
 <p>
   When having a list of families, if one is selected, the detail will be displayed, including the list of sequences.
 </p>
+<h3 id="blast-tool">
+  Blast tool
+</h3>
+<p>
+  Enter a sequence in the search bar to compare it to our databases.
+</p>
+<p>
+  Use BLASTN to search protein databases using a translated nucleotide query or use TBLASTN to search translated
+  nucleotide databases using a translated nucleotide query.
+</p>
+<p>
+  More information by clicking the information button in the SequenceServer screen.
+</p>
 <h2 id="api_1">
   API
 </h2>
-<p>
-  First of all, say that actually, the route of the api is <code>http://sttdb.udl.cat:8080/</code>
-</p>
 <h3 id="getting-sequence-information">
   Getting sequence information
 </h3>
@@ -119,7 +147,8 @@ extraInfo: Any sort of information not know in the domain. g_ID, m_ID, ORF_type.
 <p>
   Available methods:
   <br/>
-  By default, when the API returns a Page object, the first page is always returned. If another page is needed, the optional parameter must be specified.
+  By default, when the API returns a Page object, the first page is always returned. If another page is needed, the
+  optional parameter must be specified.
 </p>
 <p>
   List all sequences:
