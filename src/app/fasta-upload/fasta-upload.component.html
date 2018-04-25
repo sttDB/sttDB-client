@@ -18,7 +18,12 @@
 
 <div>
   <h3>Select files</h3>
-  <input type="file" ng2FileSelect [uploader]="uploader"/>
+  <input type="file" ng2FileSelect [uploader]="uploader" (change)="onFileWanted()"/>
+</div>
+
+<div *ngIf="warningMessage" class="form-group row">
+  <div class="col-md-3"></div>
+  <div class="label-warning col-md-9">{{ warningMessage }}</div>
 </div>
 
 <div style="margin-bottom: 40px">
