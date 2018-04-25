@@ -32,6 +32,7 @@ export class KeywordListingComponent implements OnInit {
   }
 
   onSubmit() {
+    this.errorMessage = "";
     this.edited = false;
     this.serviceCallType = this.decideServiceCall();
     this.getKeywordInfo();
