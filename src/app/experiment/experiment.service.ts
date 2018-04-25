@@ -17,6 +17,12 @@ export class ExperimentService {
       .catch((error: any) => Observable.throw(error.json()));
   }
 
+  getExperiment(experiment: string): Observable<string[]> {
+    return this.http.get(`${environment.API}/experiments/${experiment}`)
+      .map((res: Response) => {return res.json()})
+      .catch((error: any) => Observable.throw(error));
+  }
+
   getExperimentsAsPage(): Observable<Page> {
     return this.http.get(`${environment.API}/experiments`)
       .map((res: Response) => {
