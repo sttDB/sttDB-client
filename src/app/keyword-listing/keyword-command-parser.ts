@@ -1,35 +1,41 @@
-
-
-
 export class KeywordCommandParser {
   private query = {params: [], sign: []};
 
-  constructor(){}
+  constructor() {
+  }
 
-  public createQuery(command: string): {params: string[], sign: string[]}{
-    if(command.search(" AND | and | or | OR | NOT | not ") == -1){ // x
+  public correctCommand(command: string): boolean {
+    let badParenthesesOrder = command.match(/(?=.*\()(?=.*\)).*/g) == null && command.match(/[()]/g) != null;
+    let operandOverflow = command.match(/AND|OR|NOT/g).length > 2;
+    let badComplexQuery = command.match(/AND|OR|NOT/g).length == 2 && command.match(/(?=.*\()(?=.*\)).*/g) == null;
+    let badSimpleQuery = command.match(/AND|OR|NOT/g).length == 1 && command.match(/(?=.*\()(?=.*\)).*/g) != null;
+    return !(badParenthesesOrder || operandOverflow || badComplexQuery || badSimpleQuery);
+  }
+
+  public createQuery(command: string): { params: string[], sign: string[] } {
+    if (command.search(" AND | and | or | OR | NOT | not ") == -1) { // x
       return this.constructSimpleLike(command);
-    }else if(command.search("\\(") != -1){ // (x - y) - z
+    } else if (command.search("\\(") != -1) { // (x - y) - z
       return this.constructComplexLike(command);
-    }else{ // x - y
+    } else { // x - y
       return this.constructNormalLike(command);
     }
   }
 
-  private constructSimpleLike(command: string): {params: string[], sign: string[]}{
+  private constructSimpleLike(command: string): { params: string[], sign: string[] } {
     this.query.sign.push("simple");
     this.query.params.push(command);
     return this.query;
   }
 
-  private constructNormalLike(command: string): {params: string[], sign: string[]}{
+  private constructNormalLike(command: string): { params: string[], sign: string[] } {
     let params = this.findCondition(command);
-    this.query.params.push(params[0].substring(0, params[0].length-1));
+    this.query.params.push(params[0].substring(0, params[0].length - 1));
     this.query.params.push(params[1].substring(1, params[0].length));
     return this.query;
   }
 
-  private constructComplexLike(command: string): {params: string[], sign: string[]}{
+  private constructComplexLike(command: string): { params: string[], sign: string[] } {
     let {outerCondition, innerCondition} = this.getLineConditions(command);
     let params = this.findCondition(innerCondition);
     this.query.params.push(params[0]);

@@ -32,6 +32,7 @@ export class KeywordListingComponent implements OnInit {
   }
 
   onSubmit() {
+    this.errorMessage = "";
     this.edited = false;
     this.serviceCallType = this.decideServiceCall();
     this.getKeywordInfo();
@@ -39,13 +40,16 @@ export class KeywordListingComponent implements OnInit {
 
   private decideServiceCall() {
     let commandParser: KeywordCommandParser = new KeywordCommandParser();
-    this.query = commandParser.createQuery(this.keyword);
-    //find method to be returned
-    if (this.query['sign'].length >= 2) {
-      return this.keywordService.combinations[this.query['sign'][0] + " " + this.query['sign'][1]];
-    } else {
-      return this.keywordService.combinations[this.query['sign'][0]];
+    if(commandParser.correctCommand(this.keyword)){
+      this.query = commandParser.createQuery(this.keyword);
+      //find method to be returned
+      if (this.query['sign'].length >= 2) {
+        return this.keywordService.combinations[this.query['sign'][0] + " " + this.query['sign'][1]];
+      } else {
+        return this.keywordService.combinations[this.query['sign'][0]];
+      }
     }
+    this.errorMessage = "ERROR. The key-word query didn't have a correct expression";
   }
 
   private getKeywordInfo() {

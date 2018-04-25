@@ -72,3 +72,7 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.dropdown-menu {
+  z-index: 25000 !important;
+}

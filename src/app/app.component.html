@@ -25,7 +25,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a [routerLink]="['/welcome']" class="nav-link">Home</a></li>
           <li class="dropdown" style="display: block">
-            <a class="nav-link">Search</a>
+            <a class="nav-link clickable">Search</a>
             <div class="dropdown-content">
               <a class="nav-link" [routerLink]="['/search/by-id']">
                 Sequences by Trinity ID
@@ -37,9 +37,6 @@
           </li>
           <li class="dropdown" style="display: block">
             <a class="nav-link" routerLink="/blast" >Blast</a>
-            <!--<div class="dropdown-content">-->
-              <!--<a class="nav-link" href="">Blastn</a>-->
-            <!--</div>-->
           </li>
           <li><a [routerLink]="['/downloads']" class="nav-link">Downloads</a></li>
           <li><a [routerLink]="['/references']" class="nav-link">References</a></li>
@@ -60,16 +57,16 @@
 
 <footer class="container text-center white-bg">
   <div id="collaborators" class="row">
-    <figure class="col-sm-3">
+    <figure class="col-sm-2">
       <a target="_blank" href="http://www.udl.cat">
         <img src="../assets/img/logo_udl1.jpg" alt="University of Lleida" class="footer-image">
       </a>
     </figure>
-    <div class="col-sm-6 center-text">
-      <p class="panel-title">Complex Genetics & Biodiversity Research</p>
+    <div class="col-sm-8 center-text">
+      <p class="panel-title">Complex Genetics & Biodiversity Research | GRIHO research group</p>
       <p class="panel-title">University of Lleida - Research Institute of Lleida</p>
     </div>
-    <figure class="col-sm-3">
+    <figure class="col-sm-2">
       <a target="_blank" href="http://www.irblleida.org/es/">
         <img src="../assets/img/logo_IRBlleida2.png" alt="Research Institute of Lleida" class="footer-image">
       </a>
