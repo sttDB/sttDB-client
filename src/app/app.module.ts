@@ -28,7 +28,6 @@ import {LoginBasicModule} from "./login-basic/login-basic.module";
 import {LoggedInGuard} from "./login-basic/loggedin.guard";
 import {KeywordListingComponent} from './keyword-listing/keyword-listing.component';
 import {KeywordService} from "./keyword-listing/keyword.service";
-import { SearchConsoleComponent } from './search-console/search-console.component';
 
 
 @NgModule({
@@ -49,8 +48,7 @@ import { SearchConsoleComponent } from './search-console/search-console.componen
     ContactComponent,
     HelpComponent,
     BlastComponent,
-    KeywordListingComponent,
-    SearchConsoleComponent
+    KeywordListingComponent
   ],
   imports: [
     BrowserModule,
