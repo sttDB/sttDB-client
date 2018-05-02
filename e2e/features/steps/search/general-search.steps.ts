@@ -9,7 +9,7 @@ export class GeneralSearchSteps{
   }
 
   @then(/^There are more than (\d+) results$/)
-  public countResults(): void{
+  public countResults(callback): void{
 
   }
 }
