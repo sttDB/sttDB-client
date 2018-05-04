@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e-debug": "ng e2e -s false"
+    "e2e-debug": "ng e2e -s false",
+    "bundle-report": "ng build --environment=dev --prod --stats-json && webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
     "bootstrap": "^3.3.7",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jscs": "^3.0.7",
@@ -54,6 +57,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "^2.5.3"
+    "typescript": "^2.8.3",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }
