@@ -5,7 +5,6 @@ export class KeywordCommandParser {
   }
 
   public correctCommand(command: string): boolean {
-    let badSingleWord = command.match(/AND|OR|NOT/g) == null && command.match(/[()]/g) == null;
     if(command.match(/AND|OR|NOT/g) == null){
       return command.match(/[()]/g) == null;
     }
