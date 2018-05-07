@@ -13,7 +13,7 @@ export class KeywordCommandParser {
   }
 
   public createQuery(command: string): { params: string[], sign: string[] } {
-    if (command.search(" AND | and | or | OR | NOT | not ") == -1) { // x
+    if (command.search(" AND | OR | NOT ") == -1) { // x
       return this.constructSimpleLike(command);
     } else if (command.search("\\(") != -1) { // (x - y) - z
       return this.constructComplexLike(command);
@@ -57,15 +57,15 @@ export class KeywordCommandParser {
   }
 
   private findCondition(condition: string) {
-    if (condition.search("AND|and") != -1) {
+    if (condition.search("AND") != -1) {
       this.query.sign.push("AND");
-      return condition.split(/AND|and/);
-    } else if (condition.search("OR|or") != -1) {
+      return condition.split(/AND/);
+    } else if (condition.search("OR") != -1) {
       this.query.sign.push("OR");
-      return condition.split(/OR|or/);
-    } else if (condition.search("NOT|not") != -1) {
+      return condition.split(/OR/);
+    } else if (condition.search("NOT") != -1) {
       this.query.sign.push("NOT");
-      return condition.split(/NOT|not/);
+      return condition.split(/NOT/);
     }
   }
 }
