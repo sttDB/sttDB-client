@@ -2,6 +2,7 @@ version: "2"
 
 services:
   nginx-proxy:
+    restart: always
     image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
     ports:
@@ -14,9 +15,9 @@ services:
       - "/var/run/docker.sock:/tmp/docker.sock:ro"
     labels:
       - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
-    network_mode: "bridge"
 
   nginx-letsencrypt:
+    restart: always
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-letsencrypt
     volumes_from:
@@ -26,12 +27,8 @@ services:
     - "/etc/nginx-proxy/certs:/etc/nginx/certs:rw"
 
   sttdb-client:
-    restart: always
     image: sttdb/sttdb-client
     container_name: sttdb-client
-    volumes:
-      - "./volumes/nginx-sttdb-client/conf.d/:/etc/nginx/conf.d"
-      - "./volumes/config/sttdb-client/config.js:/usr/share/nginx/html/config.js"
     environment:
       - VIRTUAL_HOST=sttdb.udl.cat
       - LETSENCRYPT_HOST=sttdb.udl.cat
