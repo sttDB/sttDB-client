@@ -18,6 +18,7 @@ services:
     restart: always
     image: jwilder/docker-gen
     container_name: nginx-gen
+    privileged: true
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock:ro"
       - "./volumes/proxy/templates/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro"
