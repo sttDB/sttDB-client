@@ -33,5 +33,5 @@ services:
       - VIRTUAL_HOST=sttdb.udl.cat
       - LETSENCRYPT_HOST=sttdb.udl.cat
       - LETSENCRYPT_EMAIL=mariva1995@gmail.com
-	volumes:
-      certs:
+volumes:
+  certs:
