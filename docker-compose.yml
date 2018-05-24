@@ -4,4 +4,4 @@ services:
     image: sttdb/sttdb-client
     container_name: sttdb-client
     ports:
-      - "443:443"
+      - "80:80"
