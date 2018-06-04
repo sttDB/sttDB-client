@@ -28,6 +28,7 @@ import {LoginBasicModule} from "./login-basic/login-basic.module";
 import {LoggedInGuard} from "./login-basic/loggedin.guard";
 import {KeywordListingComponent} from './keyword-listing/keyword-listing.component';
 import {KeywordService} from "./keyword-listing/keyword.service";
+import { GoUploadComponent } from './go-upload/go-upload.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {KeywordService} from "./keyword-listing/keyword.service";
     ContactComponent,
     HelpComponent,
     BlastComponent,
-    KeywordListingComponent
+    KeywordListingComponent,
+    GoUploadComponent
   ],
   imports: [
     BrowserModule,
