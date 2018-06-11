@@ -14,6 +14,7 @@ import {HelpComponent} from './app/help/help.component';
 import {BlastComponent} from './app/blast/blast.component';
 import {LoggedInGuard} from "./app/login-basic/loggedin.guard";
 import {KeywordListingComponent} from "./app/keyword-listing/keyword-listing.component";
+import {GoUploadComponent} from "./app/go-upload/go-upload.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -30,5 +31,6 @@ export const routes: Routes = [
   {path: 'admin', component: AdminPanelComponent, canActivate:[LoggedInGuard]},
   {path: 'help', component: HelpComponent},
   {path: 'upload/fasta', component: FastaUploadComponent, canActivate:[LoggedInGuard]},
-  {path: 'upload/interpro', component: InterproUploadComponent, canActivate:[LoggedInGuard]}
+  {path: 'upload/interpro', component: InterproUploadComponent, canActivate:[LoggedInGuard]},
+  {path: 'upload/go', component: GoUploadComponent, canActivate:[LoggedInGuard]}
 ];
