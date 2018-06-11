@@ -1,3 +1,93 @@
-<p>
-  kegg-upload works!
-</p>
+<div *ngFor="let item of uploader.queue">
+  <div *ngIf="item?.isError" class="bg-danger alert-box">
+    Error uploading the file: "{{item?.file?.name}}
+  </div>
+  <div *ngIf="uploader.progress === 100 && !item?.isError" class="bg-success alert-box">
+    <h4>The files have been uploaded but the server is still working.
+      <br>You can navigate and do other things.</h4>
+  </div>
+</div>
+
+<button routerLink="/admin" class="btn btn-default">Return to admin panel</button>
+
+<h2>Upload KEGG term information for sequences</h2>
+
+<div>
+  <h4>Select in which experiment you want to upload the KEGG terms</h4>
+
+  <label for="experiment-selector">Experiment:</label>
+  <select id="experiment-selector" name="select-experiment" [(ngModel)]="selectedExperiment">
+    <option value="none-selected" selected>
+      Select an experiment
+    </option>
+    <option *ngFor="let experiment of experiments">
+      {{experiment.name}}
+    </option>
+  </select>
+
+  <div *ngIf="warning" class="bg-danger">{{warning}}</div>
+
+</div>
+
+<div>
+  <h3>Select files</h3>
+  <input type="file" ng2FileSelect [uploader]="uploader"/>
+</div>
+
+<div style="margin-bottom: 40px">
+
+  <h3>Upload queue</h3>
+  <p>Queue length: {{ uploader?.queue?.length }}</p>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th width="50%">Name</th>
+      <th>Size</th>
+      <th>Progress</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of uploader.queue">
+      <td><strong>{{ item?.file?.name }}</strong></td>
+      <td nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+      <td>
+        <div class="progress" style="margin-bottom: 0;">
+          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+        </div>
+      </td>
+      <td class="text-center">
+        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+        <span *ngIf="item.isUploading"><i class="glyphicon glyphicon-time text-warning"></i></span>
+        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle text-warning"></i></span>
+        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+      </td>
+      <td nowrap>
+        <button type="button" class="btn btn-success btn-xs"
+                (click)="upload(item)" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+          <span class="glyphicon glyphicon-upload"></span> Upload
+        </button>
+        <button type="button" class="btn btn-warning btn-xs"
+                (click)="item.cancel()" [disabled]="!item.isUploading">
+          <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-danger btn-xs"
+                (click)="item.remove()">
+          <span class="glyphicon glyphicon-trash"></span> Remove
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div>
+    Queue progress:
+    <div class="progress" style="">
+      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+    </div>
+  </div>
+
+</div>
+
