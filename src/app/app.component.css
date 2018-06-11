@@ -76,3 +76,7 @@
 .dropdown-menu {
   z-index: 25000 !important;
 }
+
+.spacing-footer-1{
+  padding: 50px;
+}
