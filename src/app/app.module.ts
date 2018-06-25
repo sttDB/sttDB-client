@@ -29,6 +29,7 @@ import {LoggedInGuard} from "./login-basic/loggedin.guard";
 import {KeywordListingComponent} from './keyword-listing/keyword-listing.component';
 import {KeywordService} from "./keyword-listing/keyword.service";
 import { GoUploadComponent } from './go-upload/go-upload.component';
+import { KeggUploadComponent } from './kegg-upload/kegg-upload.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { GoUploadComponent } from './go-upload/go-upload.component';
     HelpComponent,
     BlastComponent,
     KeywordListingComponent,
-    GoUploadComponent
+    GoUploadComponent,
+    KeggUploadComponent
   ],
   imports: [
     BrowserModule,
